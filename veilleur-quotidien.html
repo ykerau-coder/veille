@@ -574,6 +574,75 @@
     .nav-links { display: none; }
     section { margin-bottom: 56px; }
   }
+
+  /* Skeepers vu de l'extérieur */
+  .outside-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 32px; }
+  .outside-card {
+    background: var(--white); border-radius: 24px; padding: 32px;
+    box-shadow: var(--shadow-md); position: relative; overflow: hidden;
+  }
+  .outside-card.strengths { border-top: 4px solid var(--positive); }
+  .outside-card.weaknesses { border-top: 4px solid var(--negative); }
+  .outside-card h3 {
+    font-family: var(--font-serif); font-size: 26px; font-weight: 400;
+    letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 8px;
+  }
+  .outside-card .outside-sub {
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.04em;
+    text-transform: uppercase; color: var(--grey-1); margin-bottom: 22px; font-weight: 500;
+  }
+  .outside-card.strengths h3 em { color: var(--positive); font-style: italic; }
+  .outside-card.weaknesses h3 em { color: var(--negative); font-style: italic; }
+  .outside-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+  .outside-list li {
+    font-size: 14px; line-height: 1.5; padding: 14px 16px; background: var(--grey-5);
+    border-radius: 12px; color: var(--ink-soft); position: relative; padding-left: 38px;
+  }
+  .outside-list li strong { color: var(--ink); font-weight: 600; }
+  .outside-list.strengths li::before {
+    content: '✓'; position: absolute; left: 14px; top: 14px;
+    color: var(--positive); font-weight: 700; font-size: 14px;
+  }
+  .outside-list.weaknesses li::before {
+    content: '✗'; position: absolute; left: 14px; top: 14px;
+    color: var(--negative); font-weight: 700; font-size: 14px;
+  }
+  .outside-list .quote {
+    display: block; margin-top: 6px; font-style: italic; font-size: 12.5px;
+    color: var(--grey-1); padding-left: 8px; border-left: 2px solid var(--grey-3);
+  }
+
+  .source-table-wrap {
+    background: var(--white); border-radius: 24px; overflow: hidden;
+    box-shadow: var(--shadow-sm); margin-top: 24px;
+  }
+  .source-table { width: 100%; border-collapse: collapse; }
+  .source-table th {
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.05em;
+    text-transform: uppercase; text-align: left; padding: 16px 22px; color: var(--grey-1);
+    font-weight: 500; border-bottom: 1px solid var(--grey-4); background: var(--grey-5);
+  }
+  .source-table td {
+    padding: 16px 22px; border-bottom: 1px solid var(--grey-4); font-size: 13.5px;
+    color: var(--ink-soft); vertical-align: top; line-height: 1.5;
+  }
+  .source-table tbody tr:last-child td { border-bottom: none; }
+  .source-table td a { color: var(--ink); text-decoration: none; font-weight: 500; }
+  .source-table td a:hover { color: var(--skeepers-blue); }
+  .ctrl-pill {
+    display: inline-flex; align-items: center; gap: 5px; padding: 4px 10px;
+    border-radius: 100px; font-family: var(--font-mono); font-size: 10.5px;
+    font-weight: 600; letter-spacing: 0.02em; white-space: nowrap;
+  }
+  .ctrl-pill.controlled { background: rgba(22,163,74,0.12); color: var(--positive); }
+  .ctrl-pill.influenced { background: var(--skeepers-blue-soft); color: var(--skeepers-blue); }
+  .ctrl-pill.external { background: rgba(220,38,38,0.1); color: var(--negative); }
+  .source-action {
+    display: block; margin-top: 6px; padding: 8px 10px; background: var(--skeepers-blue-soft);
+    border-radius: 6px; font-size: 12px; color: var(--ink-soft); border-left: 2px solid var(--skeepers-blue);
+  }
+  .source-action strong { color: var(--skeepers-blue); }
+
 </style>
 </head>
 <body>
@@ -599,6 +668,7 @@
       <a href="#battlecards">Battlecards</a>
       <a href="#signaux">Signaux</a>
       <a href="#pricing">Pricing</a>
+      <a href="#outside-in">Skeepers vu</a>
       <a href="#sources">Sources</a>
     </div>
     <span class="live-indicator">En direct</span>
@@ -617,7 +687,7 @@
     <div class="hero-meta">
       <div class="hero-meta-item"><strong>10</strong> concurrents</div>
       <span class="hero-meta-divider"></span>
-      <div class="hero-meta-item"><strong>25</strong> sources</div>
+      <div class="hero-meta-item"><strong>32</strong> sources</div>
       <span class="hero-meta-divider"></span>
       <div class="hero-meta-item"><strong>9:00</strong> CET</div>
       <span class="hero-meta-divider"></span>
@@ -655,7 +725,7 @@
       <div class="edito-tag">Synthèse IA du jour</div>
       <h2>Trustpilot <em>contre-attaque</em> sur l'IA, Kolsquare verrouille l'Europe Influence, <em>Wizville</em> à J-27 du grand soir retail.</h2>
       <p>
-        Trois fronts ouverts ce vendredi : <strong>(1) IA agentique sur les Avis</strong> — Trustpilot a riposté à Bazaarvoice fin avril avec AI Visibility Metrics + Unified Reputation Insights, le sujet GEO devient un terrain de bataille à 3 où Skeepers doit livrer sous 60 jours. <strong>(2) Consolidation Influence Europe</strong> — Kolsquare cumule Woomio + Storyclash et revendique ~2 000 marques sur 30+ pays. <strong>(3) Nouveau front Brand Communities</strong> — Influitive, pionnier de l'advocacy depuis 2010, vient d'être absorbé fin 2025 par Jigsaw (ESW Capital), avec licenciements et dégradation du support déjà signalés sur G2/Capterra. Vesta a été absorbé par TINT en 2023. C'est une fenêtre de tir nette pour <strong>Skeepers Brand Communities</strong> : les deux historiques sont en transition, le marché advocacy/sampling/co-création est en explosion (Duel parle de « système, pas campagne »). Sur le retail FR, Wizville entre à J-27 de sa cérémonie du 28 mai. Zones silencieuses : Influenster, Influence4You, et pas de mouvement pricing public chez Bazaarvoice ni Wizville.
+        Trois fronts ouverts ce vendredi : <strong>(1) IA agentique sur les Avis</strong> — Trustpilot a riposté à Bazaarvoice fin avril avec AI Visibility Metrics + Unified Reputation Insights, le sujet GEO devient un terrain de bataille à 3 où Skeepers doit livrer sous 60 jours. <strong>(2) Consolidation Influence Europe</strong> — Kolsquare cumule Woomio + Storyclash et revendique ~2 000 marques sur 30+ pays. <strong>(3) Nouveau front Brand Communities</strong> — Influitive, pionnier de l'advocacy depuis 2010, vient d'être absorbé fin 2025 par Jigsaw (ESW Capital), avec licenciements et dégradation du support déjà signalés sur G2/Capterra. Vesta a été absorbé par TINT en 2023. C'est une fenêtre de tir nette pour <strong>Skeepers Brand Communities</strong> : les deux historiques sont en transition, le marché advocacy/sampling/co-création est en explosion (Duel parle de « système, pas campagne »). Sur le retail FR, Wizville entre à J-27 de sa cérémonie du 28 mai. Zones silencieuses : Influenster, Influence4You, et pas de mouvement pricing public chez Bazaarvoice ni Wizville. <strong>Nouveauté éditoriale</strong> : à partir d’aujourd’hui, Le Veilleur intègre une rubrique « Skeepers vu de l’extérieur » — diagnostic critique, sans filtre, sur ce que voient les prospects, candidats et journalistes quand ils cherchent Skeepers.
       </p>
       <div class="edito-sig">— La rédaction du Veilleur, assistée par Claude</div>
     </div>
@@ -1794,17 +1864,287 @@
     </div>
   </section>
 
+
+  <!-- ============ SKEEPERS VU DE L'EXTÉRIEUR ============ -->
+  <section id="outside-in">
+    <div class="section-header">
+      <div class="section-eyebrow">Auto-veille · diagnostic externe</div>
+      <h2 class="section-title">Skeepers, <em>vu de l'extérieur.</em></h2>
+      <p class="section-description">Analyse franche et critique du positionnement Skeepers à partir de TOUS les canaux publics : sites produits, G2, Capterra, Trustpilot, Glassdoor, Crunchbase, LinkedIn. Périmètre : Avis Vérifiés, Influence, Brand Communities, Live Shopping, Consumer Videos, UGC. Aucun filigrane promotionnel — c'est ce que voit un prospect, un candidat, un journaliste.</p>
+    </div>
+
+    <!-- Édito critique -->
+    <div class="edito-card" style="margin-bottom:48px;">
+      <div class="edito-tag">Diagnostic externe sans filtre</div>
+      <h2>La marque <em>Skeepers</em> impressionne ; les <em>plateformes</em> Skeepers déçoivent.</h2>
+      <p>
+        Vu de l'extérieur, Skeepers c'est d'abord une histoire qui se raconte bien : leader européen UGC, 450+ employés, $152M levés, suite à 6 produits (Avis Vérifiés, Influence, Brand Communities, Live Shopping, Consumer Videos, UGC). Le narratif corporate est solide, le branding est premium, la roadmap publique parle d'IA et d'écosystème. Mais dès qu'on creuse — G2, Capterra, Trustpilot, Glassdoor — l'image se fissure. Le constat le plus violent : les utilisateurs payants se plaignent que les solutions Skeepers ne sont PAS intégrées entre elles (« two completely distinct tools without synergia, no discount for existing customers »), c'est-à-dire exactement le contraire de l'argument de vente. À cela s'ajoute un service client en déclin (« great when small, neglected when scaled »), une plateforme buggy (redirections, instabilité), des auto-renouvellements agressifs sur ex-employés, et un Avis Vérifiés noté 1,5/5 sur Trustpilot FR sur les plaintes consumers. Côté employer brand : Glassdoor 3.3-3.9/5, culture 2.9/5, compensation -6% sur 12 mois. Côté produit : aucune annonce IA majeure depuis 6 mois pendant que Trustpilot et Bazaarvoice livrent. Verdict : Skeepers vend un récit que ses propres utilisateurs ne valident pas. La priorité absolue est de réduire l'écart entre le pitch et l'expérience.
+      </p>
+      <div class="edito-sig">— La rédaction du Veilleur, ton 100% sans filtre · sources publiques uniquement</div>
+    </div>
+
+    <!-- Forces / Faiblesses -->
+    <div class="outside-grid">
+      <div class="outside-card strengths">
+        <h3>Ce que <em>Skeepers réussit</em> (vu de l'extérieur)</h3>
+        <div class="outside-sub">5 forces objectives publiquement documentées</div>
+        <ul class="outside-list strengths">
+          <li>
+            <strong>Récit de marque cohérent et premium.</strong> Le positionnement « leader européen UGC » est tenu sur tous les canaux : site, LinkedIn, presse, blog. Olivier Mouillet (CEO) et la suite à 6 produits sont lisibles immédiatement.
+          </li>
+          <li>
+            <strong>Notation Capterra Influence solide.</strong> Skeepers Influencer Marketing affiche 4,3/5 sur Capterra avec ease of use 4,5 et customer service 4,6 — très au-dessus de Trustpilot (3,4/5 G2). Argument utilisable en pitch.
+            <span class="quote">« Effective platform for brands seeking to collect and activate UGC, especially for e-commerce and live shopping. »</span>
+          </li>
+          <li>
+            <strong>Stabilité capitalistique et leadership.</strong> $152M levés (PSG, Mediatech CX, Venture Hive…). Aucune sortie C-level signalée sur 12 mois — différence nette face à Bazaarvoice (refonte ELT) et Influitive (post-Jigsaw).
+          </li>
+          <li>
+            <strong>Communauté de 500 000+ créateurs/consos active.</strong> Mutualisée entre Influence et Brand Communities : un asset que ni Kolsquare, ni Vesta, ni Influitive ne peuvent répliquer en Europe.
+          </li>
+          <li>
+            <strong>Camaraderie et culture interne reconnues.</strong> Glassdoor : « Strong camaraderie and supportive colleagues » revient dans 4 reviews. 74% des employés recommandent Skeepers à un ami.
+          </li>
+        </ul>
+      </div>
+
+      <div class="outside-card weaknesses">
+        <h3>Ce que <em>les utilisateurs reprochent</em> publiquement</h3>
+        <div class="outside-sub">7 faiblesses récurrentes sur G2 / Capterra / Trustpilot / Glassdoor</div>
+        <ul class="outside-list weaknesses">
+          <li>
+            <strong>Le « one-stop-shop » n'est pas perçu comme intégré.</strong> Reviews Capterra : « Two completely distinct tools without synergia, no discount for existing Skeepers customers. » C'est l'inverse exact du pitch corporate. Risque commercial direct sur l'upsell cross-solution.
+          </li>
+          <li>
+            <strong>Service client dégradé à mesure que l'entreprise grandit.</strong> G2 : « Customer support was initially great, declined as company grew, smaller customers feel neglected. » Pas d'IA dans le chat, pas de live support, réponses tardives.
+          </li>
+          <li>
+            <strong>Plateforme buggy : redirections aléatoires vers login, instabilité.</strong> Plusieurs reviews G2 décrivent le service « not working for extended periods » avec déni de responsabilité de Skeepers. Risque de churn élevé.
+          </li>
+          <li>
+            <strong>Auto-renouvellement agressif et facturation rigide.</strong> Verrouillage annuel à $259/mois minimum pour Avis Vérifiés, renouvellements parfois envoyés à des ex-employés. Génère plaintes Trustpilot et G2.
+          </li>
+          <li>
+            <strong>Avis Vérifiés noté 1,5/5 sur Trustpilot FR.</strong> Côté consumers (pas marques) : plaintes de rejet d'avis négatifs par les commerçants, accusations de biais pro-business, soupçons d'impartialité. Très visible pour un prospect qui googelise « Skeepers avis ».
+          </li>
+          <li>
+            <strong>Programme Influence frustrant côté créateurs.</strong> Promesse de 1k followers minimum mais cinq jours d'attente puis email de refus. Asymétrie attente/expérience qui dégrade la communauté à la base.
+          </li>
+          <li>
+            <strong>Employer brand en érosion.</strong> Glassdoor : culture/values 2,9/5, compensation 3,0/5 (-6% sur 12 mois), career opportunities 3,2/5. Recommandation 58-74%. Une review récente : « Ma pire expérience professionnelle ».
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Verdict -->
+    <div class="benchmark-card" style="margin-bottom:48px;">
+      <div class="benchmark-header">
+        <div class="benchmark-brand-wrap">
+          <div class="skeepers-mark skeepers-mark-lg">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none">
+              <circle cx="8" cy="12" r="4.5" fill="white"/>
+              <circle cx="16" cy="12" r="4.5" fill="white" fill-opacity="0.55"/>
+              <circle cx="8" cy="12" r="1.6" fill="var(--skeepers-blue)"/>
+              <circle cx="16" cy="12" r="1.6" fill="var(--skeepers-blue)"/>
+            </svg>
+          </div>
+          <div>
+            <div class="benchmark-title">Verdict <em>perception externe</em></div>
+            <div class="benchmark-subtitle">Écart pitch ↔ expérience utilisateur · 6 chantiers prioritaires</div>
+          </div>
+        </div>
+        <div class="benchmark-score">
+          <div class="benchmark-score-value">⚠</div>
+          <div class="benchmark-score-label">Écart à corriger en priorité</div>
+        </div>
+      </div>
+
+      <div class="benchmark-verdict">
+        <span class="benchmark-verdict-label">6 chantiers à mener — toutes équipes confondues</span>
+        <strong>(1) Product : prouver l'intégration cross-solution</strong> (SSO unifié, pricing bundle, dashboards consolidés) — c'est le reproche n°1. <strong>(2) Customer Success : reconstruire le support</strong> — chat IA, escalade structurée, SLA publié. <strong>(3) Engineering : qualité plateforme</strong> — instabilité = perte directe de NPS. <strong>(4) Finance / Légal : revoir l'auto-renouvellement</strong> — pré-notification 60 jours, procédure d'opposition simplifiée. <strong>(5) Trust &amp; Safety Avis Vérifiés : transparence sur la modération</strong> — ratio avis publiés/rejetés, charte publique. <strong>(6) People : remontée employer brand</strong> — répondre systématiquement aux reviews Glassdoor, plan compensation. Aucun de ces 6 chantiers n'est arbitrable, ils sont tous des freins commerciaux mesurables sur le pipeline Q3-Q4.
+      </div>
+    </div>
+
+    <!-- Tableau des sources -->
+    <div class="section-header" style="margin-bottom:24px;">
+      <div class="section-eyebrow">Cartographie sources</div>
+      <h2 class="section-title" style="font-size:32px;">Quelles sources Skeepers <em>peut influencer</em>.</h2>
+      <p class="section-description">Tableau des sources analysées avec niveau de contrôle Skeepers. Trois niveaux : sources sous contrôle direct (à corriger immédiatement), sources influençables (réponses publiques, RP), sources externes non modifiables (à surveiller).</p>
+    </div>
+
+    <div class="source-table-wrap">
+      <table class="source-table">
+        <thead>
+          <tr>
+            <th>Source</th>
+            <th>Type</th>
+            <th>Contrôle</th>
+            <th>Action recommandée</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="https://skeepers.io/fr/" target="_blank" rel="noopener">skeepers.io (FR/US)</a></td>
+            <td>Site corporate &amp; pages produits</td>
+            <td><span class="ctrl-pill controlled">Contrôle direct</span></td>
+            <td>
+              Audit narratif urgent : la promesse « one-stop-shop intégré » doit être prouvée par des cas d'usage cross-solution chiffrés.
+              <span class="source-action"><strong>Action Marketing :</strong> ajouter une page « Suite intégrée — preuves » avec data SSO, dashboards, ROI cross-vertical.</span>
+            </td>
+          </tr>
+          <tr>
+            <td><a href="https://skeepers.io/fr/blog/" target="_blank" rel="noopener">skeepers.io/blog</a></td>
+            <td>Content marketing</td>
+            <td><span class="ctrl-pill controlled">Contrôle direct</span></td>
+            <td>
+              Aucune annonce IA majeure depuis 6 mois alors que Trustpilot/Bazaarvoice/Yotpo livrent. Le silence est un signal.
+              <span class="source-action"><strong>Action Product Marketing :</strong> publier sous 30 jours un manifesto « AI-readiness Skeepers » couvrant les 6 produits.</span>
+            </td>
+          </tr>
+          <tr>
+            <td><a href="https://www.linkedin.com/company/skeepers" target="_blank" rel="noopener">LinkedIn Skeepers</a></td>
+            <td>Page entreprise</td>
+            <td><span class="ctrl-pill controlled">Contrôle direct</span></td>
+            <td>
+              Cadence et angle des posts contrôlables. Peu de prises de parole CEO (Olivier Mouillet) détectées vs. concurrents.
+              <span class="source-action"><strong>Action Comms :</strong> activer un fil thought leadership CEO/CTO (1 post/semaine sur l'IA UGC).</span>
+            </td>
+          </tr>
+          <tr>
+            <td><a href="https://en.verified-reviews.com/" target="_blank" rel="noopener">avis-verifies.com</a></td>
+            <td>Site filiale historique</td>
+            <td><span class="ctrl-pill controlled">Contrôle direct</span></td>
+            <td>
+              Charte de modération peu visible côté consumer. Plaintes Trustpilot FR sur l'opacité (1,5/5).
+              <span class="source-action"><strong>Action Trust &amp; Safety :</strong> publier une charte modération publique + ratio annuel avis publiés/rejetés.</span>
+            </td>
+          </tr>
+          <tr>
+            <td><a href="https://apps.shopify.com/skeepers-live-shopping-2" target="_blank" rel="noopener">Shopify App Store</a></td>
+            <td>Listing produit Live Shopping</td>
+            <td><span class="ctrl-pill controlled">Contrôle direct</span></td>
+            <td>
+              Page modifiable, mais peu de cas clients DTC visibles. Yotpo écrase sur le volume de reviews (4 400+).
+              <span class="source-action"><strong>Action Sales/CS :</strong> mobiliser 50 clients pour reviews Shopify d'ici juillet, viser 4,5/5 sur 200+ avis.</span>
+            </td>
+          </tr>
+          <tr>
+            <td><a href="https://www.g2.com/sellers/skeepers" target="_blank" rel="noopener">G2 Reviews Skeepers</a></td>
+            <td>Reviews B2B publiques</td>
+            <td><span class="ctrl-pill influenced">Influençable</span></td>
+            <td>
+              Réponses Skeepers possibles mais non systématiques. Les plaintes service client restent visibles sans réplique.
+              <span class="source-action"><strong>Action Customer Marketing :</strong> répondre à 100% des reviews G2 sous 48h, lancer programme advocate pour reviews positives.</span>
+            </td>
+          </tr>
+          <tr>
+            <td><a href="https://www.capterra.com/p/177873/Verified-Reviews/" target="_blank" rel="noopener">Capterra · Verified Reviews</a></td>
+            <td>Reviews B2B publiques</td>
+            <td><span class="ctrl-pill influenced">Influençable</span></td>
+            <td>
+              Plaintes pricing et auto-renew mises en avant. Aucune réponse vendor sur les avis critiques majeurs détectée.
+              <span class="source-action"><strong>Action CS + Légal :</strong> répondre publiquement aux 10 derniers avis critiques, expliquer la politique renouvellement.</span>
+            </td>
+          </tr>
+          <tr>
+            <td><a href="https://www.capterra.com/p/180256/Hivency/" target="_blank" rel="noopener">Capterra · Skeepers Influence</a></td>
+            <td>Reviews B2B publiques</td>
+            <td><span class="ctrl-pill influenced">Influençable</span></td>
+            <td>
+              4,3/5 — meilleur asset Skeepers sur les plateformes tierces. À sur-utiliser dans les pitchs face à Kolsquare.
+              <span class="source-action"><strong>Action Sales Enablement :</strong> intégrer la note 4,3/5 + best quotes Capterra dans le pitch deck Influence v2026.</span>
+            </td>
+          </tr>
+          <tr>
+            <td><a href="https://www.trustpilot.com/review/skeepers.io" target="_blank" rel="noopener">Trustpilot · skeepers.io</a></td>
+            <td>Reviews public</td>
+            <td><span class="ctrl-pill influenced">Influençable</span></td>
+            <td>
+              Réponses possibles via compte vendor Trustpilot. Plaintes annuel auto-renew très publiques.
+              <span class="source-action"><strong>Action CS :</strong> claim du compte vendor Trustpilot Business + réponses systématiques aux avis &lt; 3★.</span>
+            </td>
+          </tr>
+          <tr>
+            <td><a href="https://www.trustpilot.com/review/www.avis-verifies.com" target="_blank" rel="noopener">Trustpilot · avis-verifies.com</a></td>
+            <td>Reviews public</td>
+            <td><span class="ctrl-pill influenced">Influençable</span></td>
+            <td>
+              Note 1,5/5. Présence Skeepers minimale sur les réponses. Ironie : la solution d'avis a une mauvaise note d'avis.
+              <span class="source-action"><strong>Action Trust &amp; Safety :</strong> stratégie de réponse explicative pour chaque avis &lt; 3★, FAQ publique sur la modération.</span>
+            </td>
+          </tr>
+          <tr>
+            <td><a href="https://www.glassdoor.com/Reviews/Skeepers-Reviews-E6445710.htm" target="_blank" rel="noopener">Glassdoor Skeepers</a></td>
+            <td>Employer brand</td>
+            <td><span class="ctrl-pill influenced">Influençable</span></td>
+            <td>
+              3,3-3,9/5. Culture 2,9/5, comp 3,0/5 (-6%). Reviews critiques type « pire expérience pro » sans réponse RH.
+              <span class="source-action"><strong>Action People :</strong> employer brand reset — réponse systématique aux reviews, plan compensation public, refresh page carrière.</span>
+            </td>
+          </tr>
+          <tr>
+            <td><a href="https://news.linkedin.com/" target="_blank" rel="noopener">LinkedIn (mentions tierces)</a></td>
+            <td>Discussions externes</td>
+            <td><span class="ctrl-pill external">Externe</span></td>
+            <td>
+              Mentions de Skeepers par anciens employés / clients sortants. Non modifiables, à surveiller.
+              <span class="source-action"><strong>Action veille :</strong> alertes LinkedIn sur « Skeepers » + ex-collaborateurs influents pour anticiper signal de churn.</span>
+            </td>
+          </tr>
+          <tr>
+            <td><a href="https://www.lafabriquedunet.fr/logiciel/skeepers" target="_blank" rel="noopener">La Fabrique du Net</a></td>
+            <td>Test indépendant FR</td>
+            <td><span class="ctrl-pill external">Externe</span></td>
+            <td>
+              Analyses tierces FR — bon SEO sur la requête « skeepers ». Possibilité d'influencer via interview / data exclusive.
+              <span class="source-action"><strong>Action RP :</strong> proposer un brief produit + data exclusive à La Fabrique du Net + Tekpon, semestriel.</span>
+            </td>
+          </tr>
+          <tr>
+            <td><a href="https://tekpon.com/software/skeepers/reviews/" target="_blank" rel="noopener">Tekpon</a></td>
+            <td>Comparateur SaaS</td>
+            <td><span class="ctrl-pill external">Externe</span></td>
+            <td>
+              Listing comparatif. Skeepers présent mais pas mis en avant vs alternatives.
+              <span class="source-action"><strong>Action Marketing :</strong> revendiquer le profil Tekpon, mettre à jour fiche produit, demander placement sponsorisé Q3.</span>
+            </td>
+          </tr>
+          <tr>
+            <td><a href="https://www.gartner.com/reviews/market/customer-relationship-management-others/vendor/skeepers/product/skeepers-ratings-and-reviews-solution" target="_blank" rel="noopener">Gartner Peer Insights</a></td>
+            <td>Reviews enterprise</td>
+            <td><span class="ctrl-pill external">Externe</span></td>
+            <td>
+              Volume reviews limité côté Skeepers vs Bazaarvoice/Trustpilot. Manque de présence Enterprise.
+              <span class="source-action"><strong>Action Marketing Enterprise :</strong> mobiliser top 20 comptes Enterprise pour reviews Gartner d'ici fin 2026.</span>
+            </td>
+          </tr>
+          <tr>
+            <td><a href="https://www.crunchbase.com/organization/net-reviews" target="_blank" rel="noopener">Crunchbase</a></td>
+            <td>Profil entreprise public</td>
+            <td><span class="ctrl-pill influenced">Influençable</span></td>
+            <td>
+              Profil sous l'ancien nom « Net Reviews ». Données financières et leadership à actualiser.
+              <span class="source-action"><strong>Action Comms/Légal :</strong> claim profil officiel Crunchbase, harmoniser avec marque Skeepers, ajouter milestones 2025-2026.</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </section>
+
   <!-- ============ SOURCES ============ -->
   <section id="sources">
     <div class="section-header">
       <div class="section-eyebrow">Transparence</div>
       <h2 class="section-title">Les <em>sources</em> qui alimentent ce journal.</h2>
-      <p class="section-description">25 sources gratuites surveillées en continu. Périmètre étendu cette semaine au segment Brand Communities (Influitive, Vesta/TINT, SocialLadder, Duel). Aucun abonnement payant.</p>
+      <p class="section-description">32 sources gratuites surveillées en continu. Périmètre étendu cette semaine au segment Brand Communities (Influitive, Vesta/TINT, SocialLadder, Duel) et à l’auto-veille Skeepers (G2, Capterra, Trustpilot, Glassdoor, Crunchbase, Gartner, La Fabrique du Net, Tekpon). Aucun abonnement payant.</p>
     </div>
 
     <div class="sources-wrap">
       <div class="sources-head">
-        <h3>Les 25 sources du Veilleur</h3>
+        <h3>Les 32 sources du Veilleur</h3>
         <span class="sources-count">100% gratuit · Setup ≈ 30 min</span>
       </div>
 
