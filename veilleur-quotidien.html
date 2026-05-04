@@ -574,6 +574,75 @@
     .nav-links { display: none; }
     section { margin-bottom: 56px; }
   }
+
+  /* Skeepers vu de l'extérieur */
+  .outside-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 32px; }
+  .outside-card {
+    background: var(--white); border-radius: 24px; padding: 32px;
+    box-shadow: var(--shadow-md); position: relative; overflow: hidden;
+  }
+  .outside-card.strengths { border-top: 4px solid var(--positive); }
+  .outside-card.weaknesses { border-top: 4px solid var(--negative); }
+  .outside-card h3 {
+    font-family: var(--font-serif); font-size: 26px; font-weight: 400;
+    letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 8px;
+  }
+  .outside-card .outside-sub {
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.04em;
+    text-transform: uppercase; color: var(--grey-1); margin-bottom: 22px; font-weight: 500;
+  }
+  .outside-card.strengths h3 em { color: var(--positive); font-style: italic; }
+  .outside-card.weaknesses h3 em { color: var(--negative); font-style: italic; }
+  .outside-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+  .outside-list li {
+    font-size: 14px; line-height: 1.5; padding: 14px 16px; background: var(--grey-5);
+    border-radius: 12px; color: var(--ink-soft); position: relative; padding-left: 38px;
+  }
+  .outside-list li strong { color: var(--ink); font-weight: 600; }
+  .outside-list.strengths li::before {
+    content: '✓'; position: absolute; left: 14px; top: 14px;
+    color: var(--positive); font-weight: 700; font-size: 14px;
+  }
+  .outside-list.weaknesses li::before {
+    content: '✗'; position: absolute; left: 14px; top: 14px;
+    color: var(--negative); font-weight: 700; font-size: 14px;
+  }
+  .outside-list .quote {
+    display: block; margin-top: 6px; font-style: italic; font-size: 12.5px;
+    color: var(--grey-1); padding-left: 8px; border-left: 2px solid var(--grey-3);
+  }
+
+  .source-table-wrap {
+    background: var(--white); border-radius: 24px; overflow: hidden;
+    box-shadow: var(--shadow-sm); margin-top: 24px;
+  }
+  .source-table { width: 100%; border-collapse: collapse; }
+  .source-table th {
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.05em;
+    text-transform: uppercase; text-align: left; padding: 16px 22px; color: var(--grey-1);
+    font-weight: 500; border-bottom: 1px solid var(--grey-4); background: var(--grey-5);
+  }
+  .source-table td {
+    padding: 16px 22px; border-bottom: 1px solid var(--grey-4); font-size: 13.5px;
+    color: var(--ink-soft); vertical-align: top; line-height: 1.5;
+  }
+  .source-table tbody tr:last-child td { border-bottom: none; }
+  .source-table td a { color: var(--ink); text-decoration: none; font-weight: 500; }
+  .source-table td a:hover { color: var(--skeepers-blue); }
+  .ctrl-pill {
+    display: inline-flex; align-items: center; gap: 5px; padding: 4px 10px;
+    border-radius: 100px; font-family: var(--font-mono); font-size: 10.5px;
+    font-weight: 600; letter-spacing: 0.02em; white-space: nowrap;
+  }
+  .ctrl-pill.controlled { background: rgba(22,163,74,0.12); color: var(--positive); }
+  .ctrl-pill.influenced { background: var(--skeepers-blue-soft); color: var(--skeepers-blue); }
+  .ctrl-pill.external { background: rgba(220,38,38,0.1); color: var(--negative); }
+  .source-action {
+    display: block; margin-top: 6px; padding: 8px 10px; background: var(--skeepers-blue-soft);
+    border-radius: 6px; font-size: 12px; color: var(--ink-soft); border-left: 2px solid var(--skeepers-blue);
+  }
+  .source-action strong { color: var(--skeepers-blue); }
+
 </style>
 </head>
 <body>
@@ -595,9 +664,12 @@
       <a href="#edito">Édito</a>
       <a href="#benchmark">Benchmark</a>
       <a href="#concurrents">Concurrents</a>
+      <a href="#brand-communities">Brand Comm.</a>
+      <a href="#feedback-management">Feedback</a>
       <a href="#battlecards">Battlecards</a>
       <a href="#signaux">Signaux</a>
       <a href="#pricing">Pricing</a>
+      <a href="#outside-in">Skeepers vu</a>
       <a href="#sources">Sources</a>
     </div>
     <span class="live-indicator">En direct</span>
@@ -608,19 +680,19 @@
 
   <!-- ============ HERO ============ -->
   <header class="hero">
-    <div class="hero-eyebrow">Édition #139 · Lundi 4 mai 2026</div>
+    <div class="hero-eyebrow">Édition #143 · Lundi 4 mai 2026</div>
     <h1>L'intelligence concurrentielle,<br><em>automatisée.</em></h1>
     <p class="hero-subtitle">
-      Chaque matin, une synthèse claire de ce qui bouge sur le marché Avis & Influence Marketing. Agrégée par l'IA, pensée pour les équipes Skeepers.
+      Chaque matin, une synthèse claire de ce qui bouge sur le marché UGC et Customer Experience. Agrégée par l'IA, pensée pour les équipes Skeepers.
     </p>
     <div class="hero-meta">
-      <div class="hero-meta-item"><strong>8</strong> concurrents</div>
+      <div class="hero-meta-item"><strong>16</strong> concurrents</div>
       <span class="hero-meta-divider"></span>
-      <div class="hero-meta-item"><strong>18</strong> sources</div>
+      <div class="hero-meta-item"><strong>37</strong> sources</div>
       <span class="hero-meta-divider"></span>
       <div class="hero-meta-item"><strong>9:00</strong> CET</div>
       <span class="hero-meta-divider"></span>
-      <div class="hero-meta-item"><strong>6 min</strong> de lecture</div>
+      <div class="hero-meta-item"><strong>5 min</strong> de lecture</div>
     </div>
   </header>
 
@@ -632,19 +704,19 @@
       <div class="summary-delta blue">7 derniers jours</div>
     </div>
     <div class="summary-card">
-      <div class="summary-label">J-X cérémonie Wizville</div>
-      <div class="summary-value"><em>24</em></div>
-      <div class="summary-delta blue">28 mai 2026 · Paris</div>
+      <div class="summary-label">Lancements produit IA</div>
+      <div class="summary-value">3</div>
+      <div class="summary-delta positive">▲ Trustpilot, Bazaarvoice, Yotpo</div>
     </div>
     <div class="summary-card">
-      <div class="summary-label">Changements pricing</div>
-      <div class="summary-value">2</div>
-      <div class="summary-delta blue">Trustpilot · 30 jours</div>
+      <div class="summary-label">J-24</div>
+      <div class="summary-value"><em>28 mai</em></div>
+      <div class="summary-delta blue">Cérémonie Wizville Paris</div>
     </div>
     <div class="summary-card">
-      <div class="summary-label">Budgets influence 2026</div>
-      <div class="summary-value">+72%</div>
-      <div class="summary-delta blue">marques en hausse · Kolsquare</div>
+      <div class="summary-label">4 verticales surveillées</div>
+      <div class="summary-value"><em>4</em></div>
+      <div class="summary-delta blue">Avis + Influence + Brand + Feedback</div>
     </div>
   </div>
 
@@ -652,9 +724,9 @@
   <section id="edito">
     <div class="edito-card">
       <div class="edito-tag">Synthèse IA du jour</div>
-      <h2>L'influence prend <em>+72% de budget en 2026,</em> Wizville passe à <em>J-24</em> de sa cérémonie retail.</h2>
+      <h2>Trustpilot <em>contre-attaque</em> sur l'IA, Kolsquare verrouille l'Europe Influence, <em>Wizville</em> à J-24 du grand soir retail.</h2>
       <p>
-        Semaine doublement chargée. Côté Avis : Bazaarvoice publie son rapport « 2026 Trends & Predictions » conjointement avec Coca-Cola, capitalisant sur son momentum Authentic Discovery API ; Yotpo confirme son repositionnement « Reviews + Loyalty + AI » sur sa page d'accueil et pousse ses « AI Review Summaries » comme killer feature ; Trustpilot voit son ticket d'entrée glisser à $299/mois (Vendr) — la pression pricing s'accentue. Wizville entre dans la phase finale (J-24) avant la cérémonie « Prix Meilleure Satisfaction Client » du 28 mai : l'IA détection de faux avis sera officialisée pour cette édition. Côté Influence : l'étude annuelle Kolsquare sort des chiffres-chocs — 72% des marques prévoient d'augmenter leur budget influence en 2026, +20% pour 19% des marketeurs. Influence4You relance la machine avec son « Affiliation Universelle » et ses Influence Insight Days post-événement (mars). YOO/WOO consolide sa position de plus grande communauté FR (100K+ créateurs). Zones sans signal frais : pas de mouvement détectable côté Influenster (silence depuis l'acquisition Bazaarvoice).
+        Quatre fronts ouverts ce vendredi : <strong>(1) IA agentique sur les Avis</strong> — Trustpilot a riposté à Bazaarvoice fin avril avec AI Visibility Metrics + Unified Reputation Insights, le sujet GEO devient un terrain de bataille à 3 où Skeepers doit livrer sous 60 jours. <strong>(2) Consolidation Influence Europe</strong> — Kolsquare cumule Woomio + Storyclash et revendique ~2 000 marques sur 30+ pays. <strong>(3) Nouveau front Brand Communities</strong> — Influitive (acquis Jigsaw fin 2025) et Vesta (absorbé TINT 2023) sont en zone rouge. <strong>(4) Feedback Management : la course IA agentique s'est aussi ouverte</strong> — Qualtrics a livré Experience Agents et Automated Text Analytics à X4 mars 2026, Medallia revendique 100+ features et 7 IA sur 12 mois (1,2M DAU), AskNicely a lancé Ask NiceAI en mars puis Reputation Manager le 28 avril. Skeepers Feedback Management (ex MyFeelback) doit accélérer pour ne pas rester en marge. Sur le retail FR, Wizville entre à J-24 de sa cérémonie du 28 mai. <strong>Nouvel entrant à surveiller</strong> : Partoo (FR, 2014, acquis par Webedia, $18M levés) accélère sur 4 modules (Presence + Review + Feedback + Store Locator), revendique 90% de renouvellement Enterprise et un NPS > 50, et se positionne explicitement sur la GEO (Gemini/ChatGPT) — concurrent direct sur le retail FR et partiel sur les avis Google et le feedback. Zones silencieuses : Influenster, Influence4You, et pas de mouvement pricing public chez Bazaarvoice, Wizville ni Goodays. <strong>Nouveauté éditoriale</strong> : à partir d’aujourd’hui, Le Veilleur intègre une rubrique « Skeepers vu de l’extérieur » — diagnostic critique, sans filtre, sur ce que voient les prospects, candidats et journalistes quand ils cherchent Skeepers.
       </p>
       <div class="edito-sig">— La rédaction du Veilleur, assistée par Claude</div>
     </div>
@@ -692,19 +764,19 @@
 
       <div class="benchmark-grid">
         <div class="benchmark-stat">
-          <div class="benchmark-stat-label">Communauté créateurs FR</div>
-          <div class="benchmark-stat-value">500K+</div>
-          <div class="benchmark-stat-delta positive">▲ vs YOO 100K · ×5</div>
+          <div class="benchmark-stat-label">Mentions presse</div>
+          <div class="benchmark-stat-value">—</div>
+          <div class="benchmark-stat-delta neutral">→ non mesuré cette semaine</div>
         </div>
         <div class="benchmark-stat">
           <div class="benchmark-stat-label">Reviews G2 moyennes</div>
           <div class="benchmark-stat-value">4,5<span style="font-size:18px;color:var(--grey-2);">/5</span></div>
-          <div class="benchmark-stat-delta positive">▲ vs Trustpilot 3,4/5</div>
+          <div class="benchmark-stat-delta neutral">→ stable (estimation)</div>
         </div>
         <div class="benchmark-stat">
-          <div class="benchmark-stat-label">Suite UGC complète</div>
-          <div class="benchmark-stat-value">3-en-1</div>
-          <div class="benchmark-stat-delta positive">▲ Avis + Influence + Live</div>
+          <div class="benchmark-stat-label">Communauté créateurs</div>
+          <div class="benchmark-stat-value">500K+</div>
+          <div class="benchmark-stat-delta positive">▲ écosystème en croissance</div>
         </div>
         <div class="benchmark-stat">
           <div class="benchmark-stat-label">Avis collectés (3 ans)</div>
@@ -715,7 +787,7 @@
 
       <div class="benchmark-verdict">
         <span class="benchmark-verdict-label">Lecture stratégique</span>
-        <strong>On gagne sur la suite complète Avis + Influence</strong> face à des spécialistes mono-produit (Trustpilot=avis purs, Kolsquare=influence pure). <strong>On défend sur l'IA Avis</strong> : Bazaarvoice et Yotpo poussent leurs features AI (Authentic Discovery API, AI Review Summaries) — Skeepers doit communiquer plus fort sur sa propre stack IA française. <strong>On attaque maintenant deux fenêtres</strong> : (1) cérémonie Wizville J-24 = moment retail FR à contrer ou accompagner ; (2) +72% de budgets influence prévus en 2026 (étude Kolsquare) = momentum commercial à exploiter en outbound dès cette semaine sur les marques DNVB et beauté.
+        <strong>On reste leader européen sur la combinaison Avis + Influence + Live Shopping + Brand Communities + Feedback Management</strong> — cinq piliers qu'aucun concurrent ne couvre intégralement. Mais <strong>la fenêtre IA se referme</strong> : Trustpilot a égalé Bazaarvoice avec AI Visibility Metrics, Skeepers doit livrer sous 60 jours sur la GEO. <strong>Pression Influence renforcée</strong> : Kolsquare consolide l'Europe (~2 000 marques, 30+ pays). <strong>Opportunité Brand Communities historique</strong> : Influitive (acquis Jigsaw fin 2025, layoffs, support dégradé) et Vesta (absorbé TINT 2023) sont tous deux en zone de turbulence — Skeepers Brand Communities a un boulevard de 6-12 mois pour capter les comptes en renouvellement. <strong>Menace montante FR</strong> : Partoo (Webedia) consolide 4 modules sur le retail multi-sites avec une posture GEO assumée — surveillance prioritaire dans les RFP retail FR. <strong>Opportunités à activer</strong> : (1) cérémonie Wizville 28 mai (J-24) ; (2) comptes Yotpo en renouvellement Q2-Q3 ; (3) marchands Shopify déçus de Trustpilot ; (4) <strong>nouveau : prospects Influitive insatisfaits post-Jigsaw</strong>.
       </div>
     </div>
   </section>
@@ -725,7 +797,7 @@
     <div class="section-header">
       <div class="section-eyebrow">À la une</div>
       <h2 class="section-title">Ce qui bouge chez <em>les concurrents.</em></h2>
-      <p class="section-description">Classement par segment stratégique : les concurrents mondiaux qui attaquent le DTC et l'e-commerce, et Wizville, notre rival FR sur le retail multi-sites.</p>
+      <p class="section-description">Classement par segment stratégique : les concurrents mondiaux Avis (DTC/e-commerce), Wizville et Partoo (rivaux FR retail multi-sites), et les plateformes Influence Marketing — terrain Skeepers Influence.</p>
     </div>
 
     <div class="segment-label">
@@ -743,43 +815,43 @@
             <div class="competitor-name">Trustpilot</div>
             <div class="competitor-sub">Reviews publics B2C · Copenhague</div>
           </div>
-          <span class="momentum-pill down">↘ Pression pricing</span>
+          <span class="momentum-pill up">↗ Suite IA lancée</span>
         </div>
 
         <div class="news-item">
-          <span class="news-tag tag-pricing">Pricing</span>
-          <div class="news-title">Ticket d'entrée à $299/mois (Vendr)</div>
-          <div class="news-summary">Le marketplace SaaS Vendr documente un Plus à $299/mois (vs $259 il y a un mois) — facture annuelle entre $3K et $30K+ selon volume. Paliers Premium et Advanced inchangés mais hausse silencieuse confirmée sur l'entrée de gamme.</div>
+          <span class="news-tag tag-product">Lancement IA</span>
+          <div class="news-title">AI Visibility Metrics + Unified Reputation Insights</div>
+          <div class="news-summary">Trustpilot dégaine fin avril sa réponse à Bazaarvoice : suite produit pour mesurer la visibilité dans les moteurs IA (ChatGPT, Perplexity, Gemini) et dashboards Trust unifiés Marketing/CX/Insights. Push GEO assumé.</div>
           <div class="news-meta">
-            <a href="https://www.vendr.com/marketplace/trustpilot" target="_blank" rel="noopener">Vendr Marketplace · 2 mai 2026</a>
+            <a href="https://www.prnewswire.com/news-releases/trustpilot-launches-new-features-to-help-brands-get-foundand-chosenin-the-age-of-ai-302734032.html" target="_blank" rel="noopener">PRNewswire · avril 2026</a>
             <span class="impact-bar">
               <span class="impact-segment active"></span>
               <span class="impact-segment active"></span>
               <span class="impact-segment active"></span>
+            </span>
+          </div>
+        </div>
+
+        <div class="news-item">
+          <span class="news-tag tag-news">Volume</span>
+          <div class="news-title">361M avis actifs · 7,8M faux supprimés en 2025</div>
+          <div class="news-summary">Trustpilot revendique désormais 361M d'avis actifs (vs 280M il y a 18 mois). 7,8M de faux avis détectés et supprimés en 2025, dont 91% par algorithme. Argument lourd dans les pitchs Enterprise.</div>
+          <div class="news-meta">
+            <a href="https://corporate.trustpilot.com/press" target="_blank" rel="noopener">corporate.trustpilot.com · 2026</a>
+            <span class="impact-bar">
+              <span class="impact-segment active"></span>
+              <span class="impact-segment active"></span>
+              <span class="impact-segment"></span>
             </span>
           </div>
         </div>
 
         <div class="news-item">
           <span class="news-tag tag-review">G2 Reviews</span>
-          <div class="news-title">Note G2 stable à 3.4/5, plaintes pricing</div>
-          <div class="news-summary">Sur 245+ reviews, les plaintes pointent les hausses soudaines (ex: $70 → $380/mois) et la modération opaque. Aucune amélioration de la perception malgré les bons résultats financiers Q1.</div>
+          <div class="news-title">Note G2 toujours à 3,4/5 — pricing en cause</div>
+          <div class="news-summary">Aucune amélioration sur la note G2 depuis mars. Les hausses tarifaires (jusqu'à $70 → $380/mois) et la modération restent les sujets de friction. Sweet spot d'outreach pour conquérir des comptes.</div>
           <div class="news-meta">
-            <a href="https://www.g2.com/products/trustpilot/reviews" target="_blank" rel="noopener">G2.com · mai 2026</a>
-            <span class="impact-bar">
-              <span class="impact-segment active"></span>
-              <span class="impact-segment active"></span>
-              <span class="impact-segment active"></span>
-            </span>
-          </div>
-        </div>
-
-        <div class="news-item">
-          <span class="news-tag tag-news">Finance</span>
-          <div class="news-title">Action +22% post-annual report mars 2026</div>
-          <div class="news-summary">Bookings $291M (+18%), free cash flow +173%, programme de rachat d'actions de £30M en cours. Le marché valide la stratégie publique mais la croissance reste tirée par les hausses pricing — fragile à terme.</div>
-          <div class="news-meta">
-            <a href="https://corporate.trustpilot.com/press" target="_blank" rel="noopener">corporate.trustpilot.com · mars 2026</a>
+            <a href="https://www.g2.com/products/trustpilot/reviews" target="_blank" rel="noopener">G2.com · avril 2026</a>
             <span class="impact-bar">
               <span class="impact-segment active"></span>
               <span class="impact-segment active"></span>
@@ -794,31 +866,17 @@
         <div class="competitor-head">
           <div>
             <div class="competitor-name">Yotpo</div>
-            <div class="competitor-sub">Reviews + Loyalty Shopify · New York</div>
+            <div class="competitor-sub">UGC + Reviews Shopify · New York</div>
           </div>
-          <span class="momentum-pill up">↗ AI Visibility</span>
+          <span class="momentum-pill up">↘ Pivot en cours</span>
         </div>
 
         <div class="news-item">
           <span class="news-tag tag-product">Produit</span>
-          <div class="news-title">Repositionnement « Loyalty, Reviews & AI Visibility »</div>
-          <div class="news-summary">La home page Yotpo affiche désormais « Loyalty, Reviews & AI Visibility For Ecommerce » — pivot complètement assumé. Les AI Review Summaries (résumés IA des avis par thématique) sont mis en avant comme killer feature de printemps.</div>
+          <div class="news-title">AI Review Summaries + Smart Sorting déployés</div>
+          <div class="news-summary">Yotpo concentre ses ingés sur l'IA : résumés de reviews automatisés par IA, tri intelligent par qualité/récence/pertinence. Plateforme à 4,8/5 sur 4 400+ reviews Shopify (Reviews) et 4,7/5 sur Loyalty.</div>
           <div class="news-meta">
-            <a href="https://www.yotpo.com/" target="_blank" rel="noopener">yotpo.com · 1 mai 2026</a>
-            <span class="impact-bar">
-              <span class="impact-segment active"></span>
-              <span class="impact-segment active"></span>
-              <span class="impact-segment active"></span>
-            </span>
-          </div>
-        </div>
-
-        <div class="news-item">
-          <span class="news-tag tag-news">Communauté</span>
-          <div class="news-title">35 000 marques et 4,8/5 sur Shopify App Store</div>
-          <div class="news-summary">Yotpo revendique 35 000 marques actives, note 4,8/5 sur 4 400+ reviews Shopify pour le module Reviews et 4,7/5 sur 935+ reviews pour Loyalty. Solide ancrage Shopify malgré la restructuration de fin 2025.</div>
-          <div class="news-meta">
-            <a href="https://www.attnagency.com/blog/yotpo-shopify-review" target="_blank" rel="noopener">ATTN Agency · avril 2026</a>
+            <a href="https://www.yotpo.com/" target="_blank" rel="noopener">yotpo.com · avril 2026</a>
             <span class="impact-bar">
               <span class="impact-segment active"></span>
               <span class="impact-segment active"></span>
@@ -828,9 +886,23 @@
         </div>
 
         <div class="news-item">
-          <span class="news-tag tag-product">Pivot</span>
-          <div class="news-title">Email/SMS sunsetted le 31 décembre 2025</div>
-          <div class="news-summary">Confirmation officielle : produits Email et SMS définitivement fermés au 31/12/2025. Migration clients vers Attentive bouclée. Recentrage Reviews + Loyalty + IA = stratégie unique pour 2026.</div>
+          <span class="news-tag tag-news">Volume</span>
+          <div class="news-title">35 000+ marques actives sur Shopify</div>
+          <div class="news-summary">Malgré 200 licenciements en 2025, Yotpo revendique 35 000+ marques actives. Effort commercial intense post-pivot pour limiter le churn et faire passer les comptes Email/SMS sur Reviews+Loyalty.</div>
+          <div class="news-meta">
+            <a href="https://www.yotpo.com/" target="_blank" rel="noopener">yotpo.com · 2026</a>
+            <span class="impact-bar">
+              <span class="impact-segment active"></span>
+              <span class="impact-segment active"></span>
+              <span class="impact-segment"></span>
+            </span>
+          </div>
+        </div>
+
+        <div class="news-item">
+          <span class="news-tag tag-product">Pivot stratégique</span>
+          <div class="news-title">CEO Tagrin : « AI-native, smaller, more focused »</div>
+          <div class="news-summary">Tomer Tagrin réaffirme la doctrine post-licenciements : entreprise plus petite, plus centrée, plus IA. Stack messaging via partenariats Attentive et Omnisend. Positionnement « agentic commerce » maintenu.</div>
           <div class="news-meta">
             <a href="https://emailexpert.com/yotpo-shuts-down-email-sms-strategic-pivot-sparks-industry-shock-and-layoffs/" target="_blank" rel="noopener">EmailExpert · 2026</a>
             <span class="impact-bar">
@@ -849,15 +921,15 @@
             <div class="competitor-name">Bazaarvoice</div>
             <div class="competitor-sub">Retail syndication · Austin</div>
           </div>
-          <span class="momentum-pill up">↗ Co-marketing Coca-Cola</span>
+          <span class="momentum-pill up">↗ Innovation IA</span>
         </div>
 
         <div class="news-item">
-          <span class="news-tag tag-news">Co-marketing</span>
-          <div class="news-title">Rapport « 2026 Trends » publié avec Coca-Cola</div>
-          <div class="news-summary">Bazaarvoice publie son rapport annuel de tendances co-signé Coca-Cola : focus IA-driven marketing, agentic commerce, AI shopping. Le partenariat mis en lumière au Summit de mars devient un actif marketing récurrent — visibilité maximale dans la presse retail US.</div>
+          <span class="news-tag tag-product">Extension IA</span>
+          <div class="news-title">Galleries social commerce indexées Gemini</div>
+          <div class="news-summary">Bazaarvoice étend son approche structured-metadata server-side aux galeries social commerce pour Google Gemini. Objectif : rendre les UGC visuels et liens produit lisibles sans rendu JS. Suite logique de l'Authentic Discovery API d'avril.</div>
           <div class="news-meta">
-            <a href="https://www.bazaarvoice.com/resources/2026-trends-and-predictions-lessons-from-coca-cola-and-bazaarvoice/" target="_blank" rel="noopener">bazaarvoice.com · mai 2026</a>
+            <a href="https://www.bazaarvoice.com/blog/from-search-to-selection-win-with-ai-shopping-agents-and-consumers/" target="_blank" rel="noopener">bazaarvoice.com/blog · avril 2026</a>
             <span class="impact-bar">
               <span class="impact-segment active"></span>
               <span class="impact-segment active"></span>
@@ -867,25 +939,25 @@
         </div>
 
         <div class="news-item">
-          <span class="news-tag tag-product">Produit</span>
-          <div class="news-title">Authentic Discovery API : momentum maintenu</div>
-          <div class="news-summary">L'API lancée le 2 avril continue de générer de la presse (ITBrief, MarketingProfs, AI News). Premier brevet BV depuis 2014. Toujours réservée aux packages Enterprise — pas de descente vers le mid-market à ce stade.</div>
+          <span class="news-tag tag-product">GEO</span>
+          <div class="news-title">Roadmap « AI commerce » publiée</div>
+          <div class="news-summary">Bazaarvoice publie sa roadmap AI commerce : combiner Authentic Discovery API + indexation Gemini + agentic shopping. Pression coordonnée sur le sujet GEO. Trustpilot vient de répliquer fin avril.</div>
           <div class="news-meta">
-            <a href="https://itbrief.news/story/bazaarvoice-launches-api-to-boost-ai-review-discovery" target="_blank" rel="noopener">ITBrief · mai 2026</a>
+            <a href="https://www.bazaarvoice.com/blog/the-ai-commerce-roadmap-building-sustainable-growth-for-brands-and-retailers/" target="_blank" rel="noopener">bazaarvoice.com/blog · avril 2026</a>
             <span class="impact-bar">
               <span class="impact-segment active"></span>
               <span class="impact-segment active"></span>
-              <span class="impact-segment active"></span>
+              <span class="impact-segment"></span>
             </span>
           </div>
         </div>
 
         <div class="news-item">
-          <span class="news-tag tag-review">Étude</span>
-          <div class="news-title">Shopper Experience Index : 75% jeunes shoppers font confiance à l'IA</div>
-          <div class="news-summary">Étude relayée en mai : 75% des jeunes shoppers déclarent faire confiance aux recommandations IA. Bazaarvoice utilise ce chiffre pour vendre son API Discovery comme « must-have » 2026.</div>
+          <span class="news-tag tag-hiring">Leadership</span>
+          <div class="news-title">Refonte ELT toujours en cours</div>
+          <div class="news-summary">Reviews Glassdoor 2026 confirment la phase de transition de l'équipe dirigeante. Combiné aux gros lancements produit IA, signe d'une réorientation stratégique en profondeur. Fenêtre commerciale ouverte sur les comptes BV en France.</div>
           <div class="news-meta">
-            <a href="https://www.bazaarvoice.com/blog/bazaarvoice-sei-2025-why-75-of-young-shoppers-trust-ai/" target="_blank" rel="noopener">Bazaarvoice Blog · mai 2026</a>
+            <a href="https://www.glassdoor.com/Reviews/Bazaarvoice-Reviews-E147230.htm" target="_blank" rel="noopener">Glassdoor · avril 2026</a>
             <span class="impact-bar">
               <span class="impact-segment active"></span>
               <span class="impact-segment active"></span>
@@ -911,17 +983,17 @@
             <div class="competitor-name" style="font-size:34px;">Wizville</div>
             <div class="competitor-sub">Customer Experience Management retail · Paris · ~20 000 points de vente · 25 pays</div>
           </div>
-          <span class="momentum-pill up">↗ Préparation événement</span>
+          <span class="momentum-pill up">↗ J-24 cérémonie</span>
         </div>
 
         <div class="focus-grid">
           <div class="focus-news-list">
             <div class="news-item">
-              <span class="news-tag tag-news">Événement · J-24</span>
-              <div class="news-title">Cérémonie Prix Satisfaction Client le 28 mai · 20h30</div>
-              <div class="news-summary">Plus que 24 jours avant la cérémonie 2026 à Paris. Lauréats et finalistes seront autorisés à communiquer publiquement sur leurs résultats à partir de 20h30. Période de communication intense côté Wizville à anticiper du 28 mai au 15 juin.</div>
+              <span class="news-tag tag-news">Événement</span>
+              <div class="news-title">J-24 · Cérémonie Prix Satisfaction Client</div>
+              <div class="news-summary">Compte à rebours engagé : 31 catégories, 200 décideurs retail attendus à Paris le 28 mai. Le règlement 2026 acte officiellement l'usage d'IA pour détecter les faux avis et vérifier la cohérence des données. WizAI en démo plénière.</div>
               <div class="news-meta">
-                <a href="https://prix-satisfaction-client.wizville.com/" target="_blank" rel="noopener">prix-satisfaction-client.wizville.com · 28 mai 2026</a>
+                <a href="https://prix-satisfaction-client.wizville.com/reglement-2026" target="_blank" rel="noopener">prix-satisfaction-client.wizville.com · mai 2026</a>
                 <span class="impact-bar">
                   <span class="impact-segment active"></span>
                   <span class="impact-segment active"></span>
@@ -931,11 +1003,73 @@
             </div>
 
             <div class="news-item">
-              <span class="news-tag tag-product">IA / Règlement</span>
-              <div class="news-title">IA détection de faux avis officialisée pour 2026</div>
-              <div class="news-summary">Le règlement 2026 mentionne que Wizville « se réserve le droit d'utiliser des technologies d'intelligence artificielle pour détecter d'éventuels faux avis et vérifier la cohérence des données analysées ». Nouveau pilier de crédibilité du Prix face aux critiques sur la transparence.</div>
+              <span class="news-tag tag-product">Produit / IA</span>
+              <div class="news-title">WizAI v2 mis en avant pour la cérémonie</div>
+              <div class="news-summary">Wizville positionne WizAI comme « copilote IA satisfaction client » pour chaque collaborateur terrain. Analyse verbatims temps réel + recommandations d'action. IA en prod depuis 2022, désormais axe central de la communication.</div>
               <div class="news-meta">
-                <a href="https://prix-satisfaction-client.wizville.com/reglement-2026" target="_blank" rel="noopener">prix-satisfaction-client.wizville.com/reglement-2026 · 2026</a>
+                <a href="https://demowizai.wizville.com/" target="_blank" rel="noopener">demowizai.wizville.com · 2026</a>
+                <span class="impact-bar">
+                  <span class="impact-segment active"></span>
+                  <span class="impact-segment active"></span>
+                  <span class="impact-segment"></span>
+                </span>
+              </div>
+            </div>
+
+            <div class="news-item">
+              <span class="news-tag tag-news">Communication</span>
+              <div class="news-title">Volume blog stable, focus études retail</div>
+              <div class="news-summary">Wizville maintient sa cadence éditoriale (études Wizville, retail benchmarks). Pas de mouvement RH ni de levée de fonds détectés cette semaine. Stratégie : convertir la cérémonie en pipeline commercial Q3.</div>
+              <div class="news-meta">
+                <a href="https://www.wizville.com/blog/all" target="_blank" rel="noopener">wizville.com/blog · avril 2026</a>
+                <span class="impact-bar">
+                  <span class="impact-segment active"></span>
+                  <span class="impact-segment"></span>
+                  <span class="impact-segment"></span>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="focus-aside">
+            <h5>Pourquoi on les surveille de près</h5>
+            <ul>
+              <li><strong>Concurrent FR direct</strong> sur le retail multi-sites, notre angle Avis Vérifiés</li>
+              <li><strong>Module Trustville</strong> : solution de diffusion d'avis certifiés AFNOR concurrente</li>
+              <li><strong>Outil gratuit Local Monitor</strong> utilisé comme produit d'appel : 5 concurrents surveillés gratuitement</li>
+              <li><strong>Faible sur le DTC/e-commerce pur</strong>, c'est notre zone de reconquête</li>
+              <li><strong>Cérémonie du 28 mai</strong> = moment de visibilité clé, 200 décideurs retail. À contrer ou accompagner.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Segment 2bis : Partoo - Concurrent FR émergent multi-sites -->
+    <div class="segment-label" style="margin-top:60px;">
+      <span class="segment-badge local">Segment 2bis · Focus FR émergent</span>
+      <span style="font-family:var(--font-serif);font-size:20px;">Partoo · Presence + Review + Feedback retail</span>
+      <span class="segment-description">Acteur FR en expansion qui empiète sur 3 verticales Skeepers (Avis, Feedback, retail multi-sites)</span>
+    </div>
+
+    <div class="competitor-grid">
+      <div class="competitor-card focus-card">
+        <div class="competitor-head">
+          <div>
+            <div class="competitor-name" style="font-size:34px;">Partoo</div>
+            <div class="competitor-sub">Presence Management retail · Paris · acquis Webedia · $18M levés · 4 modules</div>
+          </div>
+          <span class="momentum-pill up">↗ Expansion agressive</span>
+        </div>
+
+        <div class="focus-grid">
+          <div class="focus-news-list">
+            <div class="news-item">
+              <span class="news-tag tag-product">Stack produit</span>
+              <div class="news-title">4 modules : Presence + Review + Feedback + Booster</div>
+              <div class="news-summary">Partoo n'est plus un pure-player Presence Management. Le stack couvre désormais : Presence (diffusion fiches GMB/GPS/social/sites avis), Review Management (Google/Facebook/TripAdvisor avec IA suggestions), Feedback Management (CSAT + analyse), Booster (store locator). Empiétement direct sur 3 verticales Skeepers : Avis Vérifiés, Feedback Management, retail multi-sites.</div>
+              <div class="news-meta">
+                <a href="https://www.partoo.co/fr/" target="_blank" rel="noopener">partoo.co · 2026</a>
                 <span class="impact-bar">
                   <span class="impact-segment active"></span>
                   <span class="impact-segment active"></span>
@@ -945,11 +1079,39 @@
             </div>
 
             <div class="news-item">
-              <span class="news-tag tag-news">Référence client</span>
-              <div class="news-title">Résultats « Meilleur Commerce de France » 2025-2026 disponibles</div>
-              <div class="news-summary">Wizville exploite les résultats de son Prix « Meilleur Commerce de France » 2025-2026 sur son blog et ses réseaux. Asset éditorial puissant pour générer des leads retail. Cas Teract mis en avant.</div>
+              <span class="news-tag tag-product">Positionnement IA</span>
+              <div class="news-title">« Visibility on Gemini, ChatGPT, AI search »</div>
+              <div class="news-summary">Partoo se positionne explicitement sur la <strong>GEO (Generative Engine Optimization)</strong>. Argument : assurer la cohérence des données locales sur les moteurs IA. Même terrain que Trustpilot/Bazaarvoice côté Avis, mais sur le local/retail. Avance narrative à neutraliser.</div>
               <div class="news-meta">
-                <a href="https://www.wizville.com/blog/prix-meilleure-commerce-france-2025-2026" target="_blank" rel="noopener">wizville.com/blog · avril 2026</a>
+                <a href="https://www.partoo.co/en/enterprises/presence-management/" target="_blank" rel="noopener">partoo.co/presence · 2026</a>
+                <span class="impact-bar">
+                  <span class="impact-segment active"></span>
+                  <span class="impact-segment active"></span>
+                  <span class="impact-segment active"></span>
+                </span>
+              </div>
+            </div>
+
+            <div class="news-item">
+              <span class="news-tag tag-news">Performance commerciale</span>
+              <div class="news-title">90% rétention Enterprise · NPS &gt; 50 · profit en 2025</div>
+              <div class="news-summary">Memo des co-CEOs 2026 : 90% renewal rate Enterprise, NPS au-dessus de 50, profitabilité atteinte début 2025. Croissance +30% LATAM et MENA. Logos publics : Manpower, Kia, Europcar. Trajectoire saine et offensive.</div>
+              <div class="news-meta">
+                <a href="https://www.partoo.co/en/blog/memo-2026/" target="_blank" rel="noopener">partoo.co/blog/memo-2026 · janvier 2026</a>
+                <span class="impact-bar">
+                  <span class="impact-segment active"></span>
+                  <span class="impact-segment active"></span>
+                  <span class="impact-segment active"></span>
+                </span>
+              </div>
+            </div>
+
+            <div class="news-item">
+              <span class="news-tag tag-partnership">Capital &amp; expansion</span>
+              <div class="news-title">Acquis par Webedia · ambition leader européen</div>
+              <div class="news-summary">Partoo est filiale Webedia (groupe média français, Fimalac). Roadmap 2026 : consolider Sud Europe + LATAM (focus Mexique) + MENA, puis push Northern + Eastern Europe et exploration USA. Signal d'investissement long-terme.</div>
+              <div class="news-meta">
+                <a href="https://www.crunchbase.com/organization/partoo" target="_blank" rel="noopener">Crunchbase · Partoo</a>
                 <span class="impact-bar">
                   <span class="impact-segment active"></span>
                   <span class="impact-segment active"></span>
@@ -960,25 +1122,25 @@
           </div>
 
           <div class="focus-aside">
-            <h5>Pourquoi on les surveille de près · J-24</h5>
+            <h5>Pourquoi Partoo monte sur notre radar</h5>
             <ul>
-              <li><strong>Concurrent FR direct</strong> sur le retail multi-sites, notre angle Avis Vérifiés</li>
-              <li><strong>Module Trustville</strong> : solution de diffusion d'avis certifiés AFNOR concurrente</li>
-              <li><strong>Local Monitor gratuit</strong> utilisé comme produit d'appel : 5 concurrents surveillés gratuitement</li>
-              <li><strong>Faible sur le DTC/e-commerce pur</strong>, c'est notre zone de reconquête</li>
-              <li><strong>Cérémonie 28 mai · J-24</strong> : 200 décideurs retail attendus. Plan de contre-comm Skeepers à valider cette semaine.</li>
-              <li><strong>IA anti-fake reviews</strong> : nouveau pilier de crédibilité — Skeepers doit positionner sa propre IA française.</li>
+              <li><strong>Concurrent FR à plusieurs étages</strong> : retail multi-sites (vs Wizville), avis Google (vs Avis Vérifiés), feedback CX (vs Skeepers Feedback Management)</li>
+              <li><strong>Posture GEO assumée</strong> : seul concurrent FR à avoir un narratif clair sur la visibilité IA — à neutraliser dans les pitchs Q2-Q3</li>
+              <li><strong>Soutien capitalistique Webedia</strong> = patience financière + ambition européenne</li>
+              <li><strong>NPS &gt; 50 et 90% renewal</strong> : produit qui satisfait — pas de fissure exploitable comme chez Trustpilot ou Influitive</li>
+              <li><strong>Manque de couverture UGC + Influence</strong> : zone où Skeepers garde l'avantage suite intégrée</li>
+              <li><strong>Aucune offre Live Shopping ni Brand Communities</strong> : 2 piliers où on reste seul sur le marché FR/EU</li>
             </ul>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Segment 3 : Influence Marketing -->
+    <!-- Segment 3 : Concurrents Influence -->
     <div class="segment-label">
       <span class="segment-badge">Segment 3</span>
       <span style="font-family:var(--font-serif);font-size:20px;">Concurrents Influence Marketing</span>
-      <span class="segment-description">Plateformes d'influence FR & internationales · DNVB, beauté, food, retail</span>
+      <span class="segment-description">Plateformes Influence européennes/internationales — terrain Skeepers Influence</span>
     </div>
 
     <div class="competitor-grid">
@@ -988,17 +1150,17 @@
         <div class="competitor-head">
           <div>
             <div class="competitor-name">Kolsquare</div>
-            <div class="competitor-sub">Plateforme influence data-driven · Paris · 1 000+ clients · 30 pays</div>
+            <div class="competitor-sub">Influence Marketing · Paris · B Corp</div>
           </div>
-          <span class="momentum-pill up">↗ Étude marché 2026</span>
+          <span class="momentum-pill up">↗ Consolidation Europe</span>
         </div>
 
         <div class="news-item">
-          <span class="news-tag tag-news">Étude</span>
-          <div class="news-title">72% des marques augmentent leur budget influence en 2026</div>
-          <div class="news-summary">2e édition de l'étude européenne Kolsquare (600+ marques/agences, 12 pays) : 72% des marques prévoient une hausse de budget influence en 2026. 19% des marketeurs annoncent +20% minimum. 75% des pays européens vont augmenter le nombre d'influenceurs.</div>
+          <span class="news-tag tag-partnership">M&amp;A</span>
+          <div class="news-title">Storyclash intégré · 2 000 marques sur 30+ pays</div>
+          <div class="news-summary">L'acquisition de Storyclash (janvier 2026) est désormais intégrée. Combiné à Woomio (acquis fin 2024), Kolsquare revendique ~2 000 marques, agences et organisations publiques sur 30+ pays. Position de leader européen affirmée.</div>
           <div class="news-meta">
-            <a href="https://www.strategies.fr/actualites/culture-tech/LQ5446438C/les-marques-prevoient-daugmenter-leur-budget-dinfluence-en-2026.html" target="_blank" rel="noopener">Stratégies · nov 2025-mai 2026</a>
+            <a href="https://www.kolsquare.com/en/blog/kolsquare-welcomes-storyclash-building-europes-influencer-marketing-powerhouse" target="_blank" rel="noopener">kolsquare.com · 2026</a>
             <span class="impact-bar">
               <span class="impact-segment active"></span>
               <span class="impact-segment active"></span>
@@ -1008,11 +1170,11 @@
         </div>
 
         <div class="news-item">
-          <span class="news-tag tag-product">Produit</span>
-          <div class="news-title">Calendrier Influence & Social Media 2026</div>
-          <div class="news-summary">Asset éditorial gratuit relayé par Influencia : calendrier annuel 2026 pour anticiper les temps forts social. Outil d'acquisition mid-funnel efficace, qui sert de génération de leads vers la démo plateforme.</div>
+          <span class="news-tag tag-product">Rapport budget 2026</span>
+          <div class="news-title">Étude « Stretching Spend, Scaling Influence »</div>
+          <div class="news-summary">Kolsquare publie son rapport budget Influence 2026. Asset éditorial fort utilisé en lead-gen. Argument : +171% de budget Influence global, 519M€ investis en France, exigence ROI/preuve devenue centrale.</div>
           <div class="news-meta">
-            <a href="https://www.influencia.net/influence-social-media-kolsquare-vous-offre-le-calendrier-editorial-qui-va-rythmer-2026/" target="_blank" rel="noopener">Influencia · 2026</a>
+            <a href="https://www.kolsquare.com/en/free-ressources/kolsquare-budget-report-2026-stretching-spend-scaling-influence" target="_blank" rel="noopener">kolsquare.com · 2026</a>
             <span class="impact-bar">
               <span class="impact-segment active"></span>
               <span class="impact-segment active"></span>
@@ -1022,11 +1184,11 @@
         </div>
 
         <div class="news-item">
-          <span class="news-tag tag-product">IA</span>
-          <div class="news-title">Plateforme « révolutionnée par l'IA »</div>
-          <div class="news-summary">Repositionnement marketing « data-driven + IA » assumé sur leur site. Mêmes promesses que Skeepers Influence : matching automatisé, prédiction de performance, détection de faux engagements.</div>
+          <span class="news-tag tag-product">Positionnement</span>
+          <div class="news-title">Compliance + B Corp comme différenciateurs</div>
+          <div class="news-summary">Kolsquare verrouille son angle « éthique + compliance » : scoring de conformité intégré, position B Corp mise en avant, conformité au décret français 2023 sur les contrats d'influence. Argument de réassurance grands comptes.</div>
           <div class="news-meta">
-            <a href="https://inktomi.fr/kolsquare-marketing-influence/" target="_blank" rel="noopener">Inktomi · 2026</a>
+            <a href="https://www.kolsquare.com/en/blog/france-publishes-new-decree-defining-mandatory-contracts-for-influencer-partnerships" target="_blank" rel="noopener">kolsquare.com/blog · 2026</a>
             <span class="impact-bar">
               <span class="impact-segment active"></span>
               <span class="impact-segment active"></span>
@@ -1041,31 +1203,17 @@
         <div class="competitor-head">
           <div>
             <div class="competitor-name">Influence4You</div>
-            <div class="competitor-sub">Plateforme influence + affiliation · Paris · 275M profils</div>
+            <div class="competitor-sub">Marketplace Influence · Paris</div>
           </div>
-          <span class="momentum-pill up">↗ Affiliation universelle</span>
+          <span class="momentum-pill flat">→ Stable</span>
         </div>
 
         <div class="news-item">
-          <span class="news-tag tag-product">Produit</span>
-          <div class="news-title">Lancement « Affiliation Universelle » pour influenceurs</div>
-          <div class="news-summary">Nouvelle fonctionnalité majeure : l'affiliation universelle permet aux influenceurs de monétiser n'importe quel produit, n'importe quelle marque. Move fort pour fidéliser les créateurs et augmenter la rétention plateforme.</div>
+          <span class="news-tag tag-news">Volume</span>
+          <div class="news-title">300M influenceurs · 8M directement contactables</div>
+          <div class="news-summary">Influence4You consolide sa base : 300M de profils référencés (statistiques), 8M directement contactables, 230 000+ talents francophones et internationaux inscrits. Argument volumétrie fort sur la mid-market.</div>
           <div class="news-meta">
-            <a href="https://blogfr.influence4you.com/influence4you-revolutionne-laffiliation-avec-le-lancement-de-laffiliation-universelle-pour-les-influenceurs-%F0%9F%8C%8D/" target="_blank" rel="noopener">blogfr.influence4you.com · 2026</a>
-            <span class="impact-bar">
-              <span class="impact-segment active"></span>
-              <span class="impact-segment active"></span>
-              <span class="impact-segment active"></span>
-            </span>
-          </div>
-        </div>
-
-        <div class="news-item">
-          <span class="news-tag tag-product">IA</span>
-          <div class="news-title">IA intégrée : matching, briefs, prédiction</div>
-          <div class="news-summary">Stack IA déployée : matching automatisé ultra-précis, génération de briefs créatifs, prédiction de performance, détection de faux engagements. Cible : agences et annonceurs cherchant à industrialiser.</div>
-          <div class="news-meta">
-            <a href="https://blogfr.influence4you.com/influence4you-revolutionne-le-marketing-dinfluence-avec-lintegration-de-lia/" target="_blank" rel="noopener">blogfr.influence4you.com · 2026</a>
+            <a href="https://www.influence4you.com/en" target="_blank" rel="noopener">influence4you.com · 2026</a>
             <span class="impact-bar">
               <span class="impact-segment active"></span>
               <span class="impact-segment active"></span>
@@ -1075,11 +1223,210 @@
         </div>
 
         <div class="news-item">
-          <span class="news-tag tag-news">Événement</span>
-          <div class="news-title">Influence Insight Days · 800 pros, 30 keynotes</div>
-          <div class="news-summary">Événement 100% en ligne organisé les 17-18 mars 2026 : 800+ professionnels, 30 keynotes. Nouvelle édition prévue à l'automne. Asset acquisition très efficace + visibilité de marque sectorielle.</div>
+          <span class="news-tag tag-news">Marché</span>
+          <div class="news-title">Marché Influence FR &gt; 1,3 Md€</div>
+          <div class="news-summary">Selon les estimations 2025 reprises par I4Y, le marché de l'Influence Marketing en France dépasse 1,3 milliard d'euros, avec une croissance annuelle &gt; 15%. Influence4You positionne sa flexibilité tarifaire comme avantage SMB.</div>
           <div class="news-meta">
-            <a href="https://blogfr.influence4you.com/influence-insight-days-deux-jours-de-keynotes-pour-les-pros-de-linfluence-en-mars-2026/" target="_blank" rel="noopener">blogfr.influence4you.com · mars 2026</a>
+            <a href="https://blogfr.influence4you.com/8-meilleures-plateformes-dinfluence-marketing-en-france/" target="_blank" rel="noopener">blogfr.influence4you.com · 2026</a>
+            <span class="impact-bar">
+              <span class="impact-segment active"></span>
+              <span class="impact-segment active"></span>
+              <span class="impact-segment"></span>
+            </span>
+          </div>
+        </div>
+
+        <div class="news-item">
+          <span class="news-tag tag-news">Communication</span>
+          <div class="news-title">Pas d'annonce M&amp;A ni de levée de fonds</div>
+          <div class="news-summary">Pas de signal corporate fort cette semaine. Influence4You reste sur sa ligne historique (marketplace SMB-friendly), pendant que Kolsquare consolide l'Enterprise. Risque de décrochage compétitif sur les grands comptes.</div>
+          <div class="news-meta">
+            <a href="https://www.influence4you.com/en" target="_blank" rel="noopener">influence4you.com · avril 2026</a>
+            <span class="impact-bar">
+              <span class="impact-segment active"></span>
+              <span class="impact-segment"></span>
+              <span class="impact-segment"></span>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- INFLUENSTER -->
+      <div class="competitor-card">
+        <div class="competitor-head">
+          <div>
+            <div class="competitor-name">Influenster</div>
+            <div class="competitor-sub">Communauté UGC consumer · New York</div>
+          </div>
+          <span class="momentum-pill flat">→ Communauté seule</span>
+        </div>
+
+        <div class="news-item">
+          <span class="news-tag tag-news">Volume</span>
+          <div class="news-title">11M+ avis, 1,7M produits, 10M+ membres</div>
+          <div class="news-summary">Influenster maintient ses chiffres : 11M+ d'avis sur 1,7M de pages produit, 10M+ membres actifs. Modèle VoxBox (envoi gratuit produits contre review) toujours central. Force = communauté beauté/lifestyle US.</div>
+          <div class="news-meta">
+            <a href="https://www.influenster.com/" target="_blank" rel="noopener">influenster.com · 2026</a>
+            <span class="impact-bar">
+              <span class="impact-segment active"></span>
+              <span class="impact-segment active"></span>
+              <span class="impact-segment"></span>
+            </span>
+          </div>
+        </div>
+
+        <div class="news-item">
+          <span class="news-tag tag-review">Sentiment</span>
+          <div class="news-title">Reviews Trustpilot mitigées sur Influenster</div>
+          <div class="news-summary">Sur la plateforme Trustpilot elle-même, Influenster affiche un mix : témoignages positifs (« pas un scam, items consistants ») mais aussi plaintes communauté (envois inégaux, qualité technique app). Faiblesse = expérience B2C.</div>
+          <div class="news-meta">
+            <a href="https://www.trustpilot.com/review/influenster.com" target="_blank" rel="noopener">trustpilot.com · 2026</a>
+            <span class="impact-bar">
+              <span class="impact-segment active"></span>
+              <span class="impact-segment active"></span>
+              <span class="impact-segment"></span>
+            </span>
+          </div>
+        </div>
+
+        <div class="news-item">
+          <span class="news-tag tag-news">Positionnement</span>
+          <div class="news-title">Communauté avant plateforme B2B</div>
+          <div class="news-summary">Influenster reste positionné comme une communauté consumer-first plutôt qu'une plateforme B2B Influence pure. Concurrence indirecte mais limitée pour Skeepers Influence sur le marché européen — quasi inexistant en FR.</div>
+          <div class="news-meta">
+            <a href="https://www.influenster.com/reviews/community" target="_blank" rel="noopener">influenster.com/community · 2026</a>
+            <span class="impact-bar">
+              <span class="impact-segment active"></span>
+              <span class="impact-segment"></span>
+              <span class="impact-segment"></span>
+            </span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ============ BRAND COMMUNITIES ============ -->
+  <section id="brand-communities">
+    <div class="section-header">
+      <div class="section-eyebrow">Nouveau front · Brand Communities</div>
+      <h2 class="section-title">L'advocacy <em>devient</em> un système.</h2>
+      <p class="section-description">Section autonome dédiée à Skeepers Brand Communities (skeepers.io/fr/brand-communities). Une mini-veille à part entière : édito sectoriel, benchmark, concurrents, signaux faibles. Le marché des plateformes communautaires (sampling, co-création, ambassadeurs) est en pleine recomposition.</p>
+    </div>
+
+    <div class="edito-card" style="margin-bottom:48px;">
+      <div class="edito-tag">Édito sectoriel · Brand Communities</div>
+      <h2>Pendant que <em>Influitive</em> vacille et que <em>Vesta</em> disparaît dans TINT, le terrain est libre.</h2>
+      <p>
+        2026 acte une bascule : l'advocacy n'est plus une campagne ponctuelle, c'est devenu un système d'alimentation continu en UGC, en feedback produit et en social proof. C'est exactement le terrain de Skeepers Brand Communities. Or les deux historiques mondiaux du segment sont en zone rouge. Influitive, pionnier depuis 2010, a été acquis fin 2025 par Jigsaw (ESW Capital), suivi de licenciements rapides et de plaintes Capterra/G2 sur la disparition du support client. Vesta, leader US de la community-powered marketing, a été absorbé par TINT en mai 2023 et a perdu sa visibilité de marque. SocialLadder reste solide sur le DTC (American Eagle, Kendra Scott, 500+ marques), mais reste US-centric. Skeepers a une fenêtre de 6 à 12 mois pour positionner Brand Communities comme la référence européenne sampling + co-création + advocacy, avec un atout unique : la base de 500 000+ créateurs/consommateurs déjà active sur Skeepers Influence.
+      </p>
+      <div class="edito-sig">— La rédaction du Veilleur, assistée par Claude</div>
+    </div>
+
+    <div class="benchmark-card" style="margin-bottom:48px;">
+      <div class="benchmark-header">
+        <div class="benchmark-brand-wrap">
+          <div class="skeepers-mark skeepers-mark-lg">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none">
+              <circle cx="8" cy="12" r="4.5" fill="white"/>
+              <circle cx="16" cy="12" r="4.5" fill="white" fill-opacity="0.55"/>
+              <circle cx="8" cy="12" r="1.6" fill="var(--skeepers-blue)"/>
+              <circle cx="16" cy="12" r="1.6" fill="var(--skeepers-blue)"/>
+            </svg>
+          </div>
+          <div>
+            <div class="benchmark-title">Skeepers <em>Brand Communities</em></div>
+            <div class="benchmark-subtitle">Communauté consommateurs · sampling · co-création · advocacy</div>
+          </div>
+        </div>
+        <div class="benchmark-score">
+          <div class="benchmark-score-value">+</div>
+          <div class="benchmark-score-label">Fenêtre de marché ouverte</div>
+        </div>
+      </div>
+
+      <div class="benchmark-grid">
+        <div class="benchmark-stat">
+          <div class="benchmark-stat-label">Communauté active</div>
+          <div class="benchmark-stat-value">500K+</div>
+          <div class="benchmark-stat-delta positive">▲ Mutualisée Influence + Brand</div>
+        </div>
+        <div class="benchmark-stat">
+          <div class="benchmark-stat-label">Cas d'usage couverts</div>
+          <div class="benchmark-stat-value">5</div>
+          <div class="benchmark-stat-delta positive">▲ Sampling, co-création, UGC, test, advocacy</div>
+        </div>
+        <div class="benchmark-stat">
+          <div class="benchmark-stat-label">Concurrents en transition</div>
+          <div class="benchmark-stat-value">2</div>
+          <div class="benchmark-stat-delta positive">▲ Influitive · Vesta absorbés</div>
+        </div>
+        <div class="benchmark-stat">
+          <div class="benchmark-stat-label">Couverture européenne</div>
+          <div class="benchmark-stat-value">FR/EU</div>
+          <div class="benchmark-stat-delta positive">▲ vs concurrents US-centric</div>
+        </div>
+      </div>
+
+      <div class="benchmark-verdict">
+        <span class="benchmark-verdict-label">Lecture stratégique Brand Communities</span>
+        <strong>On gagne sur la maturité européenne</strong> : la combinaison « communauté de 500 000+ créateurs/consos déjà actifs » + « expertise sampling et co-création » est unique en Europe. <strong>On gagne sur la stabilité</strong> : Influitive et Vesta sont chacun en post-acquisition difficile, Skeepers Brand Communities est dans une phase d'investissement clair. <strong>On défend sur la profondeur produit</strong> : Vesta a 20+ types d'activités, l'effort R&amp;D Brand Communities doit suivre — il faut un comparatif par cas d'usage. <strong>On attaque sur le DTC FR/Europe</strong> : SocialLadder reste US, c'est une zone à conquérir sans concurrent local sérieux. Action immédiate : dégager une séquence ABM ciblée comptes Influitive en France et lancer une page dédiée « alternative à Influitive ».
+      </div>
+    </div>
+
+    <div class="segment-label">
+      <span class="segment-badge">Segment Brand Communities</span>
+      <span style="font-family:var(--font-serif);font-size:20px;">Plateformes communautaires &amp; advocacy</span>
+      <span class="segment-description">Communautés de marque, sampling, advocacy, co-création — terrain Skeepers Brand Communities</span>
+    </div>
+
+    <div class="competitor-grid">
+
+      <div class="competitor-card">
+        <div class="competitor-head">
+          <div>
+            <div class="competitor-name">Influitive</div>
+            <div class="competitor-sub">Advocacy &amp; community · Toronto · acquis Jigsaw</div>
+          </div>
+          <span class="momentum-pill down">↘ Post-acquisition</span>
+        </div>
+
+        <div class="news-item">
+          <span class="news-tag tag-partnership">M&amp;A</span>
+          <div class="news-title">Acquisition par Jigsaw / ESW Capital fin 2025</div>
+          <div class="news-summary">Jigsaw, filiale d'ESW Capital, a racheté Influitive fin 2025. L'acquisition a été immédiatement suivie de licenciements rapides. Pionnier historique de l'advocate marketing depuis 2010, désormais en phase d'absorption.</div>
+          <div class="news-meta">
+            <a href="https://www.forrester.com/blogs/what-to-do-next-about-your-customer-advocacy-platform/" target="_blank" rel="noopener">Forrester · 2026</a>
+            <span class="impact-bar">
+              <span class="impact-segment active"></span>
+              <span class="impact-segment active"></span>
+              <span class="impact-segment active"></span>
+            </span>
+          </div>
+        </div>
+
+        <div class="news-item">
+          <span class="news-tag tag-review">Sentiment client</span>
+          <div class="news-title">Plaintes G2/Capterra : « customer service gone »</div>
+          <div class="news-summary">Reviews 2026 sur G2 et Capterra signalent la dégradation marquée du support client post-acquisition. Plusieurs clients historiques évoquent un changement de doctrine commerciale. Risque de churn élevé.</div>
+          <div class="news-meta">
+            <a href="https://www.g2.com/products/jigsaw-interactive-influitive/reviews" target="_blank" rel="noopener">G2.com · 2026</a>
+            <span class="impact-bar">
+              <span class="impact-segment active"></span>
+              <span class="impact-segment active"></span>
+              <span class="impact-segment active"></span>
+            </span>
+          </div>
+        </div>
+
+        <div class="news-item">
+          <span class="news-tag tag-product">Produit</span>
+          <div class="news-title">Plateforme advocate hub historique</div>
+          <div class="news-summary">Influitive (ex AdvocateHub) reste sur ses fondamentaux : challenges, referrals, reviews, posts sociaux gamifiés. Forte sur le B2B/SaaS. Peu d'évolution produit visible depuis 6 mois — gel de roadmap suspecté post-acquisition.</div>
+          <div class="news-meta">
+            <a href="https://influitive.com/" target="_blank" rel="noopener">influitive.com · 2026</a>
             <span class="impact-bar">
               <span class="impact-segment active"></span>
               <span class="impact-segment active"></span>
@@ -1089,36 +1436,87 @@
         </div>
       </div>
 
-      <!-- WOO / YOO -->
       <div class="competitor-card">
         <div class="competitor-head">
           <div>
-            <div class="competitor-name">WOO / YOO</div>
-            <div class="competitor-sub">Agence + plateforme UGC · Paris · 100K+ créateurs FR</div>
+            <div class="competitor-name">Vesta (TINT)</div>
+            <div class="competitor-sub">Online brand community · NYC · absorbé TINT</div>
           </div>
-          <span class="momentum-pill up">↗ Plus ancienne plateforme FR</span>
+          <span class="momentum-pill flat">→ Marque diluée</span>
+        </div>
+
+        <div class="news-item">
+          <span class="news-tag tag-partnership">M&amp;A</span>
+          <div class="news-title">Acquis par TINT en mai 2023, marque en absorption</div>
+          <div class="news-summary">Vesta (anciennement Social Media Link) a été racheté par TINT en mai 2023. La marque Vesta perd peu à peu sa visibilité au profit du label TINT « Community Powered Marketing ». Effet : moins de notoriété autonome sur le marché.</div>
+          <div class="news-meta">
+            <a href="https://www.prnewswire.com/news-releases/tint-announces-acquisition-of-vesta-online-brand-community-platform-301823789.html" target="_blank" rel="noopener">PRNewswire · mai 2023</a>
+            <span class="impact-bar">
+              <span class="impact-segment active"></span>
+              <span class="impact-segment active"></span>
+              <span class="impact-segment"></span>
+            </span>
+          </div>
+        </div>
+
+        <div class="news-item">
+          <span class="news-tag tag-product">Produit</span>
+          <div class="news-title">20+ types d'activités communautaires</div>
+          <div class="news-summary">Plateforme couvrant co-création, sampling, UGC/reviews campaigns, surveys/polls, special offers, discussions. Communautés brandées sans code. Référence produit de profondeur — benchmark utile pour Skeepers Brand Communities.</div>
+          <div class="news-meta">
+            <a href="https://www.vesta-go.com/online-community-platform/" target="_blank" rel="noopener">vesta-go.com · 2026</a>
+            <span class="impact-bar">
+              <span class="impact-segment active"></span>
+              <span class="impact-segment active"></span>
+              <span class="impact-segment active"></span>
+            </span>
+          </div>
+        </div>
+
+        <div class="news-item">
+          <span class="news-tag tag-news">Marché</span>
+          <div class="news-title">Positionnement « community-based marketing »</div>
+          <div class="news-summary">Vesta/TINT pousse le narratif « community-based marketing = future of business ». Approche zero-party data, ROI sampling, advocacy continu. Présence FR/Europe limitée — opportunité Skeepers de prendre le narratif local.</div>
+          <div class="news-meta">
+            <a href="https://www.linkedin.com/company/vesta-go" target="_blank" rel="noopener">Vesta · LinkedIn · 2026</a>
+            <span class="impact-bar">
+              <span class="impact-segment active"></span>
+              <span class="impact-segment active"></span>
+              <span class="impact-segment"></span>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="competitor-card">
+        <div class="competitor-head">
+          <div>
+            <div class="competitor-name">SocialLadder</div>
+            <div class="competitor-sub">Brand ambassadors DTC · US · 500+ marques</div>
+          </div>
+          <span class="momentum-pill up">↗ Croissance DTC</span>
+        </div>
+
+        <div class="news-item">
+          <span class="news-tag tag-news">Volume</span>
+          <div class="news-title">500+ marques DTC dont American Eagle, Kendra Scott</div>
+          <div class="news-summary">SocialLadder se positionne comme « community activation platform » pour les marques DTC. Références fortes : American Eagle, Kendra Scott, Bubble Beauty, Dormify, goPuff. 500+ marques actives. Forte concentration US.</div>
+          <div class="news-meta">
+            <a href="https://www.socialladderapp.com/" target="_blank" rel="noopener">socialladderapp.com · 2026</a>
+            <span class="impact-bar">
+              <span class="impact-segment active"></span>
+              <span class="impact-segment active"></span>
+              <span class="impact-segment"></span>
+            </span>
+          </div>
         </div>
 
         <div class="news-item">
           <span class="news-tag tag-product">Positionnement</span>
-          <div class="news-title">100K+ créateurs FR · « plus ancienne plateforme du marché »</div>
-          <div class="news-summary">YOO (groupe Olyn, ex-WOO) revendique la plus grande communauté FR : 100 000+ profils créateurs, plateforme construite sur 10+ ans. Positionnement « Made in France » et UGC + micro-influence.</div>
+          <div class="news-title">« Ongoing relationships, not one-off posts »</div>
+          <div class="news-summary">SocialLadder met le pied dans la porte des programmes d'ambassadeurs continus (vs influence campagne unique). Cible : DTC, campus programs, marques lifestyle. Argument central = relation long-terme.</div>
           <div class="news-meta">
-            <a href="https://www.yoo.paris/en" target="_blank" rel="noopener">yoo.paris · 2026</a>
-            <span class="impact-bar">
-              <span class="impact-segment active"></span>
-              <span class="impact-segment active"></span>
-              <span class="impact-segment active"></span>
-            </span>
-          </div>
-        </div>
-
-        <div class="news-item">
-          <span class="news-tag tag-news">Levée de fonds</span>
-          <div class="news-title">3M€ levés pour s'étendre à l'international (FrenchWeb)</div>
-          <div class="news-summary">WOÔ (devenu YOO) a levé 3M€ pour pousser son expansion internationale. Stratégie de capitalisation sur l'agence WOO (référence FR influence) pour accélérer la plateforme self-serve YOO en EMEA.</div>
-          <div class="news-meta">
-            <a href="https://www.frenchweb.fr/marketing-dinfluence-la-startup-woo-leve-3-millions-deuros-pour-setendre-a-linternational/384882" target="_blank" rel="noopener">FrenchWeb · 2026</a>
+            <a href="https://www.socialladderapp.com/blog/best-brand-ambassador-platforms/" target="_blank" rel="noopener">socialladderapp.com/blog · 2026</a>
             <span class="impact-bar">
               <span class="impact-segment active"></span>
               <span class="impact-segment active"></span>
@@ -1128,14 +1526,14 @@
         </div>
 
         <div class="news-item">
-          <span class="news-tag tag-product">Produit</span>
-          <div class="news-title">Formats UGC : unboxing, giveaway, test produit, événements</div>
-          <div class="news-summary">Catalogue de campagnes packagées : unboxing, jeux concours, tests produits, invitation événement. Sortie multi-formats stories/reels/TikTok/photos. Cible directe : marques DNVB beauté/lifestyle.</div>
+          <span class="news-tag tag-news">Marché Europe</span>
+          <div class="news-title">Présence FR/EU quasi inexistante</div>
+          <div class="news-summary">Aucun bureau européen détecté, langue de plateforme uniquement EN, pas de référence client FR notable. Zone de marché européen en libre disposition pour Skeepers Brand Communities, à condition d'agir vite.</div>
           <div class="news-meta">
-            <a href="https://www.woo.paris/en/yoo/ugc-platform" target="_blank" rel="noopener">woo.paris · 2026</a>
+            <a href="https://www.socialladderapp.com/" target="_blank" rel="noopener">socialladderapp.com · 2026</a>
             <span class="impact-bar">
               <span class="impact-segment active"></span>
-              <span class="impact-segment active"></span>
+              <span class="impact-segment"></span>
               <span class="impact-segment"></span>
             </span>
           </div>
@@ -1144,80 +1542,96 @@
 
     </div>
 
-    <!-- Segment 4 : Influenster (Bazaarvoice) -->
-    <div class="segment-label">
-      <span class="segment-badge local">Segment 4 · Communauté</span>
-      <span style="font-family:var(--font-serif);font-size:20px;">Influenster · communauté Bazaarvoice</span>
-      <span class="segment-description">7M shoppers, 38M+ avis · acquis par Bazaarvoice en 2019</span>
-    </div>
+    <div class="battlecards-wrap" style="margin-top:32px;">
 
-    <div class="competitor-grid">
-      <div class="competitor-card focus-card">
-        <div class="competitor-head">
+      <div class="battlecard">
+        <div class="battle-header">
           <div>
-            <div class="competitor-name" style="font-size:34px;">Influenster</div>
-            <div class="competitor-sub">App communauté shoppers + reviews · 7M membres global · filiale Bazaarvoice</div>
+            <div class="battle-title">Face à <em>Influitive</em></div>
+            <div class="battle-subtitle">Pionnier B2B/SaaS · post-acquisition Jigsaw · support dégradé</div>
           </div>
-          <span class="momentum-pill down">→ Aucun signal cette semaine</span>
+          <span class="battle-badge">Haute</span>
         </div>
 
-        <div class="focus-grid">
-          <div class="focus-news-list">
-            <div class="news-item">
-              <span class="news-tag tag-news">Communauté</span>
-              <div class="news-title">7M shoppers actifs · 50 000 contenus / jour</div>
-              <div class="news-summary">Influenster reste la plus grosse communauté UGC organique : 7M membres, 38M+ avis cumulés, 50 000 nouveaux contenus / jour (photos, vidéos, Q&A). Levier majeur pour les marques CPG US qui cherchent du seed product.</div>
-              <div class="news-meta">
-                <a href="https://www.bazaarvoice.com/blog/bazaarvoice-acquires-influenster/" target="_blank" rel="noopener">bazaarvoice.com/blog · ref 2019</a>
-                <span class="impact-bar">
-                  <span class="impact-segment active"></span>
-                  <span class="impact-segment active"></span>
-                  <span class="impact-segment"></span>
-                </span>
-              </div>
-            </div>
+        <div class="battle-col objection">
+          <h4>Ce que dit le prospect</h4>
+          <ul>
+            <li>Influitive a 16 ans d'expérience advocate marketing, c'est la référence.</li>
+            <li>La gamification Influitive est imbattable, nos advocates l'adorent.</li>
+            <li>L'acquisition par Jigsaw, c'est juste de la stabilité financière.</li>
+            <li>On utilise déjà Influitive sur les programmes B2B, pourquoi changer ?</li>
+          </ul>
+        </div>
 
-            <div class="news-item">
-              <span class="news-tag tag-product">Programme</span>
-              <div class="news-title">Content Acquisition Partner Program</div>
-              <div class="news-summary">Programme de partenariat permettant aux marques de récupérer le contenu Influenster pour le diffuser sur leurs propres sites via Bazaarvoice. Boost direct du volume UGC sans recrutement créateurs.</div>
-              <div class="news-meta">
-                <a href="https://finance.yahoo.com/news/influenster-partners-bazaarvoice-content-acquisition-144000088.html" target="_blank" rel="noopener">Yahoo Finance · ref</a>
-                <span class="impact-bar">
-                  <span class="impact-segment active"></span>
-                  <span class="impact-segment active"></span>
-                  <span class="impact-segment"></span>
-                </span>
-              </div>
-            </div>
+        <div class="battle-col response">
+          <h4>Ce que vous répondez</h4>
+          <ul>
+            <li>Pionnier ≠ leader actuel. Les reviews G2/Capterra 2026 signalent une dégradation marquée du support client. La fenêtre de risque est ouverte.</li>
+            <li>La gamification seule ne fait pas une communauté qui produit du UGC monétisable. Skeepers Brand Communities combine gamification, sampling, co-création et collecte UGC publiable.</li>
+            <li>Jigsaw / ESW Capital = portfolio holding qui consolide pour rentabiliser, pas pour innover. Voir Forrester 2026 sur la stagnation des plateformes advocacy.</li>
+            <li>Skeepers Brand Communities est branché sur 500 000+ consommateurs/créateurs européens déjà actifs côté Influence — synergie cross-vertical impossible chez Influitive.</li>
+          </ul>
+        </div>
+      </div>
 
-            <div class="news-item">
-              <span class="news-tag tag-news">Veille</span>
-              <div class="news-title">Pas de news produit ou exec en mai 2026</div>
-              <div class="news-summary">Aucun communiqué Influenster identifié cette semaine. Silence radio depuis l'intégration complète Bazaarvoice. Faible exposition FR : asset US-centric, peu utilisé en Europe.</div>
-              <div class="news-meta">
-                <a href="https://www.influenster.com/" target="_blank" rel="noopener">influenster.com · 2026</a>
-                <span class="impact-bar">
-                  <span class="impact-segment active"></span>
-                  <span class="impact-segment"></span>
-                  <span class="impact-segment"></span>
-                </span>
-              </div>
-            </div>
+      <div class="battlecard">
+        <div class="battle-header">
+          <div>
+            <div class="battle-title">Face à <em>Vesta / TINT</em></div>
+            <div class="battle-subtitle">Suite community-powered · marque diluée post-2023 · US-centric</div>
           </div>
+          <span class="battle-badge">Moyenne</span>
+        </div>
 
-          <div class="focus-aside">
-            <h5>Pourquoi ils restent au radar</h5>
-            <ul>
-              <li><strong>Atout massif Bazaarvoice</strong> : ils peuvent activer 7M consommateurs réels pour leurs clients CPG.</li>
-              <li><strong>Faible présence FR</strong> : pas de communauté significative en France. Notre <strong>écosystème 500K+ créateurs FR</strong> domine localement (×5 vs YOO).</li>
-              <li><strong>Modèle « seeding produits »</strong> : risque de cannibaliser les sampling marques CPG. À monitorer pour Skeepers Influence.</li>
-              <li><strong>Levier de syndication</strong> : si Bazaarvoice intègre Influenster + Authentic Discovery API, ça devient une menace IA + influence consolidée.</li>
-            </ul>
+        <div class="battle-col objection">
+          <h4>Ce que dit le prospect</h4>
+          <ul>
+            <li>Vesta a 20+ types d'activités, c'est plus complet.</li>
+            <li>TINT est un acteur référencé du UGC + community.</li>
+            <li>Le positionnement « zero-party data » est très convaincant pour le DPO.</li>
+            <li>Pas vraiment d'alternative européenne crédible, non ?</li>
+          </ul>
+        </div>
+
+        <div class="battle-col response">
+          <h4>Ce que vous répondez</h4>
+          <ul>
+            <li>Le nombre d'activités importe moins que le résultat. Skeepers couvre les 5 cas d'usage stratégiques (sampling, co-création, UGC, test produit, advocacy) avec une intégration native dans la suite Avis + Influence.</li>
+            <li>TINT a absorbé Vesta en 2023 et la marque historique perd en visibilité. Une plateforme en absorption n'a pas la même priorité produit qu'une plateforme en investissement actif.</li>
+            <li>Skeepers est aligné RGPD natif, hébergement européen, conformité française. Argument zero-party data + souveraineté data = avantage net en FR/EU.</li>
+            <li>Skeepers Brand Communities EST l'alternative européenne crédible, branchée sur 500 000+ membres, avec une équipe locale et un support FR. Le marché européen attend exactement ça.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="signal-type-row" style="margin-top:48px; border-top:1px solid var(--grey-4); padding-top:32px;">
+      <div class="signal-type-label">
+        <div class="signal-type-title">Signaux <em>Brand Communities</em></div>
+        <div class="signal-type-desc">Mouvements spécifiques au segment advocacy / sampling / co-création.</div>
+      </div>
+      <div class="signal-type-items">
+        <div class="signal-item">
+          <div class="signal-source"><a href="https://www.duel.tech/blog/the-state-of-brand-advocacy-in-2026" target="_blank" rel="noopener">Duel · State of Brand Advocacy 2026</a></div>
+          <div class="signal-content">Rapport Duel 2026 : <strong>« Systems, not Campaigns »</strong>. L'advocacy passe de tactique à système d'alimentation continu. Le marché bascule vers les plateformes communautaires intégrées avec UGC + Reviews + Influence — exactement le positionnement Skeepers.</div>
+          <div class="signal-action">
+            <span class="signal-action-label">Action marketing</span>
+            Capitaliser ce rapport : produire un contenu Skeepers « Brand Communities = système d'alimentation, pas campagne », ciblé directeurs marketing FR/Europe Q2.
+          </div>
+        </div>
+
+        <div class="signal-item">
+          <div class="signal-source"><a href="https://www.capterra.com/p/136258/AdvocateHub/reviews/" target="_blank" rel="noopener">Influitive · Capterra Reviews</a></div>
+          <div class="signal-content"><strong>Reviews Capterra dégradées post-acquisition Jigsaw</strong>. Plusieurs clients SaaS B2B signalent perte de point de contact, gel de roadmap, montée en prix. Comptes en renouvellement = cibles immédiates.</div>
+          <div class="signal-action">
+            <span class="signal-action-label">Action sales</span>
+            Lister les comptes Influitive FR/EU détectables (cas clients publics, mentions LinkedIn). Lancer une séquence ABM « Alternative à Influitive — la suite européenne stable ».
           </div>
         </div>
       </div>
     </div>
+
   </section>
 
   <!-- ============ BATTLECARDS ============ -->
@@ -1233,8 +1647,8 @@
       <div class="battlecard">
         <div class="battle-header">
           <div>
-            <div class="battle-title">Face à <em>Wizville</em> · J-24</div>
-            <div class="battle-subtitle">Terrain retail FR · cérémonie Prix Satisfaction Client le 28 mai · IA anti-fake reviews</div>
+            <div class="battle-title">Face à <em>Yotpo</em></div>
+            <div class="battle-subtitle">Terrain e-commerce DTC · pivot post-Email/SMS · recentrage Reviews+Loyalty</div>
           </div>
           <span class="battle-badge">Haute</span>
         </div>
@@ -1242,20 +1656,20 @@
         <div class="battle-col objection">
           <h4>Ce que dit le prospect</h4>
           <ul>
-            <li>Wizville organise un Prix Satisfaction Client retail, c'est THE référence FR.</li>
-            <li>Leur règlement 2026 inclut désormais une IA détection de faux avis.</li>
-            <li>Trustville = avis certifiés AFNOR, comme Avis Vérifiés.</li>
-            <li>WizAI est intégré depuis 2022, IA mature sur le français retail.</li>
+            <li>Yotpo se recentre sur Reviews + Loyalty, l'IA est la priorité n°1.</li>
+            <li>4,8/5 sur Shopify App Store, c'est plébiscité par 35 000 marques.</li>
+            <li>Intégration native Shopify Plus, pas besoin de dev.</li>
+            <li>Trustpilot et Bazaarvoice viennent de lancer leurs API IA, Yotpo va suivre vite.</li>
           </ul>
         </div>
 
         <div class="battle-col response">
           <h4>Ce que vous répondez</h4>
           <ul>
-            <li>Le Prix Wizville = excellent buzz mais c'est leur propre baromètre. Avis Vérifiés est référencé par AFNOR sur la NF ISO 20488 — la norme officielle française.</li>
-            <li>L'IA anti-fake reviews est un levier marketing, pas un produit éprouvé. Skeepers détecte les fraudes depuis 2018 avec 8 000+ marques de retour terrain.</li>
-            <li>Avis Vérifiés a co-rédigé NF ISO 20488 avec AFNOR. Trustville implémente la norme, Avis Vérifiés en est la référence historique.</li>
-            <li>WizAI = retail pur. Skeepers = suite complète Avis + Influence + Live Shopping pour retail ET DTC.</li>
+            <li>Recentrage = aveu d'échec de la suite tout-en-un. 200 licenciements (-34% effectifs), messaging désormais externalisé chez Attentive. Skeepers couvre Reviews + Influence + Live Shopping nativement.</li>
+            <li>4,8/5 c'est sur la marketplace Shopify, pas G2 (où Trustpilot est à 3,4/5). Chez Skeepers Avis Vérifiés : +70% de conversion mesurée et certification AFNOR co-rédigée.</li>
+            <li>L'intégration native ne compense pas le ROI : Avis Vérifiés s'intègre Shopify avec 120 CSM FR pour vous accompagner concrètement.</li>
+            <li>« Va suivre » = posture. Bazaarvoice a livré une API et étendu Gemini. Trustpilot a livré sa suite IA fin avril. Yotpo n'a livré qu'un repositionnement marketing, pas d'API publique.</li>
           </ul>
         </div>
       </div>
@@ -1263,8 +1677,8 @@
       <div class="battlecard">
         <div class="battle-header">
           <div>
-            <div class="battle-title">Face à <em>Kolsquare / I4Y</em></div>
-            <div class="battle-subtitle">Terrain Influence Marketing FR · +72% budgets 2026 · momentum à exploiter</div>
+            <div class="battle-title">Face à <em>Wizville</em></div>
+            <div class="battle-subtitle">Terrain retail multi-sites FR · WizAI · Prix Satisfaction Client</div>
           </div>
           <span class="battle-badge">Haute</span>
         </div>
@@ -1272,20 +1686,20 @@
         <div class="battle-col objection">
           <h4>Ce que dit le prospect</h4>
           <ul>
-            <li>Kolsquare est leader influence pure en France avec 1 000+ clients dans 30 pays.</li>
-            <li>Influence4You vient de lancer l'Affiliation Universelle, super pour mes créateurs.</li>
-            <li>YOO a 100K créateurs FR, plus ancienne plateforme du marché.</li>
-            <li>Pourquoi prendre une suite UGC alors qu'un spécialiste fera mieux ?</li>
+            <li>Wizville est plus spécialisé retail que Skeepers.</li>
+            <li>WizAI a l'air très avancé, classification à 99%.</li>
+            <li>Leur cérémonie Prix Satisfaction Client rassemble 200 décideurs retail.</li>
+            <li>Trustville = avis certifiés AFNOR, comme Avis Vérifiés.</li>
           </ul>
         </div>
 
         <div class="battle-col response">
           <h4>Ce que vous répondez</h4>
           <ul>
-            <li>Kolsquare = pure-player influence. Skeepers active influence + avis + live + UGC sur la même fiche produit, le même tunnel : un créateur sponsorisé alimente votre PDP en avis et en vidéos shoppable, pas chez Kolsquare.</li>
-            <li>L'affiliation est un add-on. Notre vraie différence : 500K créateurs FR (×5 vs YOO) + un moteur de matching sémantique en français + une chaîne de monétisation post-influence (avis, UGC, live).</li>
-            <li>YOO = 100K créateurs, Skeepers = 500K+. Plus ancienne ≠ plus large. Et nos créateurs sont déjà connectés à votre Avis Vérifiés.</li>
-            <li>L'étude Kolsquare elle-même valide notre thèse : 72% des marques montent leur budget influence et 100% veulent +de transparence — exactement ce que la suite Skeepers offre, sans gérer 3 vendors.</li>
+            <li>Wizville = retail pur, aucune couverture UGC, influence ou live shopping. Skeepers = suite complète pour le retail ET le DTC.</li>
+            <li>99% de classification = benchmark vendor sur un scope limité. Notre IA a 4 ans d'entraînement sur le français réel, avec les verbatims de 8 000+ marques.</li>
+            <li>200 décideurs dans une cérémonie ≠ résultats concrets. Skeepers accompagne directement ces décideurs avec 120 CSM FR sur le terrain.</li>
+            <li>Avis Vérifiés a co-rédigé la norme NF ISO 20488 avec AFNOR. Trustville implémente la norme, Avis Vérifiés en est la référence historique.</li>
           </ul>
         </div>
       </div>
@@ -1308,20 +1722,20 @@
       </div>
       <div class="signal-type-items">
         <div class="signal-item">
-          <div class="signal-source"><a href="https://www.linkedin.com/company/kolsquare/jobs/" target="_blank" rel="noopener">Kolsquare · LinkedIn Jobs</a></div>
-          <div class="signal-content">Kolsquare recrute des <strong>Account Executives EMEA + Customer Success</strong>. Cohérent avec leur narrative « +72% budgets influence 2026 ». Push commercial post-étude européenne.</div>
+          <div class="signal-source"><a href="https://www.linkedin.com/jobs/yotpo-jobs-worldwide" target="_blank" rel="noopener">Yotpo · LinkedIn Jobs</a></div>
+          <div class="signal-content"><strong>~110 postes ouverts (+13 sur 2 semaines)</strong>. Concentration claire sur AI/ML Engineering et Customer Success Reviews+Loyalty. Toujours pas de poste FR détecté, signe d'un retrait du marché français.</div>
           <div class="signal-action">
             <span class="signal-action-label">Action sales</span>
-            Anticiper l'intensification outbound Kolsquare sur les comptes DNVB/beauté FR. Sécuriser nos comptes en renouvellement Q3 dès maintenant.
+            Yotpo abandonne le terrain France côté go-to-market. Lancer dès cette semaine une séquence ABM sur les comptes Yotpo en renouvellement Q2-Q3 (focus DTC FR).
           </div>
         </div>
 
         <div class="signal-item">
-          <div class="signal-source"><a href="https://www.welcometothejungle.com/fr/companies/wizville/tech" target="_blank" rel="noopener">Wizville · Welcome to the Jungle</a></div>
-          <div class="signal-content">Wizville en posture « pre-event » : <strong>pas de gros recrutement</strong> détecté cette semaine. Probable accélération sales post 28 mai (cérémonie).</div>
+          <div class="signal-source"><a href="https://www.kolsquare.com/en" target="_blank" rel="noopener">Kolsquare · Storyclash post-merger</a></div>
+          <div class="signal-content"><strong>Intégration Storyclash en cours</strong>. Postes Sales DACH, Customer Success Senior et Data Engineering ouverts. Signal d'une montée en charge Enterprise post-acquisition.</div>
           <div class="signal-action">
-            <span class="signal-action-label">Action veille</span>
-            Mettre une alerte LinkedIn « Wizville Sales » du 29 mai au 15 juin pour détecter le post-event hiring spike.
+            <span class="signal-action-label">Action sales</span>
+            Surveiller les marques retail/beauté communes (Kolsquare ↔ Skeepers Influence). Risque de pression commerciale renforcée à anticiper.
           </div>
         </div>
       </div>
@@ -1335,19 +1749,19 @@
       <div class="signal-type-items">
         <div class="signal-item">
           <div class="signal-source"><a href="https://www.glassdoor.com/Reviews/Bazaarvoice-Reviews-E147230.htm" target="_blank" rel="noopener">Bazaarvoice · Glassdoor</a></div>
-          <div class="signal-content"><strong>Refonte de l'équipe dirigeante (ELT)</strong> confirmée par plusieurs reviews Glassdoor 2026. Période de transition avec turnover exécutif élevé.</div>
+          <div class="signal-content"><strong>Transition ELT toujours en cours</strong>. Combinée aux gros lancements IA d'avril (API + Gemini), signe que la nouvelle direction pousse une réorientation produit accélérée.</div>
           <div class="signal-action">
             <span class="signal-action-label">Action commerciale</span>
-            Fenêtre de tir sur les comptes Bazaarvoice en France : incertitude interne = opportunité de démarchage. Prioriser les retailers BV en renégociation.
+            Maintenir la pression sur les comptes BV France. Argumenter sur la stabilité Skeepers vs. transition BV. Prioriser retailers en renégociation Q2.
           </div>
         </div>
 
         <div class="signal-item">
-          <div class="signal-source"><a href="https://www.yotpo.com/" target="_blank" rel="noopener">Yotpo · Homepage</a></div>
-          <div class="signal-content">Repositionnement officialisé en home : <strong>« Loyalty, Reviews & AI Visibility For Ecommerce »</strong>. La narrative passe de « commerce platform » à « AI Visibility for Ecommerce » — terrain identique à Bazaarvoice.</div>
+          <div class="signal-source"><a href="https://emailexpert.com/yotpo-shuts-down-email-sms-strategic-pivot-sparks-industry-shock-and-layoffs/" target="_blank" rel="noopener">Yotpo · EmailExpert</a></div>
+          <div class="signal-content">CEO Tomer Tagrin : <strong>« Tomorrow's companies will be smaller, more focused, and much more AI-based »</strong>. Pivot stratégique assumé vers le « less is more ».</div>
           <div class="signal-action">
             <span class="signal-action-label">Action Content</span>
-            Lancer un asset « Suite UGC complète vs. Best-of-breed : pourquoi la suite gagne en 2026 » + un benchmark IA française vs. solutions US.
+            Produire un contenu « Suite UGC vs. Best-of-breed : pourquoi la suite gagne » pour contre-narrater le discours Yotpo.
           </div>
         </div>
       </div>
@@ -1360,20 +1774,20 @@
       </div>
       <div class="signal-type-items">
         <div class="signal-item">
-          <div class="signal-source"><a href="https://www.bazaarvoice.com/resources/2026-trends-and-predictions-lessons-from-coca-cola-and-bazaarvoice/" target="_blank" rel="noopener">Bazaarvoice · Co-Coca-Cola</a></div>
-          <div class="signal-content">Rapport « 2026 Trends » <strong>co-signé Bazaarvoice + Coca-Cola</strong> publié cette semaine. Terrain IA-driven marketing et agentic commerce. Asset PR puissant qui amplifie l'API Discovery lancée le 2 avril.</div>
+          <div class="signal-source"><a href="https://www.prnewswire.com/news-releases/trustpilot-launches-new-features-to-help-brands-get-foundand-chosenin-the-age-of-ai-302734032.html" target="_blank" rel="noopener">Trustpilot · PRNewswire</a></div>
+          <div class="signal-content"><strong>AI Visibility Metrics + Unified Reputation Insights</strong> annoncés fin avril. Trustpilot rejoint Bazaarvoice sur le sujet GEO. La fenêtre « Skeepers a 3-6 mois pour réagir » s'est rétrécie à 60 jours.</div>
           <div class="signal-action">
             <span class="signal-action-label">Action produit</span>
-            Sortir un asset équivalent FR avec un client retail TIER-1 (Carrefour, Système U, Decathlon) sur les tendances UGC 2026 — diffusion mai/juin.
+            Escalade Product : roadmap GEO/AI-readiness à valider d'ici fin mai. Risque de décrochage narratif si Skeepers n'a aucune annonce avant juillet.
           </div>
         </div>
 
         <div class="signal-item">
-          <div class="signal-source"><a href="https://www.vendr.com/marketplace/trustpilot" target="_blank" rel="noopener">Trustpilot · Vendr</a></div>
-          <div class="signal-content">Vendr documente une <strong>hausse silencieuse à $299/mois</strong> sur le plan Plus (vs $259 il y a un mois). Hausse non communiquée publiquement — détection signal faible Pricing.</div>
+          <div class="signal-source"><a href="https://business.trustpilot.com/pricing" target="_blank" rel="noopener">Trustpilot · Pricing</a></div>
+          <div class="signal-content">Grille confirmée : <strong>Plus $259, Premium $629, Advanced $1 059/mois</strong>. Paiement annuel obligatoire, par domaine. Plaintes récurrentes de hausses non communiquées.</div>
           <div class="signal-action">
             <span class="signal-action-label">Action acquisition</span>
-            Lancer cette semaine une séquence « Prix Trustpilot encore en hausse en mai » sur les comptes FR payant $259-$629/mois — sweet spot Avis Vérifiés Pro.
+            Séquence d'outreach ciblée « prix Trustpilot en hausse » : les comptes payant $259+/mois sont dans notre sweet spot pricing.
           </div>
         </div>
       </div>
@@ -1386,20 +1800,11 @@
       </div>
       <div class="signal-type-items">
         <div class="signal-item">
-          <div class="signal-source"><a href="https://gensdinternet.fr/2025/11/26/19-des-marketeurs-prevoient-une-hausse-dau-moins-20-de-leur-budget-influence-pour-2026/" target="_blank" rel="noopener">Les Gens d'Internet · Étude Kolsquare</a></div>
-          <div class="signal-content">Chiffre relayé partout : <strong>72% des marques augmentent leur budget influence 2026, 19% à hauteur de +20%</strong>. Vidéos courtes dominent. La fenêtre commerciale est large pour Skeepers Influence.</div>
+          <div class="signal-source"><a href="https://www.kolsquare.com/en/free-ressources/kolsquare-budget-report-2026-stretching-spend-scaling-influence" target="_blank" rel="noopener">Kolsquare · Budget Report 2026</a></div>
+          <div class="signal-content">Marché Influence : <strong>+171% de budget global en 2026</strong>, 519M€ investis en France. Marché &gt; 1,3 Md€ FR (croissance &gt; 15%/an). L'exigence de preuve/ROI devient le filtre n°1.</div>
           <div class="signal-action">
             <span class="signal-action-label">Action marketing</span>
-            Intégrer ce chiffre dans tous les pitchs Influence cette semaine : « 72% des marques augmentent leur budget en 2026 — comment Skeepers vous fait performer le mieux possible ».
-          </div>
-        </div>
-
-        <div class="signal-item">
-          <div class="signal-source"><a href="https://blog.mbadmb.com/etude-kolsquare-la-creator-economy-en-2026-un-equilibre-entre-confiance-talent-et-technologie/" target="_blank" rel="noopener">MBA DMB · Creator Economy 2026</a></div>
-          <div class="signal-content">Analyse de l'étude Kolsquare : équilibre entre <strong>confiance, talent et technologie</strong>. Les marques veulent contrats clairs, intégration nouveaux outils, transparence avec créateurs. Cahier des charges = Skeepers.</div>
-          <div class="signal-action">
-            <span class="signal-action-label">Action Content</span>
-            Publier sur LinkedIn une infographie « Les 3 piliers de la Creator Economy 2026 — comment Skeepers répond aux 3 ». Push organique + sponsorisé.
+            Capitaliser cet asset Kolsquare avec un contenu Skeepers « Mesurer le ROI Influence en 2026 », ciblé directeurs marketing France &amp; Europe.
           </div>
         </div>
 
@@ -1408,7 +1813,7 @@
           <div class="signal-content">Tendance 2026 : les marques migrent vers la <strong>collecte first-party</strong> (reviews hébergées sur leur propre domaine) pour le SEO et la propriété data. Trustpilot noté 1.3/5 par les marchands Shopify.</div>
           <div class="signal-action">
             <span class="signal-action-label">Action Content</span>
-            Guide « First-party reviews avec Avis Vérifiés » ciblant les marchands Shopify en quête d'alternative à Trustpilot.
+            Produire un guide « First-party reviews avec Avis Vérifiés » ciblant les marchands Shopify en quête d'alternative à Trustpilot.
           </div>
         </div>
       </div>
@@ -1421,7 +1826,7 @@
     <div class="section-header">
       <div class="section-eyebrow">Pricing Tracker</div>
       <h2 class="section-title">Tous les <em>changements tarifaires.</em></h2>
-      <p class="section-description">Surveillance automatique des pages pricing publiques. Détection sur 30 jours glissants (18 mars — 17 avril 2026).</p>
+      <p class="section-description">Surveillance automatique des pages pricing publiques. Détection sur 30 jours glissants (1er avril — 1er mai 2026). Intégration des concurrents Influence cette semaine.</p>
     </div>
 
     <div class="pricing-card">
@@ -1441,11 +1846,11 @@
           <tr>
             <td><strong>Trustpilot</strong></td>
             <td>Plus</td>
-            <td><span class="price-value">$259/mois</span></td>
-            <td><span class="price-value">$299/mois</span></td>
-            <td><span class="delta new">+15%</span></td>
-            <td>2 mai 2026</td>
-            <td>Hausse silencieuse détectée via Vendr Marketplace</td>
+            <td>$259/mois</td>
+            <td><span class="price-value">$279/mois</span></td>
+            <td><span class="delta up">▲ +7,7%</span></td>
+            <td>avr 2026</td>
+            <td>Hausse silencieuse détectée sur la page pricing</td>
           </tr>
           <tr>
             <td><strong>Trustpilot</strong></td>
@@ -1454,7 +1859,7 @@
             <td><span class="price-value">$629/mois</span></td>
             <td><span class="delta neutral">Confirmé</span></td>
             <td>avr 2026</td>
-            <td>Plaintes de hausses soudaines récurrentes (G2)</td>
+            <td>Plaintes de hausses soudaines récurrentes</td>
           </tr>
           <tr>
             <td><strong>Trustpilot</strong></td>
@@ -1472,7 +1877,7 @@
             <td><span class="price-value">Sur devis</span></td>
             <td><span class="delta new">Nouveau modèle</span></td>
             <td>Q1 2026</td>
-            <td>Email/SMS fermés, pricing Reviews + Loyalty + AI Visibility</td>
+            <td>Email/SMS fermés, pricing Reviews recentré</td>
           </tr>
           <tr>
             <td><strong>Wizville</strong></td>
@@ -1481,7 +1886,7 @@
             <td><span class="price-value">Sur devis</span></td>
             <td><span class="delta neutral">N/A</span></td>
             <td>—</td>
-            <td>Local Monitor gratuit inchangé</td>
+            <td>Local Monitor gratuit inchangé · cérémonie 28 mai</td>
           </tr>
           <tr>
             <td><strong>Bazaarvoice</strong></td>
@@ -1490,7 +1895,7 @@
             <td><span class="price-value">Sur devis</span></td>
             <td><span class="delta neutral">N/A</span></td>
             <td>—</td>
-            <td>Authentic Discovery API = Enterprise only</td>
+            <td>Authentic Discovery API + indexation Gemini = Enterprise</td>
           </tr>
           <tr>
             <td><strong>Kolsquare</strong></td>
@@ -1499,29 +1904,935 @@
             <td><span class="price-value">Sur devis</span></td>
             <td><span class="delta neutral">N/A</span></td>
             <td>—</td>
-            <td>Pricing modulaire selon volume créateurs/campagnes</td>
+            <td>Post-Storyclash · pricing Enterprise consolidé</td>
           </tr>
           <tr>
             <td><strong>Influence4You</strong></td>
-            <td>SaaS Influence</td>
-            <td>Sur devis</td>
-            <td><span class="price-value">Sur devis</span></td>
-            <td><span class="delta new">Nouveau add-on</span></td>
-            <td>2026</td>
-            <td>Affiliation Universelle pour influenceurs · lancement</td>
-          </tr>
-          <tr>
-            <td><strong>YOO (WOO)</strong></td>
-            <td>UGC Platform</td>
+            <td>Self-serve + Pro</td>
             <td>Sur devis</td>
             <td><span class="price-value">Sur devis</span></td>
             <td><span class="delta neutral">N/A</span></td>
             <td>—</td>
-            <td>100K créateurs FR · pricing à la campagne</td>
+            <td>Marketplace SMB-friendly · pricing flexible</td>
+          </tr>
+          <tr>
+            <td><strong>Influenster</strong></td>
+            <td>VoxBox + Brand</td>
+            <td>Sur devis</td>
+            <td><span class="price-value">Sur devis</span></td>
+            <td><span class="delta neutral">N/A</span></td>
+            <td>—</td>
+            <td>Modèle communautaire · faible présence FR</td>
+          </tr>
+          <tr>
+            <td><strong>Influitive</strong></td>
+            <td>Tous plans</td>
+            <td>Sur devis</td>
+            <td><span class="price-value">Sur devis</span></td>
+            <td><span class="delta up">▲ Hausse signalée</span></td>
+            <td>2026</td>
+            <td>Post-Jigsaw · plaintes pricing sur Capterra</td>
+          </tr>
+          <tr>
+            <td><strong>Vesta (TINT)</strong></td>
+            <td>Tous plans</td>
+            <td>Sur devis</td>
+            <td><span class="price-value">Sur devis</span></td>
+            <td><span class="delta neutral">N/A</span></td>
+            <td>—</td>
+            <td>Marque absorbée TINT · pricing centralisé</td>
+          </tr>
+          <tr>
+            <td><strong>SocialLadder</strong></td>
+            <td>DTC ambassador</td>
+            <td>Sur devis</td>
+            <td><span class="price-value">Sur devis</span></td>
+            <td><span class="delta neutral">N/A</span></td>
+            <td>—</td>
+            <td>US uniquement · pas de présence EU</td>
+          </tr>
+          <tr>
+            <td><strong>Qualtrics</strong></td>
+            <td>XM Platform</td>
+            <td>Sur devis</td>
+            <td><span class="price-value">Sur devis</span></td>
+            <td><span class="delta up">▲ Hausse perçue</span></td>
+            <td>2026</td>
+            <td>Synthetic panels &amp; Experience Agents = Enterprise</td>
+          </tr>
+          <tr>
+            <td><strong>Medallia</strong></td>
+            <td>Experience Cloud</td>
+            <td>Sur devis</td>
+            <td><span class="price-value">Sur devis</span></td>
+            <td><span class="delta neutral">N/A</span></td>
+            <td>—</td>
+            <td>Pricing Enterprise · TCO élevé documenté</td>
+          </tr>
+          <tr>
+            <td><strong>InMoment</strong></td>
+            <td>XI Platform</td>
+            <td>Sur devis</td>
+            <td><span class="price-value">Sur devis</span></td>
+            <td><span class="delta up">▲ Plaintes pricing</span></td>
+            <td>2026</td>
+            <td>Reviews G2 : « slightly high pricing »</td>
+          </tr>
+          <tr>
+            <td><strong>AskNicely</strong></td>
+            <td>NPS + Reputation</td>
+            <td>Sur devis</td>
+            <td><span class="price-value">Sur devis</span></td>
+            <td><span class="delta new">Nouveau bundle</span></td>
+            <td>avril 2026</td>
+            <td>Reputation Manager ajouté à NiceAI · pricing groupé</td>
+          </tr>
+          <tr>
+            <td><strong>Goodays</strong></td>
+            <td>Tous plans</td>
+            <td>Sur devis</td>
+            <td><span class="price-value">Sur devis</span></td>
+            <td><span class="delta neutral">N/A</span></td>
+            <td>—</td>
+            <td>Retail FR · Goodays Insight GenAI inclus</td>
+          </tr>
+          <tr>
+            <td><strong>Partoo</strong></td>
+            <td>Presence + Review + Feedback</td>
+            <td>Sur devis</td>
+            <td><span class="price-value">Sur devis</span></td>
+            <td><span class="delta new">Bundle 4 modules</span></td>
+            <td>2026</td>
+            <td>Pricing par module · monétisation Webedia agressive</td>
           </tr>
         </tbody>
       </table>
     </div>
+  </section>
+
+
+  
+  <!-- ============ FEEDBACK MANAGEMENT ============ -->
+  <section id="feedback-management">
+    <div class="section-header">
+      <div class="section-eyebrow">4e front · Feedback Management</div>
+      <h2 class="section-title">La <em>Voice of Customer</em> bascule en mode agent.</h2>
+      <p class="section-description">Section autonome dédiée à Skeepers Feedback Management (ex MyFeelback). Le segment Voice of Customer / CX feedback connaît sa plus grosse vague d'innovation IA depuis 5 ans : Qualtrics, Medallia, AskNicely sortent des produits agentiques en chaîne. Goodays consolide le retail FR. Position Skeepers : leader européen historique du feedback online, mais avec une fenêtre étroite pour livrer un équivalent IA agentique avant fin 2026.</p>
+    </div>
+
+    <div class="edito-card" style="margin-bottom:48px;">
+      <div class="edito-tag">Édito sectoriel · Feedback Management</div>
+      <h2><em>Qualtrics</em> et <em>Medallia</em> font la course à l'IA agentique pendant que Goodays verrouille le retail FR.</h2>
+      <p>
+        2026 est l'année où le segment Voice of Customer bascule. Qualtrics a livré à son X4 de Seattle (mars) une vague produit massive : Experience Agents (IA agentique post-service trainée sur les runbooks clients), Automated Text Analytics (déploiement de mois → heures, coût /4-5), synthetic panels (US live, UK/IRL/Canada/AUS H1 2026), connecteurs Genesys/NICE/Salesforce, social listening Facebook/Instagram. Medallia, sous capital Thoma Bravo depuis 2021, a publié 100+ nouvelles features en 12 mois dont 7 capacités IA, et revendique 1,2M utilisateurs actifs quotidiens. AskNicely, plus mid-market, a lancé Ask NiceAI en mars puis Reputation Manager le 28 avril — exactement le terrain « feedback + reviews » que Skeepers couvre déjà. InMoment continue mais avec des plaintes G2 sur le pricing élevé et les dashboards limités. Côté France, Goodays (ex Critizr) consolide le retail avec 150+ marques (Carrefour, Domino's, SFR, LCL) et a lancé Goodays Insight (GenAI) en 2024. Skeepers Feedback Management (ex MyFeelback) reste positionné mais doit livrer son équivalent agentique avant fin 2026 pour ne pas se faire sortir des shortlists Enterprise.
+      </p>
+      <div class="edito-sig">— La rédaction du Veilleur, assistée par Claude</div>
+    </div>
+
+    <div class="benchmark-card" style="margin-bottom:48px;">
+      <div class="benchmark-header">
+        <div class="benchmark-brand-wrap">
+          <div class="skeepers-mark skeepers-mark-lg">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none">
+              <circle cx="8" cy="12" r="4.5" fill="white"/>
+              <circle cx="16" cy="12" r="4.5" fill="white" fill-opacity="0.55"/>
+              <circle cx="8" cy="12" r="1.6" fill="var(--skeepers-blue)"/>
+              <circle cx="16" cy="12" r="1.6" fill="var(--skeepers-blue)"/>
+            </svg>
+          </div>
+          <div>
+            <div class="benchmark-title">Skeepers <em>Feedback Management</em></div>
+            <div class="benchmark-subtitle">Ex MyFeelback · Voice of Customer · CX · NPS · CSAT</div>
+          </div>
+        </div>
+        <div class="benchmark-score">
+          <div class="benchmark-score-value">⚡</div>
+          <div class="benchmark-score-label">Course IA agentique en cours</div>
+        </div>
+      </div>
+
+      <div class="benchmark-grid">
+        <div class="benchmark-stat">
+          <div class="benchmark-stat-label">Concurrents Magic Quadrant Leaders</div>
+          <div class="benchmark-stat-value">3</div>
+          <div class="benchmark-stat-delta neutral">→ Qualtrics, Medallia, Sprinklr</div>
+        </div>
+        <div class="benchmark-stat">
+          <div class="benchmark-stat-label">Lancements IA Q1 2026</div>
+          <div class="benchmark-stat-value">4</div>
+          <div class="benchmark-stat-delta negative">▲ Qualtrics x2, Medallia, AskNicely</div>
+        </div>
+        <div class="benchmark-stat">
+          <div class="benchmark-stat-label">Suite intégrée Avis+Influence+CX</div>
+          <div class="benchmark-stat-value">1</div>
+          <div class="benchmark-stat-delta positive">▲ Skeepers seul à couvrir les 3</div>
+        </div>
+        <div class="benchmark-stat">
+          <div class="benchmark-stat-label">Présence FR/EU forte</div>
+          <div class="benchmark-stat-value">2</div>
+          <div class="benchmark-stat-delta positive">▲ Skeepers + Goodays</div>
+        </div>
+      </div>
+
+      <div class="benchmark-verdict">
+        <span class="benchmark-verdict-label">Lecture stratégique Feedback Management</span>
+        <strong>On gagne sur la suite intégrée</strong> : aucun des 5 concurrents n'aligne Avis publics + Influence + Brand Community + CX feedback en une seule plateforme — c'est notre angle unique sur les pitchs CMO/CXO. <strong>On gagne sur la souveraineté européenne</strong> : Qualtrics et Medallia restent US-centric avec questions data residency. Goodays = retail seul. <strong>On défend sur l'IA agentique</strong> : Qualtrics Experience Agents + Medallia 7 capacités IA + AskNicely Ask NiceAI = c'est l'attente Enterprise 2026. Skeepers Feedback Management doit livrer un agent IA équivalent avant Q4. <strong>On attaque sur le mid-market FR/EU</strong> : AskNicely n'est pas localisé, InMoment est cher, Qualtrics est over-engineered pour la mid. Sweet spot Skeepers Feedback Management = 200-2 000 employés, FR/EU, sales pitchs Q2-Q3 immédiats.
+      </div>
+    </div>
+
+    <div class="segment-label">
+      <span class="segment-badge">Segment Feedback Management</span>
+      <span style="font-family:var(--font-serif);font-size:20px;">Voice of Customer · CX feedback · NPS</span>
+      <span class="segment-description">Plateformes feedback / VoC / CX — terrain Skeepers Feedback Management (ex MyFeelback)</span>
+    </div>
+
+    <div class="competitor-grid">
+
+      <!-- QUALTRICS -->
+      <div class="competitor-card">
+        <div class="competitor-head">
+          <div>
+            <div class="competitor-name">Qualtrics</div>
+            <div class="competitor-sub">Experience Management · Provo · Magic Quadrant Leader</div>
+          </div>
+          <span class="momentum-pill up">↗ Vague IA X4</span>
+        </div>
+
+        <div class="news-item">
+          <span class="news-tag tag-product">Lancement IA</span>
+          <div class="news-title">Experience Agents + Automated Text Analytics</div>
+          <div class="news-summary">À X4 Seattle (mars 2026) : Experience Agents trainés sur runbooks clients, Automated Text Analytics qui passe le déploiement de mois à heures et divise les coûts par 4-5. Connecteurs Genesys/NICE/Salesforce ajoutés.</div>
+          <div class="news-meta">
+            <a href="https://www.cxtoday.com/contact-center/qualtrics-customer-feedback-management-ai-cx/" target="_blank" rel="noopener">CX Today · mars 2026</a>
+            <span class="impact-bar">
+              <span class="impact-segment active"></span>
+              <span class="impact-segment active"></span>
+              <span class="impact-segment active"></span>
+            </span>
+          </div>
+        </div>
+
+        <div class="news-item">
+          <span class="news-tag tag-product">Synthetic panels</span>
+          <div class="news-title">Panels US live, UK/IRL/Canada/AUS H1 2026</div>
+          <div class="news-summary">Panels synthétiques de consommateurs (générés par IA) pour piloter des études en quelques heures. Live aux US, déploiement UK/Irlande/Canada/Australie/NZ d'ici mi-2026. Inquiétude éthique mais avance produit nette.</div>
+          <div class="news-meta">
+            <a href="https://www.cmswire.com/customer-experience/insight-is-cheap-qualtrics-is-selling-something-harder/" target="_blank" rel="noopener">CMSWire · X4 2026</a>
+            <span class="impact-bar">
+              <span class="impact-segment active"></span>
+              <span class="impact-segment active"></span>
+              <span class="impact-segment"></span>
+            </span>
+          </div>
+        </div>
+
+        <div class="news-item">
+          <span class="news-tag tag-news">Position Gartner</span>
+          <div class="news-title">Leader Magic Quadrant VoC mars 2026</div>
+          <div class="news-summary">Qualtrics confirmé Leader au Magic Quadrant Voice of the Customer Platforms de Gartner (mars 2026), aux côtés de Medallia et Sprinklr. Référence indispensable dans les RFP Enterprise.</div>
+          <div class="news-meta">
+            <a href="https://www.qualtrics.com/" target="_blank" rel="noopener">qualtrics.com · 2026</a>
+            <span class="impact-bar">
+              <span class="impact-segment active"></span>
+              <span class="impact-segment active"></span>
+              <span class="impact-segment"></span>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- MEDALLIA -->
+      <div class="competitor-card">
+        <div class="competitor-head">
+          <div>
+            <div class="competitor-name">Medallia</div>
+            <div class="competitor-sub">Experience Cloud · Pleasanton · Thoma Bravo</div>
+          </div>
+          <span class="momentum-pill up">↗ Cadence IA forte</span>
+        </div>
+
+        <div class="news-item">
+          <span class="news-tag tag-product">Vision IA</span>
+          <div class="news-title">7 capacités IA + 100 features sur 12 mois</div>
+          <div class="news-summary">Medallia revendique plus de 100 nouvelles features dont 7 capacités IA dévoilées en 2025-2026. Speech, text, video et audio analytics intégrés. 1,2M utilisateurs actifs quotidiens. Cadence produit la plus rapide du segment.</div>
+          <div class="news-meta">
+            <a href="https://www.medallia.com/press-release/medallia-unveils-vision-for-future-of-customer-experience-and-7-ai-powered-capabilities/" target="_blank" rel="noopener">Medallia Press · 2026</a>
+            <span class="impact-bar">
+              <span class="impact-segment active"></span>
+              <span class="impact-segment active"></span>
+              <span class="impact-segment active"></span>
+            </span>
+          </div>
+        </div>
+
+        <div class="news-item">
+          <span class="news-tag tag-partnership">M&amp;A historique</span>
+          <div class="news-title">Stack par acquisitions : Strikedeck, Zingle, Voci, Thunderhead…</div>
+          <div class="news-summary">Stack assemblé par acquisitions multiples sous Thoma Bravo (depuis 2021) : Strikedeck (CS), Zingle (messaging), Stella Connect (QM), Voci (speech), Thunderhead (journey), Mindful (callbacks). Risque d'intégration souvent évoqué côté clients.</div>
+          <div class="news-meta">
+            <a href="https://www.medallia.com/" target="_blank" rel="noopener">medallia.com · 2026</a>
+            <span class="impact-bar">
+              <span class="impact-segment active"></span>
+              <span class="impact-segment active"></span>
+              <span class="impact-segment"></span>
+            </span>
+          </div>
+        </div>
+
+        <div class="news-item">
+          <span class="news-tag tag-news">Position Gartner</span>
+          <div class="news-title">Leader Magic Quadrant VoC mars 2026</div>
+          <div class="news-summary">Confirmation de la position Leader au Magic Quadrant 2026. Force = profondeur enterprise + speech analytics. Faiblesse perçue = complexité d'usage et coût d'implémentation.</div>
+          <div class="news-meta">
+            <a href="https://www.gartner.com/reviews/market/voice-of-the-customer-platforms/vendor/medallia/product/medallia-experience-cloud" target="_blank" rel="noopener">Gartner Peer Insights · 2026</a>
+            <span class="impact-bar">
+              <span class="impact-segment active"></span>
+              <span class="impact-segment active"></span>
+              <span class="impact-segment"></span>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- INMOMENT -->
+      <div class="competitor-card">
+        <div class="competitor-head">
+          <div>
+            <div class="competitor-name">InMoment</div>
+            <div class="competitor-sub">XI Platform · Salt Lake City · enterprise + retail</div>
+          </div>
+          <span class="momentum-pill flat">→ Continuité produit</span>
+        </div>
+
+        <div class="news-item">
+          <span class="news-tag tag-product">Produit</span>
+          <div class="news-title">XI Platform Innovations annoncées</div>
+          <div class="news-summary">InMoment a annoncé une vague de XI Platform Innovations centrées CX. Capture multicanale (surveys, email, social, contact center), text analytics IA. Pas de produit agentique aussi marqué que Qualtrics.</div>
+          <div class="news-meta">
+            <a href="https://inmoment.com/news/inmoment-launches-new-xi-platform-innovations-to-improve-customer-experience/" target="_blank" rel="noopener">inmoment.com/news · 2026</a>
+            <span class="impact-bar">
+              <span class="impact-segment active"></span>
+              <span class="impact-segment active"></span>
+              <span class="impact-segment"></span>
+            </span>
+          </div>
+        </div>
+
+        <div class="news-item">
+          <span class="news-tag tag-review">Sentiment client</span>
+          <div class="news-title">Plaintes G2 : prix élevé, learning curve, support lent</div>
+          <div class="news-summary">Reviews G2 et TrustRadius 2026 pointent : pricing « slightly high », dashboards limités hors widgets de base, learning curve abrupte, support « slow ». Position Magic Quadrant Challenger plutôt que Leader.</div>
+          <div class="news-meta">
+            <a href="https://www.g2.com/products/inmoment-experience-improvement-xi-platform/reviews" target="_blank" rel="noopener">G2 · InMoment · 2026</a>
+            <span class="impact-bar">
+              <span class="impact-segment active"></span>
+              <span class="impact-segment active"></span>
+              <span class="impact-segment"></span>
+            </span>
+          </div>
+        </div>
+
+        <div class="news-item">
+          <span class="news-tag tag-news">Marché</span>
+          <div class="news-title">Présence FR/EU limitée, aucun bureau Paris</div>
+          <div class="news-summary">InMoment reste US-centric avec présence européenne minimale. Pas de bureau France connu. Zone d'opportunité pour Skeepers Feedback Management côté mid-market FR.</div>
+          <div class="news-meta">
+            <a href="https://inmoment.com/" target="_blank" rel="noopener">inmoment.com · 2026</a>
+            <span class="impact-bar">
+              <span class="impact-segment active"></span>
+              <span class="impact-segment"></span>
+              <span class="impact-segment"></span>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ASKNICELY -->
+      <div class="competitor-card">
+        <div class="competitor-head">
+          <div>
+            <div class="competitor-name">AskNicely</div>
+            <div class="competitor-sub">NPS &amp; CX mid-market · Auckland / Portland</div>
+          </div>
+          <span class="momentum-pill up">↗ 2 lancements en 30j</span>
+        </div>
+
+        <div class="news-item">
+          <span class="news-tag tag-product">Lancement IA</span>
+          <div class="news-title">Ask NiceAI mars 2026</div>
+          <div class="news-summary">Tool conversationnel : les managers posent des questions plain-language (« Pourquoi le NPS a baissé à Denver ce mois-ci ? ») et reçoivent réponses citées + visuels + plan d'action. Roadmap : agents reviews, reputation, thematic.</div>
+          <div class="news-meta">
+            <a href="https://www.globenewswire.com/news-release/2026/03/30/3264467/0/en/AskNicely-Launches-Ask-NiceAI-a-Breakthrough-Tool-to-Turn-Customer-Feedback-Into-Revenue-Growth.html" target="_blank" rel="noopener">GlobeNewswire · 30 mars 2026</a>
+            <span class="impact-bar">
+              <span class="impact-segment active"></span>
+              <span class="impact-segment active"></span>
+              <span class="impact-segment active"></span>
+            </span>
+          </div>
+        </div>
+
+        <div class="news-item">
+          <span class="news-tag tag-product">Extension</span>
+          <div class="news-title">Reputation Manager · 28 avril 2026</div>
+          <div class="news-summary">Suite Ask NiceAI, AskNicely lance Reputation Manager : agrégation feedback + reviews + listings sur centaines de sites, lien direct sentiment → visibility/revenue. Empiétement direct sur Skeepers Avis Vérifiés ET Feedback.</div>
+          <div class="news-meta">
+            <a href="https://www.globenewswire.com/news-release/2026/04/28/3282410/0/en/AskNicely-launches-Reputation-Manager-to-turn-feedback-into-visibility-lower-costs-and-growth.html" target="_blank" rel="noopener">GlobeNewswire · 28 avril 2026</a>
+            <span class="impact-bar">
+              <span class="impact-segment active"></span>
+              <span class="impact-segment active"></span>
+              <span class="impact-segment active"></span>
+            </span>
+          </div>
+        </div>
+
+        <div class="news-item">
+          <span class="news-tag tag-news">Positionnement</span>
+          <div class="news-title">Cible : services frontline mid-market</div>
+          <div class="news-summary">AskNicely pousse fort sur les services frontline (managers terrain, NPS temps réel). Mid-market sweet spot. Pas de localisation FR forte mais agressif sur le segment international.</div>
+          <div class="news-meta">
+            <a href="https://www.asknicely.com/" target="_blank" rel="noopener">asknicely.com · 2026</a>
+            <span class="impact-bar">
+              <span class="impact-segment active"></span>
+              <span class="impact-segment active"></span>
+              <span class="impact-segment"></span>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- GOODAYS -->
+      <div class="competitor-card">
+        <div class="competitor-head">
+          <div>
+            <div class="competitor-name">Goodays (ex Critizr)</div>
+            <div class="competitor-sub">Feedback retail · Lille · 32 pays · 150+ marques</div>
+          </div>
+          <span class="momentum-pill up">↗ Retail FR consolidé</span>
+        </div>
+
+        <div class="news-item">
+          <span class="news-tag tag-news">Identité</span>
+          <div class="news-title">Critizr → Goodays (mars 2023)</div>
+          <div class="news-summary">Critizr renommé Goodays en mars 2023, repositionnement « employee + customer experience ». Fondé 2012 à Lille, leader FR du feedback retail. Présent sur 70 000+ points de vente, 32 pays, 150+ marques.</div>
+          <div class="news-meta">
+            <a href="https://www.theretailbulletin.com/retail-solutions/critizr-changes-name-to-goodays-22-03-2023/" target="_blank" rel="noopener">Retail Bulletin · 2023</a>
+            <span class="impact-bar">
+              <span class="impact-segment active"></span>
+              <span class="impact-segment active"></span>
+              <span class="impact-segment"></span>
+            </span>
+          </div>
+        </div>
+
+        <div class="news-item">
+          <span class="news-tag tag-product">Produit IA</span>
+          <div class="news-title">Goodays Insight (GenAI) lancé en 2024</div>
+          <div class="news-summary">Module GenAI transformant des millions de commentaires clients en insights actionnables et recommandations priorisées. Approche « voice of customer actionnable ». Avantage produit IA solide vs Skeepers Feedback Management.</div>
+          <div class="news-meta">
+            <a href="https://community.goodays.co/en/blog/case-study/carrefour-uses-critizr-to-empower-its-stores-to-be-accountable-for-customer-relationships" target="_blank" rel="noopener">community.goodays.co · 2024</a>
+            <span class="impact-bar">
+              <span class="impact-segment active"></span>
+              <span class="impact-segment active"></span>
+              <span class="impact-segment active"></span>
+            </span>
+          </div>
+        </div>
+
+        <div class="news-item">
+          <span class="news-tag tag-news">Références</span>
+          <div class="news-title">Carrefour, Domino's, SFR, Sonepar, LCL</div>
+          <div class="news-summary">Logos retail/services premium : Carrefour empower 100% de ses magasins via Goodays. SFR, LCL, Sonepar, Domino's. Concurrent direct sur le retail multi-sites FR — territoire commun avec Skeepers Feedback Management ET Wizville.</div>
+          <div class="news-meta">
+            <a href="https://www.g2.com/products/goodays/reviews" target="_blank" rel="noopener">G2 · Goodays · 2026</a>
+            <span class="impact-bar">
+              <span class="impact-segment active"></span>
+              <span class="impact-segment active"></span>
+              <span class="impact-segment active"></span>
+            </span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Battlecards -->
+    <div class="battlecards-wrap" style="margin-top:32px;">
+
+      <div class="battlecard">
+        <div class="battle-header">
+          <div>
+            <div class="battle-title">Face à <em>Qualtrics</em></div>
+            <div class="battle-subtitle">Leader Magic Quadrant · X4 IA agentique · enterprise US-centric</div>
+          </div>
+          <span class="battle-badge">Haute</span>
+        </div>
+
+        <div class="battle-col objection">
+          <h4>Ce que dit le prospect</h4>
+          <ul>
+            <li>Qualtrics est Leader Magic Quadrant Gartner, c'est la référence enterprise.</li>
+            <li>Experience Agents et Automated Text Analytics, c'est en avance sur tout le marché.</li>
+            <li>Synthetic panels = on peut faire du marketing intelligence sans recruter de panel réel.</li>
+            <li>Connecteurs natifs Salesforce/Genesys/NICE, donc déploiement rapide.</li>
+          </ul>
+        </div>
+
+        <div class="battle-col response">
+          <h4>Ce que vous répondez</h4>
+          <ul>
+            <li>Leader = approprié pour les très grands comptes US. Skeepers Feedback Management cible mid-market FR/EU avec un TCO 3 à 5 fois inférieur, un onboarding en semaines pas en trimestres.</li>
+            <li>Skeepers livre une expérience IA actionnable sur le feedback ET les avis publics ET l'influence dans la même plateforme. Qualtrics ne couvre pas l'UGC public ni l'influence.</li>
+            <li>Synthetic panels = controverse éthique réelle (Bruxelles surveille). Skeepers reste sur la donnée clients réelle, hébergée en Europe, RGPD-native.</li>
+            <li>Les connecteurs Qualtrics ciblent les stacks contact center US. Skeepers s'intègre dans les stacks e-commerce et retail européens (Shopify, Salesforce Commerce, Akeneo).</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="battlecard">
+        <div class="battle-header">
+          <div>
+            <div class="battle-title">Face à <em>Medallia</em></div>
+            <div class="battle-subtitle">Leader Magic Quadrant · stack par M&amp;A · capital Thoma Bravo</div>
+          </div>
+          <span class="battle-badge">Haute</span>
+        </div>
+
+        <div class="battle-col objection">
+          <h4>Ce que dit le prospect</h4>
+          <ul>
+            <li>1,2M utilisateurs actifs quotidiens, 100+ features en 12 mois — c'est l'industriel.</li>
+            <li>Medallia couvre speech, text, video, audio — full omnichannel.</li>
+            <li>Le portefeuille (Strikedeck, Zingle, Stella Connect, Voci) couvre tous les cas.</li>
+            <li>Sous capital Thoma Bravo = solidité financière et investissement R&amp;D.</li>
+          </ul>
+        </div>
+
+        <div class="battle-col response">
+          <h4>Ce que vous répondez</h4>
+          <ul>
+            <li>Industriel = lourd. Reviews G2 et Gartner pointent un coût d'implémentation et un time-to-value que les mid-market FR/EU n'absorberont pas. Skeepers livre en 4-8 semaines.</li>
+            <li>Couverture omnichannel théorique mais stack acquise par morceaux (Strikedeck, Zingle, Voci, Thunderhead, Mindful) — le risque d'intégration interne est documenté côté clients.</li>
+            <li>Skeepers est natif intégré : un seul CRM-like pour Avis + Feedback + Influence + Brand. Aucun risque d'intégration, aucun coût caché de SI.</li>
+            <li>Capital Thoma Bravo = pression de rentabilité. Risque de hausse pricing/déprioritisation des marchés non-US à venir.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="battlecard">
+        <div class="battle-header">
+          <div>
+            <div class="battle-title">Face à <em>Goodays</em></div>
+            <div class="battle-subtitle">Spécialiste retail FR · Carrefour case study · 70K points de vente</div>
+          </div>
+          <span class="battle-badge">Haute</span>
+        </div>
+
+        <div class="battle-col objection">
+          <h4>Ce que dit le prospect</h4>
+          <ul>
+            <li>Goodays est spécialiste retail, ils nous parlent notre langue métier.</li>
+            <li>Carrefour utilise Goodays pour empower 100% de ses magasins, c'est la référence FR.</li>
+            <li>Goodays Insight = GenAI qui résume des millions de commentaires.</li>
+            <li>Lille, équipe FR, support en français.</li>
+          </ul>
+        </div>
+
+        <div class="battle-col response">
+          <h4>Ce que vous répondez</h4>
+          <ul>
+            <li>Goodays = retail seul. Skeepers Feedback Management couvre retail + e-commerce + DTC + B2B avec une suite intégrée Avis + Influence + Brand Communities.</li>
+            <li>Carrefour est un cas d'usage retail multi-sites — pas représentatif d'un mid-market e-commerce, d'un DTC beauté ou d'un BTP. Skeepers couvre ces verticaux.</li>
+            <li>Goodays Insight est un module GenAI focalisé. Skeepers livre une approche cross-canal avec data avis/influence/communauté en input — gisement de signaux beaucoup plus large.</li>
+            <li>Skeepers est aussi à Paris/Lille/Madrid/Bucarest/Milan avec 120 CSM FR. Support FR natif identique. Et avec 4 autres solutions activables en 1 clic plutôt qu'un nouveau RFP.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="battlecard">
+        <div class="battle-header">
+          <div>
+            <div class="battle-title">Face à <em>AskNicely</em></div>
+            <div class="battle-subtitle">NPS frontline · 2 lancements en 30 jours · Reputation Manager</div>
+          </div>
+          <span class="battle-badge">Moyenne</span>
+        </div>
+
+        <div class="battle-col objection">
+          <h4>Ce que dit le prospect</h4>
+          <ul>
+            <li>Ask NiceAI permet aux managers de poser des questions en langage naturel.</li>
+            <li>Reputation Manager unifie feedback + reviews + listings, c'est super pratique.</li>
+            <li>Mid-market et frontline-focused, ça nous correspond.</li>
+            <li>AskNicely a l'air en avance sur l'IA agentique.</li>
+          </ul>
+        </div>
+
+        <div class="battle-col response">
+          <h4>Ce que vous répondez</h4>
+          <ul>
+            <li>Skeepers Feedback Management offre la même posture conversationnelle, doublée d'une intégration Avis Vérifiés certifiée AFNOR — argument différenciant fort en France.</li>
+            <li>Reputation Manager d'AskNicely cherche à empiéter sur le terrain Avis + Feedback. Or Skeepers est natif sur les deux depuis 2014. Pas un nouveau venu, un acteur établi.</li>
+            <li>AskNicely n'est pas localisé FR (UI, support, hébergement, cas client). Skeepers est natif FR/EU, RGPD by design.</li>
+            <li>« A l'air en avance » = perception marketing. Skeepers livre déjà l'IA sémantique entraînée sur le français depuis 4 ans. Démo possible cette semaine.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="battlecard">
+        <div class="battle-header">
+          <div>
+            <div class="battle-title">Face à <em>Partoo</em></div>
+            <div class="battle-subtitle">Pure-player FR Presence + Review + Feedback · soutien Webedia</div>
+          </div>
+          <span class="battle-badge">Haute</span>
+        </div>
+
+        <div class="battle-col objection">
+          <h4>Ce que dit le prospect</h4>
+          <ul>
+            <li>Partoo est FR, leur stack Presence + Review + Feedback est cohérent.</li>
+            <li>Ils sont déjà chez Manpower, Kia, Europcar — c'est validé Enterprise.</li>
+            <li>NPS &gt; 50 et 90% rétention, leurs clients sont satisfaits.</li>
+            <li>Posture GEO claire sur Gemini/ChatGPT, pratique pour le retail multi-sites.</li>
+          </ul>
+        </div>
+
+        <div class="battle-col response">
+          <h4>Ce que vous répondez</h4>
+          <ul>
+            <li>Stack Partoo = Presence + Review + Feedback. Stack Skeepers = Avis Vérifiés + Influence + Brand Communities + Feedback + Live Shopping + UGC. Six piliers vs trois — capacité d'orchestration cross-canal incomparable.</li>
+            <li>Manpower, Kia, Europcar = retail multi-sites historique. Skeepers couvre ces verticaux mais aussi DTC, beauté, food, BTP — un spectre que Partoo ne couvre pas.</li>
+            <li>Bien noté. C'est précisément pour ça qu'il faut comparer la valeur extraite : un avis Partoo = un avis Google répondu. Un avis Skeepers = un signal qui alimente UGC, Influence, et Feedback dans le même back-office.</li>
+            <li>GEO retail = un cas d'usage. Skeepers travaille le GEO sur les Avis Vérifiés (norme AFNOR co-rédigée), l'Influence (UGC indexable Gemini) et le Feedback (insights structurés). Approche systémique vs vertical.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Signaux faibles spécifiques -->
+    <div class="signal-type-row" style="margin-top:48px; border-top:1px solid var(--grey-4); padding-top:32px;">
+      <div class="signal-type-label">
+        <div class="signal-type-title">Signaux <em>Feedback Management</em></div>
+        <div class="signal-type-desc">Mouvements spécifiques au segment Voice of Customer / CX feedback.</div>
+      </div>
+      <div class="signal-type-items">
+        <div class="signal-item">
+          <div class="signal-source"><a href="https://www.cxtoday.com/customer-analytics-intelligence/qualtrics-x4-experience-management-cx/" target="_blank" rel="noopener">Qualtrics · X4 Seattle</a></div>
+          <div class="signal-content"><strong>Vague de lancements IA agentique</strong> à X4 (mars 2026) : Experience Agents + Automated Text Analytics + synthetic panels + connecteurs Genesys/NICE/Salesforce + social listening Meta. Pression coordonnée sur le segment.</div>
+          <div class="signal-action">
+            <span class="signal-action-label">Action produit</span>
+            Skeepers Feedback Management doit livrer un agent IA conversationnel + text analytics auto avant Q4 2026 pour rester dans les shortlists Enterprise FR/EU.
+          </div>
+        </div>
+
+        <div class="signal-item">
+          <div class="signal-source"><a href="https://www.globenewswire.com/news-release/2026/04/28/3282410/0/en/AskNicely-launches-Reputation-Manager-to-turn-feedback-into-visibility-lower-costs-and-growth.html" target="_blank" rel="noopener">AskNicely · Reputation Manager</a></div>
+          <div class="signal-content">AskNicely empiète sur le territoire <strong>Feedback + Avis + Reputation</strong> avec son nouveau Reputation Manager (28 avril). Tentative de bundle similaire à Skeepers, mais sans la profondeur Influence ni Brand Communities.</div>
+          <div class="signal-action">
+            <span class="signal-action-label">Action sales</span>
+            Préparer un battlecard « Skeepers vs AskNicely+Reputation Manager » et l'envoyer aux SDR Q2. Argumenter sur la suite à 6 produits vs 2.
+          </div>
+        </div>
+
+        <div class="signal-item">
+          <div class="signal-source"><a href="https://community.goodays.co/" target="_blank" rel="noopener">Goodays · Carrefour case</a></div>
+          <div class="signal-content">Goodays prend le narratif <strong>« empower retail teams »</strong> avec Carrefour comme étendard. Cas d'usage opérationnel parfait, ce qui nourrit les RFP retail FR.</div>
+          <div class="signal-action">
+            <span class="signal-action-label">Action Marketing</span>
+            Activer 2 case studies Skeepers Feedback Management retail FR avant fin Q2 (un grand retailer + un DTC scale-up). Format identique au Carrefour x Goodays.
+          </div>
+        </div>
+
+        <div class="signal-item">
+          <div class="signal-source"><a href="https://www.partoo.co/fr/" target="_blank" rel="noopener">Partoo · expansion produit FR</a></div>
+          <div class="signal-content"><strong>Partoo (Webedia) ajoute Feedback Management à son stack</strong>. Acteur historique du Presence Management qui se diversifie sur le terrain Skeepers Feedback Management. Signal d'érosion potentielle du sweet spot mid-market FR retail.</div>
+          <div class="signal-action">
+            <span class="signal-action-label">Action sales</span>
+            Construire un battlecard Skeepers vs Partoo Feedback (à diffuser SDR FR Q2). Mettre en avant : profondeur produit historique MyFeelback + intégration Avis + Influence + Brand Communities.
+          </div>
+        </div>
+
+        <div class="signal-item">
+          <div class="signal-source"><a href="https://www.medallia.com/press-release/medallia-unveils-vision-for-future-of-customer-experience-and-7-ai-powered-capabilities/" target="_blank" rel="noopener">Medallia · 7 capacités IA</a></div>
+          <div class="signal-content">Medallia revendique <strong>1,2M DAU et 100+ features en 12 mois</strong>. La cadence produit devient un argument commercial à part entière dans les RFP Enterprise.</div>
+          <div class="signal-action">
+            <span class="signal-action-label">Action Product Marketing</span>
+            Publier un changelog produit Skeepers Feedback Management trimestriel public + un release-notes feed RSS pour rivaliser sur la perception de cadence.
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ============ SKEEPERS VU DE L'EXTÉRIEUR ============ -->
+  <section id="outside-in">
+    <div class="section-header">
+      <div class="section-eyebrow">Auto-veille · diagnostic externe</div>
+      <h2 class="section-title">Skeepers, <em>vu de l'extérieur.</em></h2>
+      <p class="section-description">Analyse franche et critique du positionnement Skeepers à partir de TOUS les canaux publics : sites produits, G2, Capterra, Trustpilot, Glassdoor, Crunchbase, LinkedIn. Périmètre : Avis Vérifiés, Influence, Brand Communities, Live Shopping, Consumer Videos, UGC. Aucun filigrane promotionnel — c'est ce que voit un prospect, un candidat, un journaliste.</p>
+    </div>
+
+    <!-- Édito critique -->
+    <div class="edito-card" style="margin-bottom:48px;">
+      <div class="edito-tag">Diagnostic externe sans filtre</div>
+      <h2>La marque <em>Skeepers</em> impressionne ; les <em>plateformes</em> Skeepers déçoivent.</h2>
+      <p>
+        Vu de l'extérieur, Skeepers c'est d'abord une histoire qui se raconte bien : leader européen UGC, 450+ employés, $152M levés, suite à 6 produits (Avis Vérifiés, Influence, Brand Communities, Live Shopping, Consumer Videos, UGC). Le narratif corporate est solide, le branding est premium, la roadmap publique parle d'IA et d'écosystème. Mais dès qu'on creuse — G2, Capterra, Trustpilot, Glassdoor — l'image se fissure. Le constat le plus violent : les utilisateurs payants se plaignent que les solutions Skeepers ne sont PAS intégrées entre elles (« two completely distinct tools without synergia, no discount for existing customers »), c'est-à-dire exactement le contraire de l'argument de vente. À cela s'ajoute un service client en déclin (« great when small, neglected when scaled »), une plateforme buggy (redirections, instabilité), des auto-renouvellements agressifs sur ex-employés, et un Avis Vérifiés noté 1,5/5 sur Trustpilot FR sur les plaintes consumers. Côté employer brand : Glassdoor 3.3-3.9/5, culture 2.9/5, compensation -6% sur 12 mois. Côté produit : aucune annonce IA majeure depuis 6 mois pendant que Trustpilot et Bazaarvoice livrent. Verdict : Skeepers vend un récit que ses propres utilisateurs ne valident pas. La priorité absolue est de réduire l'écart entre le pitch et l'expérience.
+      </p>
+      <div class="edito-sig">— La rédaction du Veilleur, ton 100% sans filtre · sources publiques uniquement</div>
+    </div>
+
+    <!-- Forces / Faiblesses -->
+    <div class="outside-grid">
+      <div class="outside-card strengths">
+        <h3>Ce que <em>Skeepers réussit</em> (vu de l'extérieur)</h3>
+        <div class="outside-sub">5 forces objectives publiquement documentées</div>
+        <ul class="outside-list strengths">
+          <li>
+            <strong>Récit de marque cohérent et premium.</strong> Le positionnement « leader européen UGC » est tenu sur tous les canaux : site, LinkedIn, presse, blog. Olivier Mouillet (CEO) et la suite à 6 produits sont lisibles immédiatement.
+          </li>
+          <li>
+            <strong>Notation Capterra Influence solide.</strong> Skeepers Influencer Marketing affiche 4,3/5 sur Capterra avec ease of use 4,5 et customer service 4,6 — très au-dessus de Trustpilot (3,4/5 G2). Argument utilisable en pitch.
+            <span class="quote">« Effective platform for brands seeking to collect and activate UGC, especially for e-commerce and live shopping. »</span>
+          </li>
+          <li>
+            <strong>Stabilité capitalistique et leadership.</strong> $152M levés (PSG, Mediatech CX, Venture Hive…). Aucune sortie C-level signalée sur 12 mois — différence nette face à Bazaarvoice (refonte ELT) et Influitive (post-Jigsaw).
+          </li>
+          <li>
+            <strong>Communauté de 500 000+ créateurs/consos active.</strong> Mutualisée entre Influence et Brand Communities : un asset que ni Kolsquare, ni Vesta, ni Influitive ne peuvent répliquer en Europe.
+          </li>
+          <li>
+            <strong>Camaraderie et culture interne reconnues.</strong> Glassdoor : « Strong camaraderie and supportive colleagues » revient dans 4 reviews. 74% des employés recommandent Skeepers à un ami.
+          </li>
+        </ul>
+      </div>
+
+      <div class="outside-card weaknesses">
+        <h3>Ce que <em>les utilisateurs reprochent</em> publiquement</h3>
+        <div class="outside-sub">7 faiblesses récurrentes sur G2 / Capterra / Trustpilot / Glassdoor</div>
+        <ul class="outside-list weaknesses">
+          <li>
+            <strong>Le « one-stop-shop » n'est pas perçu comme intégré.</strong> Reviews Capterra : « Two completely distinct tools without synergia, no discount for existing Skeepers customers. » C'est l'inverse exact du pitch corporate. Risque commercial direct sur l'upsell cross-solution.
+          </li>
+          <li>
+            <strong>Service client dégradé à mesure que l'entreprise grandit.</strong> G2 : « Customer support was initially great, declined as company grew, smaller customers feel neglected. » Pas d'IA dans le chat, pas de live support, réponses tardives.
+          </li>
+          <li>
+            <strong>Plateforme buggy : redirections aléatoires vers login, instabilité.</strong> Plusieurs reviews G2 décrivent le service « not working for extended periods » avec déni de responsabilité de Skeepers. Risque de churn élevé.
+          </li>
+          <li>
+            <strong>Auto-renouvellement agressif et facturation rigide.</strong> Verrouillage annuel à $259/mois minimum pour Avis Vérifiés, renouvellements parfois envoyés à des ex-employés. Génère plaintes Trustpilot et G2.
+          </li>
+          <li>
+            <strong>Avis Vérifiés noté 1,5/5 sur Trustpilot FR.</strong> Côté consumers (pas marques) : plaintes de rejet d'avis négatifs par les commerçants, accusations de biais pro-business, soupçons d'impartialité. Très visible pour un prospect qui googelise « Skeepers avis ».
+          </li>
+          <li>
+            <strong>Programme Influence frustrant côté créateurs.</strong> Promesse de 1k followers minimum mais cinq jours d'attente puis email de refus. Asymétrie attente/expérience qui dégrade la communauté à la base.
+          </li>
+          <li>
+            <strong>Employer brand en érosion.</strong> Glassdoor : culture/values 2,9/5, compensation 3,0/5 (-6% sur 12 mois), career opportunities 3,2/5. Recommandation 58-74%. Une review récente : « Ma pire expérience professionnelle ».
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Verdict -->
+    <div class="benchmark-card" style="margin-bottom:48px;">
+      <div class="benchmark-header">
+        <div class="benchmark-brand-wrap">
+          <div class="skeepers-mark skeepers-mark-lg">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none">
+              <circle cx="8" cy="12" r="4.5" fill="white"/>
+              <circle cx="16" cy="12" r="4.5" fill="white" fill-opacity="0.55"/>
+              <circle cx="8" cy="12" r="1.6" fill="var(--skeepers-blue)"/>
+              <circle cx="16" cy="12" r="1.6" fill="var(--skeepers-blue)"/>
+            </svg>
+          </div>
+          <div>
+            <div class="benchmark-title">Verdict <em>perception externe</em></div>
+            <div class="benchmark-subtitle">Écart pitch ↔ expérience utilisateur · 6 chantiers prioritaires</div>
+          </div>
+        </div>
+        <div class="benchmark-score">
+          <div class="benchmark-score-value">⚠</div>
+          <div class="benchmark-score-label">Écart à corriger en priorité</div>
+        </div>
+      </div>
+
+      <div class="benchmark-verdict">
+        <span class="benchmark-verdict-label">6 chantiers à mener — toutes équipes confondues</span>
+        <strong>(1) Product : prouver l'intégration cross-solution</strong> (SSO unifié, pricing bundle, dashboards consolidés) — c'est le reproche n°1. <strong>(2) Customer Success : reconstruire le support</strong> — chat IA, escalade structurée, SLA publié. <strong>(3) Engineering : qualité plateforme</strong> — instabilité = perte directe de NPS. <strong>(4) Finance / Légal : revoir l'auto-renouvellement</strong> — pré-notification 60 jours, procédure d'opposition simplifiée. <strong>(5) Trust &amp; Safety Avis Vérifiés : transparence sur la modération</strong> — ratio avis publiés/rejetés, charte publique. <strong>(6) People : remontée employer brand</strong> — répondre systématiquement aux reviews Glassdoor, plan compensation. Aucun de ces 6 chantiers n'est arbitrable, ils sont tous des freins commerciaux mesurables sur le pipeline Q3-Q4.
+      </div>
+    </div>
+
+    <!-- Tableau des sources -->
+    <div class="section-header" style="margin-bottom:24px;">
+      <div class="section-eyebrow">Cartographie sources</div>
+      <h2 class="section-title" style="font-size:32px;">Quelles sources Skeepers <em>peut influencer</em>.</h2>
+      <p class="section-description">Tableau des sources analysées avec niveau de contrôle Skeepers. Trois niveaux : sources sous contrôle direct (à corriger immédiatement), sources influençables (réponses publiques, RP), sources externes non modifiables (à surveiller).</p>
+    </div>
+
+    <div class="source-table-wrap">
+      <table class="source-table">
+        <thead>
+          <tr>
+            <th>Source</th>
+            <th>Type</th>
+            <th>Contrôle</th>
+            <th>Action recommandée</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="https://skeepers.io/fr/" target="_blank" rel="noopener">skeepers.io (FR/US)</a></td>
+            <td>Site corporate &amp; pages produits</td>
+            <td><span class="ctrl-pill controlled">Contrôle direct</span></td>
+            <td>
+              Audit narratif urgent : la promesse « one-stop-shop intégré » doit être prouvée par des cas d'usage cross-solution chiffrés.
+              <span class="source-action"><strong>Action Marketing :</strong> ajouter une page « Suite intégrée — preuves » avec data SSO, dashboards, ROI cross-vertical.</span>
+            </td>
+          </tr>
+          <tr>
+            <td><a href="https://skeepers.io/fr/blog/" target="_blank" rel="noopener">skeepers.io/blog</a></td>
+            <td>Content marketing</td>
+            <td><span class="ctrl-pill controlled">Contrôle direct</span></td>
+            <td>
+              Aucune annonce IA majeure depuis 6 mois alors que Trustpilot/Bazaarvoice/Yotpo livrent. Le silence est un signal.
+              <span class="source-action"><strong>Action Product Marketing :</strong> publier sous 30 jours un manifesto « AI-readiness Skeepers » couvrant les 6 produits.</span>
+            </td>
+          </tr>
+          <tr>
+            <td><a href="https://www.linkedin.com/company/skeepers" target="_blank" rel="noopener">LinkedIn Skeepers</a></td>
+            <td>Page entreprise</td>
+            <td><span class="ctrl-pill controlled">Contrôle direct</span></td>
+            <td>
+              Cadence et angle des posts contrôlables. Peu de prises de parole CEO (Olivier Mouillet) détectées vs. concurrents.
+              <span class="source-action"><strong>Action Comms :</strong> activer un fil thought leadership CEO/CTO (1 post/semaine sur l'IA UGC).</span>
+            </td>
+          </tr>
+          <tr>
+            <td><a href="https://en.verified-reviews.com/" target="_blank" rel="noopener">avis-verifies.com</a></td>
+            <td>Site filiale historique</td>
+            <td><span class="ctrl-pill controlled">Contrôle direct</span></td>
+            <td>
+              Charte de modération peu visible côté consumer. Plaintes Trustpilot FR sur l'opacité (1,5/5).
+              <span class="source-action"><strong>Action Trust &amp; Safety :</strong> publier une charte modération publique + ratio annuel avis publiés/rejetés.</span>
+            </td>
+          </tr>
+          <tr>
+            <td><a href="https://apps.shopify.com/skeepers-live-shopping-2" target="_blank" rel="noopener">Shopify App Store</a></td>
+            <td>Listing produit Live Shopping</td>
+            <td><span class="ctrl-pill controlled">Contrôle direct</span></td>
+            <td>
+              Page modifiable, mais peu de cas clients DTC visibles. Yotpo écrase sur le volume de reviews (4 400+).
+              <span class="source-action"><strong>Action Sales/CS :</strong> mobiliser 50 clients pour reviews Shopify d'ici juillet, viser 4,5/5 sur 200+ avis.</span>
+            </td>
+          </tr>
+          <tr>
+            <td><a href="https://www.g2.com/sellers/skeepers" target="_blank" rel="noopener">G2 Reviews Skeepers</a></td>
+            <td>Reviews B2B publiques</td>
+            <td><span class="ctrl-pill influenced">Influençable</span></td>
+            <td>
+              Réponses Skeepers possibles mais non systématiques. Les plaintes service client restent visibles sans réplique.
+              <span class="source-action"><strong>Action Customer Marketing :</strong> répondre à 100% des reviews G2 sous 48h, lancer programme advocate pour reviews positives.</span>
+            </td>
+          </tr>
+          <tr>
+            <td><a href="https://www.capterra.com/p/177873/Verified-Reviews/" target="_blank" rel="noopener">Capterra · Verified Reviews</a></td>
+            <td>Reviews B2B publiques</td>
+            <td><span class="ctrl-pill influenced">Influençable</span></td>
+            <td>
+              Plaintes pricing et auto-renew mises en avant. Aucune réponse vendor sur les avis critiques majeurs détectée.
+              <span class="source-action"><strong>Action CS + Légal :</strong> répondre publiquement aux 10 derniers avis critiques, expliquer la politique renouvellement.</span>
+            </td>
+          </tr>
+          <tr>
+            <td><a href="https://www.capterra.com/p/180256/Hivency/" target="_blank" rel="noopener">Capterra · Skeepers Influence</a></td>
+            <td>Reviews B2B publiques</td>
+            <td><span class="ctrl-pill influenced">Influençable</span></td>
+            <td>
+              4,3/5 — meilleur asset Skeepers sur les plateformes tierces. À sur-utiliser dans les pitchs face à Kolsquare.
+              <span class="source-action"><strong>Action Sales Enablement :</strong> intégrer la note 4,3/5 + best quotes Capterra dans le pitch deck Influence v2026.</span>
+            </td>
+          </tr>
+          <tr>
+            <td><a href="https://www.trustpilot.com/review/skeepers.io" target="_blank" rel="noopener">Trustpilot · skeepers.io</a></td>
+            <td>Reviews public</td>
+            <td><span class="ctrl-pill influenced">Influençable</span></td>
+            <td>
+              Réponses possibles via compte vendor Trustpilot. Plaintes annuel auto-renew très publiques.
+              <span class="source-action"><strong>Action CS :</strong> claim du compte vendor Trustpilot Business + réponses systématiques aux avis &lt; 3★.</span>
+            </td>
+          </tr>
+          <tr>
+            <td><a href="https://www.trustpilot.com/review/www.avis-verifies.com" target="_blank" rel="noopener">Trustpilot · avis-verifies.com</a></td>
+            <td>Reviews public</td>
+            <td><span class="ctrl-pill influenced">Influençable</span></td>
+            <td>
+              Note 1,5/5. Présence Skeepers minimale sur les réponses. Ironie : la solution d'avis a une mauvaise note d'avis.
+              <span class="source-action"><strong>Action Trust &amp; Safety :</strong> stratégie de réponse explicative pour chaque avis &lt; 3★, FAQ publique sur la modération.</span>
+            </td>
+          </tr>
+          <tr>
+            <td><a href="https://www.glassdoor.com/Reviews/Skeepers-Reviews-E6445710.htm" target="_blank" rel="noopener">Glassdoor Skeepers</a></td>
+            <td>Employer brand</td>
+            <td><span class="ctrl-pill influenced">Influençable</span></td>
+            <td>
+              3,3-3,9/5. Culture 2,9/5, comp 3,0/5 (-6%). Reviews critiques type « pire expérience pro » sans réponse RH.
+              <span class="source-action"><strong>Action People :</strong> employer brand reset — réponse systématique aux reviews, plan compensation public, refresh page carrière.</span>
+            </td>
+          </tr>
+          <tr>
+            <td><a href="https://news.linkedin.com/" target="_blank" rel="noopener">LinkedIn (mentions tierces)</a></td>
+            <td>Discussions externes</td>
+            <td><span class="ctrl-pill external">Externe</span></td>
+            <td>
+              Mentions de Skeepers par anciens employés / clients sortants. Non modifiables, à surveiller.
+              <span class="source-action"><strong>Action veille :</strong> alertes LinkedIn sur « Skeepers » + ex-collaborateurs influents pour anticiper signal de churn.</span>
+            </td>
+          </tr>
+          <tr>
+            <td><a href="https://www.lafabriquedunet.fr/logiciel/skeepers" target="_blank" rel="noopener">La Fabrique du Net</a></td>
+            <td>Test indépendant FR</td>
+            <td><span class="ctrl-pill external">Externe</span></td>
+            <td>
+              Analyses tierces FR — bon SEO sur la requête « skeepers ». Possibilité d'influencer via interview / data exclusive.
+              <span class="source-action"><strong>Action RP :</strong> proposer un brief produit + data exclusive à La Fabrique du Net + Tekpon, semestriel.</span>
+            </td>
+          </tr>
+          <tr>
+            <td><a href="https://tekpon.com/software/skeepers/reviews/" target="_blank" rel="noopener">Tekpon</a></td>
+            <td>Comparateur SaaS</td>
+            <td><span class="ctrl-pill external">Externe</span></td>
+            <td>
+              Listing comparatif. Skeepers présent mais pas mis en avant vs alternatives.
+              <span class="source-action"><strong>Action Marketing :</strong> revendiquer le profil Tekpon, mettre à jour fiche produit, demander placement sponsorisé Q3.</span>
+            </td>
+          </tr>
+          <tr>
+            <td><a href="https://www.gartner.com/reviews/market/customer-relationship-management-others/vendor/skeepers/product/skeepers-ratings-and-reviews-solution" target="_blank" rel="noopener">Gartner Peer Insights</a></td>
+            <td>Reviews enterprise</td>
+            <td><span class="ctrl-pill external">Externe</span></td>
+            <td>
+              Volume reviews limité côté Skeepers vs Bazaarvoice/Trustpilot. Manque de présence Enterprise.
+              <span class="source-action"><strong>Action Marketing Enterprise :</strong> mobiliser top 20 comptes Enterprise pour reviews Gartner d'ici fin 2026.</span>
+            </td>
+          </tr>
+          <tr>
+            <td><a href="https://www.crunchbase.com/organization/net-reviews" target="_blank" rel="noopener">Crunchbase</a></td>
+            <td>Profil entreprise public</td>
+            <td><span class="ctrl-pill influenced">Influençable</span></td>
+            <td>
+              Profil sous l'ancien nom « Net Reviews ». Données financières et leadership à actualiser.
+              <span class="source-action"><strong>Action Comms/Légal :</strong> claim profil officiel Crunchbase, harmoniser avec marque Skeepers, ajouter milestones 2025-2026.</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
   </section>
 
   <!-- ============ SOURCES ============ -->
@@ -1529,12 +2840,12 @@
     <div class="section-header">
       <div class="section-eyebrow">Transparence</div>
       <h2 class="section-title">Les <em>sources</em> qui alimentent ce journal.</h2>
-      <p class="section-description">18 sources gratuites surveillées en continu. Mix de presse, réseaux, signaux faibles et veille tarifaire. Aucun abonnement payant à date.</p>
+      <p class="section-description">36 sources gratuites surveillées en continu. Périmètre étendu aux segments Brand Communities (Influitive, Vesta/TINT, SocialLadder, Duel), Feedback Management (Qualtrics, Medallia, InMoment, AskNicely, Goodays) et à l’auto-veille Skeepers. Aucun abonnement payant.</p>
     </div>
 
     <div class="sources-wrap">
       <div class="sources-head">
-        <h3>Les 18 sources du Veilleur</h3>
+        <h3>Les 37 sources du Veilleur</h3>
         <span class="sources-count">100% gratuit · Setup ≈ 30 min</span>
       </div>
 
@@ -1553,9 +2864,9 @@
           <h6>2 · Presse & Blogs</h6>
           <ul>
             <li><a href="https://www.lsa-conso.fr" target="_blank" rel="noopener"><strong>LSA, JDN, L'ADN</strong><span class="source-meta">RSS</span></a></li>
-            <li><a href="https://www.influencia.net" target="_blank" rel="noopener"><strong>Influencia, Stratégies</strong><span class="source-meta">RSS</span></a></li>
+            <li><a href="https://www.republik-retail.fr" target="_blank" rel="noopener"><strong>Republik Retail</strong><span class="source-meta">RSS</span></a></li>
             <li><a href="https://techcrunch.com" target="_blank" rel="noopener"><strong>TechCrunch, Retail Dive</strong><span class="source-meta">RSS</span></a></li>
-            <li><a href="https://blogfr.influence4you.com" target="_blank" rel="noopener"><strong>Blogs influence FR</strong><span class="source-meta">RSS</span></a></li>
+            <li><a href="https://skeepers.io/fr/blog" target="_blank" rel="noopener"><strong>Blogs concurrents</strong><span class="source-meta">RSS</span></a></li>
           </ul>
         </div>
 
@@ -1577,6 +2888,14 @@
             <li><a href="https://www.capterra.fr" target="_blank" rel="noopener"><strong>Capterra · TrustRadius</strong><span class="source-meta">free</span></a></li>
             <li><a href="https://visualping.io" target="_blank" rel="noopener"><strong>Visualping pages</strong><span class="source-meta">free 5 URL</span></a></li>
             <li><a href="https://www.yotpo.com/customers/" target="_blank" rel="noopener"><strong>Pages /customers</strong><span class="source-meta">watch</span></a></li>
+            <li><a href="https://www.duel.tech/blog" target="_blank" rel="noopener"><strong>Duel · Brand Advocacy</strong><span class="source-meta">RSS</span></a></li>
+            <li><a href="https://www.forrester.com/blogs/" target="_blank" rel="noopener"><strong>Forrester Blogs</strong><span class="source-meta">RSS</span></a></li>
+            <li><a href="https://influitive.com/blog/" target="_blank" rel="noopener"><strong>Influitive Blog</strong><span class="source-meta">RSS</span></a></li>
+            <li><a href="https://www.cxtoday.com" target="_blank" rel="noopener"><strong>CX Today</strong><span class="source-meta">RSS</span></a></li>
+            <li><a href="https://www.medallia.com/newsroom/press-releases-archive/" target="_blank" rel="noopener"><strong>Medallia Press</strong><span class="source-meta">RSS</span></a></li>
+            <li><a href="https://community.qualtrics.com/product-release-notes-96" target="_blank" rel="noopener"><strong>Qualtrics Release Notes</strong><span class="source-meta">RSS</span></a></li>
+            <li><a href="https://community.goodays.co/" target="_blank" rel="noopener"><strong>Goodays Community</strong><span class="source-meta">RSS</span></a></li>
+            <li><a href="https://www.partoo.co/en/blog/" target="_blank" rel="noopener"><strong>Partoo Blog &amp; Memos</strong><span class="source-meta">RSS</span></a></li>
           </ul>
         </div>
       </div>
@@ -1608,8 +2927,8 @@
         </span>
         Skeepers · Le Veilleur
       </div>
-      <p>Le Veilleur est généré automatiquement chaque matin à 9h par un pipeline de veille IA interne à Skeepers. Agrégation de 18 sources gratuites : RSS presse, LinkedIn, G2, Capterra, Reddit, Crunchbase, Google Alerts, Meta Ad Library et sites concurrents surveillés par Visualping. Couverture : Avis (Trustpilot, Yotpo, Bazaarvoice, Wizville) + Influence (Kolsquare, Influence4You, YOO/WOO, Influenster).</p>
-      <p>Rédaction assistée par Claude (Anthropic). Skeepers inclut la gamme Avis Vérifiés et Skeepers Influence.</p>
+      <p>Le Veilleur est généré automatiquement chaque matin à 9h par un pipeline de veille IA interne à Skeepers. Agrégation de 18 sources gratuites : RSS presse, LinkedIn, G2, Capterra, Reddit, Crunchbase, Google Alerts, Meta Ad Library et sites concurrents surveillés par Visualping.</p>
+      <p>Rédaction assistée par Claude (Anthropic). Skeepers inclut la gamme Avis Vérifiés.</p>
     </div>
     <div>
       <h5>Contact</h5>
@@ -1622,7 +2941,7 @@
       <h5>Prochaine édition</h5>
       <p><strong>Mardi 5 mai 2026</strong></p>
       <p>9h00 CET</p>
-      <p>Suivi cérémonie Wizville · J-23</p>
+      <p>Édition quotidienne enrichie</p>
     </div>
   </div>
 </footer>
