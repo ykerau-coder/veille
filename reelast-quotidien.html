@@ -1,0 +1,1284 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Le Veilleur · Reelast — Édition #1 · 20 novembre 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --skeepers-blue: #2563EB;
+    --skeepers-blue-bright: #1E5CF5;
+    --skeepers-blue-deep: #1E4AE9;
+    --skeepers-blue-soft: #EBF2FE;
+    --skeepers-blue-glow: rgba(37, 99, 235, 0.14);
+    --skeepers-lavender: #F1F5FF;
+    --ink: #0a0a0a;
+    --ink-soft: #424245;
+    --grey-1: #86868b;
+    --grey-2: #a1a1a6;
+    --grey-3: #d2d2d7;
+    --grey-4: #e8e8ed;
+    --grey-5: #f5f5f7;
+    --white: #ffffff;
+    --positive: #16a34a;
+    --negative: #dc2626;
+    --neutral: #ea580c;
+    --warning: #ca8a04;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.02);
+    --shadow-md: 0 4px 20px rgba(0,0,0,0.04), 0 2px 6px rgba(0,0,0,0.03);
+    --shadow-lg: 0 20px 60px rgba(0,0,0,0.06), 0 8px 24px rgba(0,0,0,0.04);
+    --shadow-blue: 0 20px 50px rgba(37, 99, 235, 0.22);
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', system-ui, sans-serif;
+    --font-serif: 'Instrument Serif', 'Times New Roman', serif;
+    --font-mono: 'JetBrains Mono', 'SF Mono', Monaco, monospace;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--grey-5);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    line-height: 1.5;
+    font-size: 15px;
+    font-feature-settings: 'cv11', 'ss01', 'ss03';
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    letter-spacing: -0.003em;
+  }
+
+  .nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(245, 245, 247, 0.72);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+  }
+
+  .nav-inner {
+    max-width: 1240px; margin: 0 auto; padding: 0 40px; height: 52px;
+    display: flex; align-items: center; justify-content: space-between;
+    font-size: 13px; font-weight: 500;
+  }
+
+  .nav-logo { display: flex; align-items: center; gap: 10px; font-weight: 600; letter-spacing: -0.01em; }
+
+  .skeepers-mark {
+    width: 26px; height: 26px; background: var(--skeepers-blue); border-radius: 7px;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 2px 8px var(--skeepers-blue-glow); flex-shrink: 0;
+  }
+  .skeepers-mark svg { width: 15px; height: 15px; display: block; }
+  .skeepers-mark-lg { width: 58px; height: 58px; border-radius: 14px; box-shadow: 0 10px 28px var(--skeepers-blue-glow); }
+  .skeepers-mark-lg svg { width: 34px; height: 34px; }
+
+  .nav-links { display: flex; gap: 24px; color: var(--ink-soft); }
+  .nav-links a { color: inherit; text-decoration: none; transition: color 0.2s; font-size: 12.5px; }
+  .nav-links a:hover { color: var(--skeepers-blue); }
+
+  .live-indicator {
+    display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px;
+    background: rgba(22, 163, 74, 0.1); border-radius: 12px; color: var(--positive);
+    font-size: 10.5px; font-weight: 500;
+  }
+  .live-indicator::before {
+    content: ''; width: 6px; height: 6px; background: var(--positive);
+    border-radius: 50%; animation: livePulse 2s infinite;
+  }
+  @keyframes livePulse {
+    0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(22,163,74,0.5); }
+    50% { opacity: 0.7; box-shadow: 0 0 0 5px rgba(22,163,74,0); }
+  }
+
+  .container { max-width: 1240px; margin: 0 auto; padding: 0 40px; }
+
+  .hero { padding: 90px 0 60px; text-align: center; position: relative; }
+  .hero::before {
+    content: ''; position: absolute; top: 40px; left: 50%; transform: translateX(-50%);
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, var(--skeepers-blue-glow) 0%, transparent 60%);
+    z-index: -1; pointer-events: none;
+  }
+  .hero-eyebrow {
+    font-family: var(--font-mono); font-size: 11.5px; color: var(--skeepers-blue);
+    letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 22px; font-weight: 500;
+  }
+  .hero h1 {
+    font-family: var(--font-serif); font-size: 88px; line-height: 0.95;
+    font-weight: 400; letter-spacing: -0.035em; margin-bottom: 22px;
+  }
+  .hero h1 em { font-style: italic; color: var(--skeepers-blue); }
+  .hero-subtitle {
+    font-size: 20px; line-height: 1.4; color: var(--ink-soft);
+    max-width: 640px; margin: 0 auto 36px; letter-spacing: -0.01em;
+  }
+  .hero-meta {
+    display: inline-flex; align-items: center; gap: 22px; padding: 10px 20px;
+    background: var(--white); border-radius: 100px; box-shadow: var(--shadow-sm);
+    font-size: 12.5px; color: var(--ink-soft); font-weight: 500;
+  }
+  .hero-meta-item { display: flex; align-items: center; gap: 6px; }
+  .hero-meta-item strong { color: var(--ink); font-weight: 600; }
+  .hero-meta-divider { width: 1px; height: 14px; background: var(--grey-3); }
+
+  .summary-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 50px 0 70px; }
+  .summary-card {
+    background: var(--white); border-radius: 20px; padding: 24px; box-shadow: var(--shadow-sm);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); position: relative; overflow: hidden;
+  }
+  .summary-card::after {
+    content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px;
+    background: var(--skeepers-blue); transform: scaleX(0); transform-origin: left;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .summary-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+  .summary-card:hover::after { transform: scaleX(1); }
+  .summary-label { font-size: 12px; color: var(--grey-1); font-weight: 500; margin-bottom: 12px; }
+  .summary-value {
+    font-family: var(--font-serif); font-size: 44px; line-height: 1;
+    font-weight: 400; letter-spacing: -0.02em; margin-bottom: 8px;
+  }
+  .summary-value em { font-style: italic; color: var(--skeepers-blue); }
+  .summary-delta { font-family: var(--font-mono); font-size: 11px; font-weight: 500; }
+  .summary-delta.positive { color: var(--positive); }
+  .summary-delta.negative { color: var(--negative); }
+  .summary-delta.blue { color: var(--skeepers-blue); }
+
+  section { margin-bottom: 90px; }
+  .section-header { margin-bottom: 36px; max-width: 780px; }
+  .section-eyebrow {
+    font-family: var(--font-mono); font-size: 11px; color: var(--skeepers-blue);
+    letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 12px; font-weight: 500;
+  }
+  .section-title {
+    font-family: var(--font-serif); font-size: 50px; line-height: 1.05;
+    font-weight: 400; letter-spacing: -0.025em; margin-bottom: 14px;
+  }
+  .section-title em { font-style: italic; color: var(--skeepers-blue); }
+  .section-description { font-size: 17px; color: var(--ink-soft); line-height: 1.5; max-width: 620px; }
+
+  .edito-card {
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a20 100%);
+    color: var(--white); border-radius: 28px; padding: 56px;
+    position: relative; overflow: hidden; box-shadow: var(--shadow-lg);
+  }
+  .edito-card::before {
+    content: ''; position: absolute; top: -200px; right: -200px; width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(37,99,235,0.22) 0%, transparent 70%); pointer-events: none;
+  }
+  .edito-card::after {
+    content: ''; position: absolute; bottom: -150px; left: -100px; width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(37,99,235,0.1) 0%, transparent 70%); pointer-events: none;
+  }
+  .edito-card > * { position: relative; z-index: 1; }
+  .edito-tag {
+    display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px;
+    background: rgba(37,99,235,0.18); color: #93b4fc; border-radius: 100px;
+    font-size: 11.5px; font-weight: 500; margin-bottom: 26px;
+    font-family: var(--font-mono); letter-spacing: 0.02em; border: 1px solid rgba(37,99,235,0.3);
+  }
+  .edito-tag::before { content: '✦'; font-size: 10px; }
+  .edito-card h2 {
+    font-family: var(--font-serif); font-size: 44px; line-height: 1.1;
+    font-weight: 400; letter-spacing: -0.02em; margin-bottom: 22px; max-width: 860px;
+  }
+  .edito-card h2 em { font-style: italic; color: #7ca6fb; }
+  .edito-card p { font-size: 17px; line-height: 1.55; color: rgba(255,255,255,0.72); max-width: 780px; }
+  .edito-sig {
+    margin-top: 26px; font-family: var(--font-mono); font-size: 11.5px;
+    color: rgba(255,255,255,0.45); letter-spacing: 0.02em;
+  }
+
+  .benchmark-card {
+    background: linear-gradient(135deg, var(--skeepers-blue-soft) 0%, var(--white) 60%);
+    border: 1px solid rgba(37, 99, 235, 0.15); border-radius: 28px; padding: 48px;
+    position: relative; overflow: hidden;
+  }
+  .benchmark-header {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 36px; padding-bottom: 28px;
+    border-bottom: 1px solid rgba(37, 99, 235, 0.15); flex-wrap: wrap; gap: 20px;
+  }
+  .benchmark-brand-wrap { display: flex; align-items: center; gap: 16px; }
+  .benchmark-title {
+    font-family: var(--font-serif); font-size: 32px; font-weight: 400;
+    letter-spacing: -0.02em; line-height: 1.1;
+  }
+  .benchmark-title em { font-style: italic; color: var(--skeepers-blue); }
+  .benchmark-subtitle { font-size: 13.5px; color: var(--ink-soft); margin-top: 4px; }
+  .benchmark-score { text-align: right; }
+  .benchmark-score-value {
+    font-family: var(--font-serif); font-size: 56px; line-height: 1;
+    font-weight: 400; color: var(--skeepers-blue); letter-spacing: -0.02em;
+  }
+  .benchmark-score-label {
+    font-family: var(--font-mono); font-size: 10px; text-transform: uppercase;
+    letter-spacing: 0.08em; color: var(--grey-1); margin-top: 4px;
+  }
+  .benchmark-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-bottom: 32px; }
+  .benchmark-stat { background: var(--white); padding: 20px; border-radius: 16px; box-shadow: var(--shadow-sm); }
+  .benchmark-stat-label {
+    font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.06em;
+    text-transform: uppercase; color: var(--grey-1); margin-bottom: 10px; font-weight: 500;
+  }
+  .benchmark-stat-value {
+    font-family: var(--font-serif); font-size: 32px; line-height: 1;
+    font-weight: 400; letter-spacing: -0.02em; color: var(--ink); margin-bottom: 6px;
+  }
+  .benchmark-stat-delta {
+    font-family: var(--font-mono); font-size: 11px; font-weight: 500;
+    display: inline-flex; align-items: center; gap: 4px;
+  }
+  .benchmark-stat-delta.positive { color: var(--positive); }
+  .benchmark-stat-delta.negative { color: var(--negative); }
+  .benchmark-stat-delta.neutral { color: var(--grey-1); }
+  .benchmark-verdict {
+    padding: 20px 24px; background: var(--white); border-radius: 14px;
+    border-left: 3px solid var(--skeepers-blue); font-size: 15.5px;
+    line-height: 1.55; color: var(--ink-soft);
+  }
+  .benchmark-verdict strong { color: var(--ink); font-weight: 600; }
+  .benchmark-verdict-label {
+    font-family: var(--font-mono); font-size: 10px; text-transform: uppercase;
+    letter-spacing: 0.08em; color: var(--skeepers-blue); font-weight: 600;
+    display: block; margin-bottom: 6px;
+  }
+
+  .segment-label {
+    display: flex; align-items: center; gap: 14px; margin-bottom: 24px;
+    padding-bottom: 16px; border-bottom: 1px solid var(--grey-4);
+  }
+  .segment-badge {
+    padding: 5px 12px; background: var(--ink); color: var(--white); border-radius: 100px;
+    font-family: var(--font-mono); font-size: 10.5px; font-weight: 500;
+    letter-spacing: 0.04em; text-transform: uppercase;
+  }
+  .segment-badge.local { background: var(--skeepers-blue); }
+  .segment-description { font-size: 13.5px; color: var(--grey-1); }
+
+  .competitor-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 60px; }
+  .competitor-card {
+    background: var(--white); border-radius: 24px; padding: 30px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: var(--shadow-sm);
+  }
+  .competitor-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+  .competitor-card.focus-card {
+    background: linear-gradient(135deg, var(--skeepers-blue-soft) 0%, var(--white) 80%);
+    border: 1px solid rgba(37, 99, 235, 0.2); grid-column: span 3; padding: 40px;
+  }
+  .competitor-head {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    margin-bottom: 22px; padding-bottom: 18px; border-bottom: 1px solid var(--grey-4);
+  }
+  .competitor-name {
+    font-family: var(--font-serif); font-size: 28px; font-weight: 400;
+    letter-spacing: -0.02em; line-height: 1;
+  }
+  .competitor-sub { font-size: 12px; color: var(--grey-1); margin-top: 6px; }
+  .momentum-pill {
+    display: inline-flex; align-items: center; gap: 5px; padding: 5px 10px;
+    border-radius: 100px; font-family: var(--font-mono); font-size: 11px; font-weight: 600;
+  }
+  .momentum-pill.up { background: rgba(220, 38, 38, 0.1); color: var(--negative); }
+  .momentum-pill.down { background: rgba(22, 163, 74, 0.1); color: var(--positive); }
+  .momentum-pill.flat { background: var(--grey-4); color: var(--grey-1); }
+
+  .focus-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 36px; align-items: start; }
+  .focus-news-list .news-item:last-child { border-bottom: none; }
+  .focus-aside {
+    padding: 24px; background: var(--white); border-radius: 16px; box-shadow: var(--shadow-sm);
+  }
+  .focus-aside h5 {
+    font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.06em;
+    text-transform: uppercase; color: var(--skeepers-blue); margin-bottom: 14px; font-weight: 600;
+  }
+  .focus-aside ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+  .focus-aside li {
+    font-size: 13.5px; line-height: 1.45; color: var(--ink-soft); padding-left: 22px; position: relative;
+  }
+  .focus-aside li::before {
+    content: ''; position: absolute; left: 0; top: 8px; width: 10px; height: 2px;
+    background: var(--skeepers-blue); border-radius: 1px;
+  }
+  .focus-aside li strong { color: var(--ink); font-weight: 600; }
+
+  .news-item { padding: 14px 0; border-bottom: 1px solid var(--grey-4); }
+  .news-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .news-tag {
+    display: inline-block; font-size: 10px; font-weight: 600; letter-spacing: 0.04em;
+    text-transform: uppercase; padding: 3px 8px; border-radius: 6px; margin-bottom: 8px;
+  }
+  .tag-pricing { background: var(--skeepers-blue-soft); color: var(--skeepers-blue); }
+  .tag-product { background: rgba(234, 88, 12, 0.1); color: var(--neutral); }
+  .tag-news { background: var(--grey-4); color: var(--ink-soft); }
+  .tag-hiring { background: rgba(147, 51, 234, 0.1); color: #9333ea; }
+  .tag-review { background: rgba(220, 38, 38, 0.1); color: var(--negative); }
+  .tag-partnership { background: rgba(22, 163, 74, 0.1); color: var(--positive); }
+  .news-title { font-size: 15px; line-height: 1.35; font-weight: 600; margin-bottom: 5px; letter-spacing: -0.008em; }
+  .news-summary { font-size: 13.5px; line-height: 1.5; color: var(--ink-soft); margin-bottom: 8px; }
+  .news-meta {
+    font-family: var(--font-mono); font-size: 10.5px; color: var(--grey-1);
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .news-meta a {
+    color: var(--grey-1); text-decoration: none; transition: color 0.2s;
+    display: inline-flex; align-items: center; gap: 5px;
+  }
+  .news-meta a:hover { color: var(--skeepers-blue); }
+  .news-meta a::after {
+    content: '↗'; font-size: 11px; opacity: 0; transition: opacity 0.2s, transform 0.2s; display: inline-block;
+  }
+  .news-meta a:hover::after { opacity: 1; transform: translate(1px, -1px); }
+  .impact-bar { display: inline-flex; gap: 2px; }
+  .impact-segment { width: 14px; height: 3px; background: var(--grey-3); border-radius: 2px; }
+  .impact-segment.active { background: var(--skeepers-blue); }
+
+  .battlecards-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .battlecard {
+    background: var(--white); border-radius: 24px; padding: 36px;
+    box-shadow: var(--shadow-md); position: relative; overflow: hidden;
+  }
+  .battlecard::before {
+    content: ''; position: absolute; top: 0; right: 0; width: 250px; height: 100%;
+    background: linear-gradient(135deg, transparent 0%, var(--skeepers-blue-soft) 100%);
+    opacity: 0.5; pointer-events: none;
+  }
+  .battlecard > * { position: relative; z-index: 1; }
+  .battle-header {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    margin-bottom: 24px; padding-bottom: 18px; border-bottom: 1px solid var(--grey-4); gap: 12px;
+  }
+  .battle-title {
+    font-family: var(--font-serif); font-size: 28px; font-weight: 400;
+    letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 6px;
+  }
+  .battle-title em { font-style: italic; color: var(--skeepers-blue); }
+  .battle-subtitle { font-size: 13px; color: var(--ink-soft); line-height: 1.4; }
+  .battle-badge {
+    padding: 5px 12px; background: var(--skeepers-blue); color: var(--white);
+    border-radius: 100px; font-size: 10.5px; font-weight: 600;
+    font-family: var(--font-mono); letter-spacing: 0.02em; white-space: nowrap;
+    box-shadow: 0 4px 12px var(--skeepers-blue-glow);
+  }
+  .battle-col { margin-bottom: 18px; }
+  .battle-col:last-child { margin-bottom: 0; }
+  .battle-col h4 {
+    font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--grey-1); margin-bottom: 12px; font-weight: 500;
+  }
+  .battle-col.objection h4 { color: var(--negative); }
+  .battle-col.response h4 { color: var(--positive); }
+  .battle-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .battle-col li {
+    font-size: 13.5px; line-height: 1.45; padding: 12px 14px; background: var(--grey-5);
+    border-radius: 10px; color: var(--ink-soft); position: relative; padding-left: 34px;
+  }
+  .battle-col.objection li::before {
+    content: ''; position: absolute; left: 14px; top: 17px; width: 6px; height: 6px;
+    background: var(--negative); border-radius: 50%; box-shadow: 0 0 0 3px rgba(220,38,38,0.15);
+  }
+  .battle-col.response li::before {
+    content: ''; position: absolute; left: 14px; top: 17px; width: 6px; height: 6px;
+    background: var(--positive); border-radius: 50%; box-shadow: 0 0 0 3px rgba(22,163,74,0.15);
+  }
+
+  .signals-intro { margin-bottom: 40px; }
+  .signal-type-row {
+    display: grid; grid-template-columns: 220px 1fr; gap: 32px;
+    padding: 32px 0; border-bottom: 1px solid var(--grey-4);
+  }
+  .signal-type-row:last-child { border-bottom: none; }
+  .signal-type-label { position: sticky; top: 80px; }
+  .signal-type-title {
+    font-family: var(--font-serif); font-size: 26px; line-height: 1.1;
+    font-weight: 400; letter-spacing: -0.02em; margin-bottom: 8px;
+  }
+  .signal-type-title em { font-style: italic; color: var(--skeepers-blue); }
+  .signal-type-desc { font-size: 12.5px; color: var(--grey-1); line-height: 1.5; }
+  .signal-type-items { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .signal-item {
+    background: var(--white); border-radius: 16px; padding: 20px; box-shadow: var(--shadow-sm);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .signal-item:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+  .signal-source {
+    font-family: var(--font-mono); font-size: 10.5px; color: var(--skeepers-blue);
+    letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 10px; font-weight: 500;
+  }
+  .signal-source a {
+    color: inherit; text-decoration: none; display: inline-flex; align-items: center;
+    gap: 5px; transition: opacity 0.2s;
+  }
+  .signal-source a:hover { opacity: 0.7; }
+  .signal-source a::after {
+    content: '↗'; font-size: 11px; opacity: 0; transition: opacity 0.2s, transform 0.2s;
+  }
+  .signal-source a:hover::after { opacity: 1; transform: translate(1px, -1px); }
+  .sources-col li a {
+    color: inherit; text-decoration: none; transition: color 0.2s;
+    display: inline-flex; align-items: center; gap: 6px; flex-wrap: wrap;
+  }
+  .sources-col li a:hover { color: var(--skeepers-blue); }
+  .sources-col li a strong { transition: color 0.2s; }
+  .sources-col li a:hover strong { color: var(--skeepers-blue); }
+  .signal-content { font-size: 14px; line-height: 1.5; margin-bottom: 12px; }
+  .signal-content strong { font-weight: 600; color: var(--ink); }
+  .signal-action {
+    font-size: 12.5px; line-height: 1.5; padding: 10px 12px; background: var(--skeepers-blue-soft);
+    border-radius: 8px; border-left: 2px solid var(--skeepers-blue); color: var(--ink-soft);
+  }
+  .signal-action-label {
+    font-family: var(--font-mono); font-size: 9.5px; text-transform: uppercase;
+    letter-spacing: 0.08em; color: var(--skeepers-blue); font-weight: 600;
+    display: block; margin-bottom: 3px;
+  }
+
+  .pricing-card { background: var(--white); border-radius: 24px; overflow: hidden; box-shadow: var(--shadow-sm); }
+  .pricing-table { width: 100%; border-collapse: collapse; }
+  .pricing-table th {
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.05em;
+    text-transform: uppercase; text-align: left; padding: 18px 22px; color: var(--grey-1);
+    font-weight: 500; border-bottom: 1px solid var(--grey-4); background: var(--grey-5);
+  }
+  .pricing-table td {
+    padding: 18px 22px; border-bottom: 1px solid var(--grey-4); font-size: 14px;
+    color: var(--ink-soft); vertical-align: middle;
+  }
+  .pricing-table tbody tr:last-child td { border-bottom: none; }
+  .pricing-table tbody tr { transition: background 0.2s; }
+  .pricing-table tbody tr:hover { background: var(--skeepers-blue-soft); }
+  .pricing-table tbody tr:hover td { color: var(--ink); }
+  .pricing-table td strong { font-weight: 600; color: var(--ink); }
+  .price-value { font-family: var(--font-serif); font-size: 19px; color: var(--ink); }
+  .delta {
+    display: inline-flex; align-items: center; gap: 4px; padding: 4px 10px;
+    border-radius: 100px; font-family: var(--font-mono); font-size: 11px; font-weight: 600;
+  }
+  .delta.up { background: rgba(220, 38, 38, 0.1); color: var(--negative); }
+  .delta.down { background: rgba(22, 163, 74, 0.1); color: var(--positive); }
+  .delta.new { background: var(--skeepers-blue); color: var(--white); }
+  .delta.neutral { background: var(--grey-4); color: var(--grey-1); }
+
+  .sources-wrap { background: var(--white); border-radius: 24px; padding: 40px; box-shadow: var(--shadow-sm); }
+  .sources-head {
+    display: flex; justify-content: space-between; align-items: baseline;
+    margin-bottom: 28px; padding-bottom: 18px; border-bottom: 1px solid var(--grey-4);
+    flex-wrap: wrap; gap: 12px;
+  }
+  .sources-head h3 { font-family: var(--font-serif); font-size: 26px; font-weight: 400; letter-spacing: -0.02em; }
+  .sources-count { font-family: var(--font-mono); font-size: 11px; color: var(--grey-1); letter-spacing: 0.04em; }
+  .sources-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+  .sources-col h6 {
+    font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--skeepers-blue); margin-bottom: 14px; font-weight: 600;
+  }
+  .sources-col ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .sources-col li {
+    font-size: 13px; color: var(--ink-soft); display: flex; align-items: center; gap: 8px;
+  }
+  .sources-col li::before {
+    content: ''; width: 4px; height: 4px; background: var(--skeepers-blue);
+    border-radius: 50%; flex-shrink: 0;
+  }
+  .sources-col li strong { color: var(--ink); font-weight: 500; }
+  .sources-col li .source-meta { font-family: var(--font-mono); font-size: 10.5px; color: var(--grey-1); margin-left: 4px; }
+
+  .cta-banner {
+    background: linear-gradient(135deg, var(--skeepers-blue) 0%, var(--skeepers-blue-deep) 100%);
+    color: var(--white); border-radius: 32px; padding: 68px 48px; text-align: center;
+    position: relative; overflow: hidden; box-shadow: var(--shadow-blue);
+  }
+  .cta-banner::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(circle at 20% 20%, rgba(255,255,255,0.18) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(255,255,255,0.12) 0%, transparent 50%);
+    pointer-events: none;
+  }
+  .cta-banner > * { position: relative; z-index: 1; }
+  .cta-banner h3 {
+    font-family: var(--font-serif); font-size: 44px; line-height: 1.1; font-weight: 400;
+    letter-spacing: -0.02em; margin-bottom: 14px; max-width: 720px; margin-left: auto; margin-right: auto;
+  }
+  .cta-banner h3 em { font-style: italic; }
+  .cta-banner p {
+    font-size: 16.5px; opacity: 0.9; margin-bottom: 30px; max-width: 540px;
+    margin-left: auto; margin-right: auto;
+  }
+  .cta-button {
+    display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px;
+    background: var(--white); color: var(--skeepers-blue); border: none; border-radius: 100px;
+    font-family: var(--font-sans); font-size: 15px; font-weight: 600; cursor: pointer;
+    transition: transform 0.2s; letter-spacing: -0.01em;
+  }
+  .cta-button:hover { transform: scale(1.03); }
+
+  footer {
+    padding: 56px 0 72px; border-top: 1px solid var(--grey-4); background: var(--white);
+  }
+  .footer-grid {
+    max-width: 1240px; margin: 0 auto; padding: 0 40px;
+    display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 60px;
+  }
+  footer h5 { font-size: 13px; color: var(--ink); font-weight: 600; margin-bottom: 14px; }
+  footer p { font-size: 12.5px; color: var(--grey-1); line-height: 1.6; margin-bottom: 4px; }
+  footer p strong { color: var(--ink-soft); font-weight: 500; }
+  .footer-brand {
+    display: flex; align-items: center; gap: 8px; margin-bottom: 12px;
+    color: var(--ink); font-weight: 600; font-size: 13px;
+  }
+
+  @media (max-width: 960px) {
+    .nav-inner { padding: 0 20px; }
+    .container { padding: 0 20px; }
+    .hero { padding: 56px 0 40px; }
+    .hero h1 { font-size: 46px; }
+    .hero-subtitle { font-size: 16px; }
+    .hero-meta { flex-wrap: wrap; padding: 10px 16px; gap: 12px; }
+    .hero-meta-divider { display: none; }
+    .summary-grid { grid-template-columns: repeat(2, 1fr); margin: 36px 0 56px; }
+    .section-title { font-size: 32px; }
+    .edito-card { padding: 28px 22px; border-radius: 18px; }
+    .edito-card h2 { font-size: 26px; }
+    .edito-card p { font-size: 14.5px; }
+    .benchmark-card { padding: 28px 22px; border-radius: 18px; }
+    .benchmark-header { flex-direction: column; align-items: flex-start; }
+    .benchmark-title { font-size: 24px; }
+    .benchmark-score-value { font-size: 40px; }
+    .benchmark-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .benchmark-stat { padding: 16px; }
+    .benchmark-stat-value { font-size: 24px; }
+    .competitor-grid { grid-template-columns: 1fr; }
+    .competitor-card { padding: 24px; }
+    .competitor-card.focus-card { grid-column: span 1; padding: 26px 22px; }
+    .focus-grid { grid-template-columns: 1fr; gap: 24px; }
+    .battlecards-wrap { grid-template-columns: 1fr; }
+    .battlecard { padding: 24px 20px; border-radius: 18px; }
+    .battle-header { flex-direction: column; gap: 10px; }
+    .battle-title { font-size: 22px; }
+    .signal-type-row { grid-template-columns: 1fr; gap: 16px; padding: 22px 0; }
+    .signal-type-label { position: static; }
+    .signal-type-title { font-size: 22px; }
+    .signal-type-items { grid-template-columns: 1fr; }
+    .pricing-card { overflow-x: auto; }
+    .pricing-table th, .pricing-table td { padding: 12px 10px; font-size: 12px; }
+    .price-value { font-size: 15px; }
+    .sources-wrap { padding: 24px 20px; }
+    .sources-grid { grid-template-columns: 1fr 1fr; gap: 20px; }
+    .cta-banner { padding: 44px 22px; border-radius: 18px; }
+    .cta-banner h3 { font-size: 26px; }
+    .footer-grid { grid-template-columns: 1fr; padding: 0 20px; gap: 28px; }
+    .nav-links { display: none; }
+    section { margin-bottom: 56px; }
+  }
+
+  /* Skeepers vu de l'extérieur */
+  .outside-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 32px; }
+  .outside-card {
+    background: var(--white); border-radius: 24px; padding: 32px;
+    box-shadow: var(--shadow-md); position: relative; overflow: hidden;
+  }
+  .outside-card.strengths { border-top: 4px solid var(--positive); }
+  .outside-card.weaknesses { border-top: 4px solid var(--negative); }
+  .outside-card h3 {
+    font-family: var(--font-serif); font-size: 26px; font-weight: 400;
+    letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 8px;
+  }
+  .outside-card .outside-sub {
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.04em;
+    text-transform: uppercase; color: var(--grey-1); margin-bottom: 22px; font-weight: 500;
+  }
+  .outside-card.strengths h3 em { color: var(--positive); font-style: italic; }
+  .outside-card.weaknesses h3 em { color: var(--negative); font-style: italic; }
+  .outside-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+  .outside-list li {
+    font-size: 14px; line-height: 1.5; padding: 14px 16px; background: var(--grey-5);
+    border-radius: 12px; color: var(--ink-soft); position: relative; padding-left: 38px;
+  }
+  .outside-list li strong { color: var(--ink); font-weight: 600; }
+  .outside-list.strengths li::before {
+    content: '✓'; position: absolute; left: 14px; top: 14px;
+    color: var(--positive); font-weight: 700; font-size: 14px;
+  }
+  .outside-list.weaknesses li::before {
+    content: '✗'; position: absolute; left: 14px; top: 14px;
+    color: var(--negative); font-weight: 700; font-size: 14px;
+  }
+  .outside-list .quote {
+    display: block; margin-top: 6px; font-style: italic; font-size: 12.5px;
+    color: var(--grey-1); padding-left: 8px; border-left: 2px solid var(--grey-3);
+  }
+
+  .source-table-wrap {
+    background: var(--white); border-radius: 24px; overflow: hidden;
+    box-shadow: var(--shadow-sm); margin-top: 24px;
+  }
+  .source-table { width: 100%; border-collapse: collapse; }
+  .source-table th {
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.05em;
+    text-transform: uppercase; text-align: left; padding: 16px 22px; color: var(--grey-1);
+    font-weight: 500; border-bottom: 1px solid var(--grey-4); background: var(--grey-5);
+  }
+  .source-table td {
+    padding: 16px 22px; border-bottom: 1px solid var(--grey-4); font-size: 13.5px;
+    color: var(--ink-soft); vertical-align: top; line-height: 1.5;
+  }
+  .source-table tbody tr:last-child td { border-bottom: none; }
+  .source-table td a { color: var(--ink); text-decoration: none; font-weight: 500; }
+  .source-table td a:hover { color: var(--skeepers-blue); }
+  .ctrl-pill {
+    display: inline-flex; align-items: center; gap: 5px; padding: 4px 10px;
+    border-radius: 100px; font-family: var(--font-mono); font-size: 10.5px;
+    font-weight: 600; letter-spacing: 0.02em; white-space: nowrap;
+  }
+  .ctrl-pill.controlled { background: rgba(22,163,74,0.12); color: var(--positive); }
+  .ctrl-pill.influenced { background: var(--skeepers-blue-soft); color: var(--skeepers-blue); }
+  .ctrl-pill.external { background: rgba(220,38,38,0.1); color: var(--negative); }
+  .source-action {
+    display: block; margin-top: 6px; padding: 8px 10px; background: var(--skeepers-blue-soft);
+    border-radius: 6px; font-size: 12px; color: var(--ink-soft); border-left: 2px solid var(--skeepers-blue);
+  }
+  .source-action strong { color: var(--skeepers-blue); }
+
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-logo">
+      <span class="skeepers-mark"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none"><circle cx="8" cy="12" r="4.5" fill="white"/><circle cx="16" cy="12" r="4.5" fill="white" fill-opacity="0.55"/><circle cx="8" cy="12" r="1.6" fill="var(--skeepers-blue)"/><circle cx="16" cy="12" r="1.6" fill="var(--skeepers-blue)"/></svg></span>
+      Le Veilleur · Reelast
+    </div>
+    <div class="nav-links">
+      <a href="#edito">Édito</a>
+      <a href="#benchmark">Benchmark</a>
+      <a href="#concurrents">Concurrents</a>
+      <a href="#battlecards">Battlecards</a>
+      <a href="#signaux">Signaux</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#outside-in">Reelast vu</a>
+      <a href="#sources">Sources</a>
+    </div>
+    <span class="live-indicator">En direct</span>
+  </div>
+</nav>
+
+<div class="container">
+
+  <header class="hero">
+    <div class="hero-eyebrow">Édition #1 · Vendredi 20 novembre 2026 · Vidéo shoppable &amp; Web Stories</div>
+    <h1>La veille vidéo commerce,<br><em>automatisée.</em></h1>
+    <p class="hero-subtitle">
+      Ce qui bouge sur le marché de la vidéo shoppable, des Web Stories et du live shopping. Pensée pour l'équipe Reelast.
+    </p>
+    <div class="hero-meta">
+      <div class="hero-meta-item"><strong>8</strong> concurrents</div>
+      <span class="hero-meta-divider"></span>
+      <div class="hero-meta-item"><strong>2</strong> segments</div>
+      <span class="hero-meta-divider"></span>
+      <div class="hero-meta-item"><strong>9:00</strong> CET</div>
+      <span class="hero-meta-divider"></span>
+      <div class="hero-meta-item"><strong>5 min</strong> de lecture</div>
+    </div>
+  </header>
+
+  <div class="summary-grid">
+    <div class="summary-card">
+      <div class="summary-label">Prix d'entrée Shopify</div>
+      <div class="summary-value">0–49 $</div>
+      <div class="summary-delta negative">▼ Whatmore, Videowise, Tolstoy vs Reelast 79-99 $</div>
+    </div>
+    <div class="summary-card">
+      <div class="summary-label">Vidéo lisible par les IA</div>
+      <div class="summary-value">3</div>
+      <div class="summary-delta blue">Bambuser, Videowise, Skeepers poussent la GEO</div>
+    </div>
+    <div class="summary-card">
+      <div class="summary-label">J-7</div>
+      <div class="summary-value"><em>27 nov.</em></div>
+      <div class="summary-delta blue">Black Friday · pic de trafic e-commerce</div>
+    </div>
+    <div class="summary-card">
+      <div class="summary-label">Bambuser ARR</div>
+      <div class="summary-value">−10%</div>
+      <div class="summary-delta negative">▼ Live shopping en recul, pivot IA</div>
+    </div>
+  </div>
+
+  <section id="edito">
+    <div class="edito-card">
+      <div class="edito-tag">Synthèse du jour · Vidéo commerce</div>
+      <h2>Le marché se coupe en deux : des apps Shopify <em>quasi gratuites</em> en bas, des plateformes <em>Enterprise sur devis</em> en haut. Reelast doit choisir où gagner.</h2>
+      <p>
+        <strong>(1) La guerre des prix par le bas.</strong> Sur le Shopify App Store, Whatmore a une offre gratuite et plus de 390 avis à 4,9-5/5. Videowise démarre à 9 $/mois. Les quatre offres Tolstoy vont de 8 à 299 $/mois. Vidjet, concurrent français, démarre à 49 $/mois avec une note de 5/5. Face à eux, Reelast démarre à 79 $/mois (annuel) ou 99 $/mois (mensuel) : <strong>il faut justifier l'écart</strong> par ce que ces apps n'ont pas (collecte UGC après achat via email et WhatsApp, SDK mobile, compatibilité multi-CMS, 23 langues).
+      </p>
+      <p>
+        <strong>(2) La vidéo devient une donnée pour les IA.</strong> Bambuser a lancé une offre « AI intelligence » qui rend la vidéo lisible et citable par les moteurs de réponse IA (premiers clients : Audi Suède, l'app de stylisme d'ASOS dans ChatGPT). Videowise met en avant des vidéos « optimisées SEO/LLM ». Skeepers publie sur la GEO et le « zero-click shopping ». Tolstoy s'est transformé en suite IA complète : studio de création, essayage virtuel et assistant de vente.
+      </p>
+      <p>
+        <strong>(3) Le live shopping s'essouffle.</strong> Le revenu récurrent annuel (ARR) de Bambuser recule de 10% sur un an, la société se recentre sur l'IA et la consultation vidéo. Le format qui gagne, c'est la vidéo courte toujours visible sur le site. C'est exactement le terrain de Reelast. <strong>Priorité</strong> : un discours « mesure du ROI + IA + mobile » pour le mid-market multi-CMS (Shopify n'est pas le seul terrain de jeu), là où les apps Shopify à bas prix ne vont pas.
+      </p>
+      <div class="edito-sig">— La rédaction du Veilleur · édition Reelast</div>
+    </div>
+  </section>
+
+  <section id="benchmark">
+    <div class="section-header">
+      <div class="section-eyebrow">Où se situe Reelast</div>
+      <h2 class="section-title">Benchmark <em>maison.</em></h2>
+      <p class="section-description">Positionnement de Reelast face au marché. Tous les chiffres Reelast sont ceux affichés publiquement sur reelast.com.</p>
+    </div>
+
+    <div class="benchmark-card">
+      <div class="benchmark-header">
+        <div class="benchmark-brand-wrap">
+          <span class="skeepers-mark skeepers-mark-lg"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none"><circle cx="8" cy="12" r="4.5" fill="white"/><circle cx="16" cy="12" r="4.5" fill="white" fill-opacity="0.55"/><circle cx="8" cy="12" r="1.6" fill="var(--skeepers-blue)"/><circle cx="16" cy="12" r="1.6" fill="var(--skeepers-blue)"/></svg></span>
+          <div>
+            <div class="benchmark-title">Reelast <em>Web Stories</em></div>
+            <div class="benchmark-subtitle">Collecte UGC · Web Stories IA · widgets omnicanaux · Montréal</div>
+          </div>
+        </div>
+        <div class="benchmark-score">
+          <div class="benchmark-score-value">150+</div>
+          <div class="benchmark-score-label">marques revendiquées · 9 pays</div>
+        </div>
+      </div>
+
+      <div class="benchmark-grid">
+        <div class="benchmark-stat">
+          <div class="benchmark-stat-label">Prix d'entrée</div>
+          <div class="benchmark-stat-value">79 $</div>
+          <div class="benchmark-stat-delta negative">▼ vs 0-49 $ pour les apps Shopify</div>
+        </div>
+        <div class="benchmark-stat">
+          <div class="benchmark-stat-label">Conversion annoncée</div>
+          <div class="benchmark-stat-value">+15%</div>
+          <div class="benchmark-stat-delta neutral">→ panel de 35 e-commerces · chiffre maison</div>
+        </div>
+        <div class="benchmark-stat">
+          <div class="benchmark-stat-label">Poids du widget</div>
+          <div class="benchmark-stat-value">&lt;8 Ko</div>
+          <div class="benchmark-stat-delta positive">▲ argument vitesse vs Vidjet / Videowise</div>
+        </div>
+        <div class="benchmark-stat">
+          <div class="benchmark-stat-label">Avis publics</div>
+          <div class="benchmark-stat-value">0</div>
+          <div class="benchmark-stat-delta negative">▼ vs 100-400 avis Shopify chez les concurrents</div>
+        </div>
+      </div>
+
+      <div class="benchmark-verdict">
+        <span class="benchmark-verdict-label">Lecture stratégique</span>
+        <strong>On gagne sur la collecte</strong> : la collecte de vidéos après achat (email, WhatsApp) avec modération IA et gestion des droits, peu d'apps Shopify la proposent nativement. <strong>On gagne sur le multi-CMS et le mobile</strong> : compatibilité annoncée avec tous les CMS + SDK iOS / Android / React Native, alors que Tolstoy, Videowise et Whatmore sont d'abord des apps Shopify. <strong>On défend sur le prix</strong> : l'entrée de gamme est 2 à 10 fois plus chère que les apps Shopify. <strong>On défend sur la preuve sociale</strong> : ni témoignages, ni fiche d'avis publique, alors que les concurrents affichent des centaines d'avis. <strong>On attaque</strong> le mid-market non-Shopify (PrestaShop, Salesforce, Magento, sites sur mesure) et les marques avec une app mobile.
+      </div>
+    </div>
+  </section>
+
+  <section id="concurrents">
+    <div class="section-header">
+      <div class="section-eyebrow">À la une</div>
+      <h2 class="section-title">Ce qui bouge <em>chez les concurrents.</em></h2>
+      <p class="section-description">Deux segments : les apps vidéo shoppable / Web Stories (concurrence directe, prix bas) et les plateformes vidéo commerce Enterprise (grands comptes, IA, live).</p>
+    </div>
+
+    <div class="segment-label">
+      <span class="segment-badge">Segment 1</span>
+      <span style="font-family:var(--font-serif);font-size:20px;">Apps vidéo shoppable &amp; Web Stories</span>
+      <span class="segment-description">Concurrence directe sur les PME et le mid-market e-commerce</span>
+    </div>
+    <div class="competitor-grid">
+      <div class="competitor-card">
+        <div class="competitor-head">
+          <div>
+            <div class="competitor-name">Tolstoy</div>
+            <div class="competitor-sub">Suite IA e-commerce · USA · Shopify</div>
+          </div>
+          <span class="momentum-pill up">↗ Suite IA</span>
+        </div>
+        <div class="news-item">
+          <span class="news-tag tag-product">Produit</span>
+          <div class="news-title">De la vidéo shoppable à la suite IA complète</div>
+          <div class="news-summary">Tolstoy regroupe un studio de contenu IA, la vidéo shoppable, l'essayage virtuel et un assistant de vente IA. La vidéo est diffusée sur le site, l'app, l'email, les SMS et TikTok Shop.</div>
+          <div class="news-meta">
+            <a href="https://taggbox.com/blog/tolstoy-alternative/" target="_blank" rel="noopener">Taggbox · sept. 2026</a>
+            <span class="impact-bar"><span class="impact-segment active"></span><span class="impact-segment active"></span><span class="impact-segment active"></span></span>
+          </div>
+        </div>
+        <div class="news-item">
+          <span class="news-tag tag-pricing">Pricing</span>
+          <div class="news-title">4 offres de 8 à 299 $/mois</div>
+          <div class="news-summary">Starter 8 $, Plus 29 $, Pro 129 $, Max 299 $/mois, avec des paliers de spectateurs et de jetons IA (relevé du 8 sept. 2026). Les avis G2 citent la facturation comme principal sujet de plainte.</div>
+          <div class="news-meta">
+            <a href="https://taggbox.com/blog/?p=57923" target="_blank" rel="noopener">Taggbox · sept. 2026</a>
+            <span class="impact-bar"><span class="impact-segment active"></span><span class="impact-segment active"></span><span class="impact-segment active"></span></span>
+          </div>
+        </div>
+        <div class="news-item">
+          <span class="news-tag tag-review">Avis</span>
+          <div class="news-title">Shopify App Store : 4,7/5 (environ 265 avis)</div>
+          <div class="news-summary">Support très salué (CSM nommés dans les avis). Utilisé par BUXOM, Modern Picnic et d'autres.</div>
+          <div class="news-meta">
+            <a href="https://apps.shopify.com/tolstoy" target="_blank" rel="noopener">Shopify App Store · 2026</a>
+            <span class="impact-bar"><span class="impact-segment active"></span><span class="impact-segment active"></span><span class="impact-segment"></span></span>
+          </div>
+        </div>
+      </div>
+      <div class="competitor-card">
+        <div class="competitor-head">
+          <div>
+            <div class="competitor-name">Videowise</div>
+            <div class="competitor-sub">Vidéo commerce · USA · Shopify</div>
+          </div>
+          <span class="momentum-pill up">↗ Prix d'appel</span>
+        </div>
+        <div class="news-item">
+          <span class="news-tag tag-pricing">Pricing</span>
+          <div class="news-title">Offre gratuite + Pro à 9 $/mois</div>
+          <div class="news-summary">Pro : 9 $/mois pour 1 000 impressions uniques, puis 10 $ par 1 000 impressions supplémentaires. Diffusion vers Shop App et TikTok Shop, vidéos « optimisées SEO/LLM », tests A/B.</div>
+          <div class="news-meta">
+            <a href="https://apps.shopify.com/video-shopping" target="_blank" rel="noopener">Shopify App Store · 2026</a>
+            <span class="impact-bar"><span class="impact-segment active"></span><span class="impact-segment active"></span><span class="impact-segment active"></span></span>
+          </div>
+        </div>
+        <div class="news-item">
+          <span class="news-tag tag-review">Avis</span>
+          <div class="news-title">Shopify App Store : 4,7-4,8/5 (environ 254 avis)</div>
+          <div class="news-summary">Lancé en 2020. Produit très orienté conversion (revenu par session, panier moyen), avec du live shopping en complément.</div>
+          <div class="news-meta">
+            <a href="https://apps.shopify.com/video-shopping" target="_blank" rel="noopener">Shopify App Store · 2026</a>
+            <span class="impact-bar"><span class="impact-segment active"></span><span class="impact-segment active"></span><span class="impact-segment"></span></span>
+          </div>
+        </div>
+      </div>
+      <div class="competitor-card">
+        <div class="competitor-head">
+          <div>
+            <div class="competitor-name">Whatmore</div>
+            <div class="competitor-sub">IA vidéo commerce · San Jose / Inde · Shopify</div>
+          </div>
+          <span class="momentum-pill up">↗ Volume d'avis</span>
+        </div>
+        <div class="news-item">
+          <span class="news-tag tag-pricing">Pricing</span>
+          <div class="news-title">Offre gratuite à vie : 300 clics/mois, 15 vidéos</div>
+          <div class="news-summary">Note de 4,9-5/5 pour près de 400 avis Shopify. Import en un clic depuis Instagram et TikTok, intégration Klaviyo, plus de 14 styles de widgets.</div>
+          <div class="news-meta">
+            <a href="https://apps.shopify.com/whatmore-live" target="_blank" rel="noopener">Shopify App Store · 2026</a>
+            <span class="impact-bar"><span class="impact-segment active"></span><span class="impact-segment active"></span><span class="impact-segment active"></span></span>
+          </div>
+        </div>
+        <div class="news-item">
+          <span class="news-tag tag-news">Étude</span>
+          <div class="news-title">Benchmark : +17 à 33% de conversion sur tout le site</div>
+          <div class="news-summary">7 tests A/B contrôlés (nov. 2025-avr. 2026, 7 marques). Les visiteurs qui regardent une vidéo convertissent en médiane 125% de plus. Un contenu efficace pour générer des leads.</div>
+          <div class="news-meta">
+            <a href="https://www.whatmore.ai/blog/shoppable-video-benchmarks-2026/" target="_blank" rel="noopener">whatmore.ai · 2026</a>
+            <span class="impact-bar"><span class="impact-segment active"></span><span class="impact-segment active"></span><span class="impact-segment"></span></span>
+          </div>
+        </div>
+      </div>
+      <div class="competitor-card">
+        <div class="competitor-head">
+          <div>
+            <div class="competitor-name">Vidjet</div>
+            <div class="competitor-sub">Vidéo shoppable &amp; Web Stories · France / Espagne</div>
+          </div>
+          <span class="momentum-pill up">↗ Concurrent FR</span>
+        </div>
+        <div class="news-item">
+          <span class="news-tag tag-pricing">Pricing</span>
+          <div class="news-title">À partir de 49 $/mois · 5,0/5 sur Shopify (103 avis)</div>
+          <div class="news-summary">Même promesse que Reelast : Web Stories, carrousels, vidéos flottantes, sans impact sur la vitesse du site. Avis très majoritairement francophones, support assuré par les cofondateurs.</div>
+          <div class="news-meta">
+            <a href="https://apps.shopify.com/vidjet" target="_blank" rel="noopener">Shopify App Store · avr. 2026</a>
+            <span class="impact-bar"><span class="impact-segment active"></span><span class="impact-segment active"></span><span class="impact-segment active"></span></span>
+          </div>
+        </div>
+        <div class="news-item">
+          <span class="news-tag tag-product">Couverture</span>
+          <div class="news-title">Large couverture de plateformes (Shopify, WooCommerce…)</div>
+          <div class="news-summary">Même Tolstoy reconnaît à Vidjet une couverture de plateformes inhabituellement large, avec des paliers facturés aux vues vidéo et des impressions illimitées.</div>
+          <div class="news-meta">
+            <a href="https://www.gotolstoy.com/alternatives/tolstoy-vs-vidjet" target="_blank" rel="noopener">gotolstoy.com · juil. 2026</a>
+            <span class="impact-bar"><span class="impact-segment active"></span><span class="impact-segment active"></span><span class="impact-segment"></span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="segment-label">
+      <span class="segment-badge">Segment 2</span>
+      <span style="font-family:var(--font-serif);font-size:20px;">Plateformes vidéo commerce Enterprise</span>
+      <span class="segment-description">Ceux qui fixent le standard IA, live et grands comptes</span>
+    </div>
+    <div class="competitor-grid">
+      <div class="competitor-card">
+        <div class="competitor-head">
+          <div>
+            <div class="competitor-name">Firework</div>
+            <div class="competitor-sub">Vidéo commerce Enterprise · San Mateo</div>
+          </div>
+          <span class="momentum-pill flat">→ Grands comptes</span>
+        </div>
+        <div class="news-item">
+          <span class="news-tag tag-product">Produit</span>
+          <div class="news-title">Vidéo shoppable, showroom vidéo, chat vidéo 1:1, assistant IA</div>
+          <div class="news-summary">Plateforme de bout en bout pour retailers et marques. Présent à VivaTech 2026 avec un playbook dédié, et une étude « State of Video Commerce 2026 » menée sur 606 marques Enterprise.</div>
+          <div class="news-meta">
+            <a href="https://firework.com/ebooks/state-of-video-commerce-2026-playbook-for-driving-growth" target="_blank" rel="noopener">firework.com · 2026</a>
+            <span class="impact-bar"><span class="impact-segment active"></span><span class="impact-segment active"></span><span class="impact-segment"></span></span>
+          </div>
+        </div>
+        <div class="news-item">
+          <span class="news-tag tag-pricing">Pricing</span>
+          <div class="news-title">Sur devis</div>
+          <div class="news-summary">Positionné grands comptes (retail, distribution alimentaire). Pas un concurrent direct sur les PME, mais il fixe le niveau d'exigence en démo.</div>
+          <div class="news-meta">
+            <a href="https://dupple.com/reviews/firework" target="_blank" rel="noopener">Dupple · juil. 2026</a>
+            <span class="impact-bar"><span class="impact-segment active"></span><span class="impact-segment"></span><span class="impact-segment"></span></span>
+          </div>
+        </div>
+      </div>
+      <div class="competitor-card">
+        <div class="competitor-head">
+          <div>
+            <div class="competitor-name">Bambuser</div>
+            <div class="competitor-sub">Live &amp; vidéo commerce · Stockholm · coté</div>
+          </div>
+          <span class="momentum-pill down">↘ ARR −10%</span>
+        </div>
+        <div class="news-item">
+          <span class="news-tag tag-news">Finance</span>
+          <div class="news-title">S1 2026 : ARR 75,2 M SEK (−10% sur un an)</div>
+          <div class="news-summary">L'EBITDA ajusté s'améliore de 35% grâce aux réductions de coûts. Rétention nette remontée à 80%. 36 nouveaux contrats, dont une maison de luxe mondiale pour la consultation vidéo.</div>
+          <div class="news-meta">
+            <a href="https://www.placera.se/pressmeddelanden/bambuser-bambuser-h1-2026-cost-reductions-drive-a-35-improvement-in-adjusted-ebitda-20260821" target="_blank" rel="noopener">Bambuser · 21 août 2026</a>
+            <span class="impact-bar"><span class="impact-segment active"></span><span class="impact-segment active"></span><span class="impact-segment active"></span></span>
+          </div>
+        </div>
+        <div class="news-item">
+          <span class="news-tag tag-product">Produit</span>
+          <div class="news-title">GEO Discovery : la vidéo lisible par les IA</div>
+          <div class="news-summary">Transforme la vidéo en données structurées pour remonter dans les recherches IA. A accompagné le lancement d'ASOS Stylist dans ChatGPT. <strong>Signal fort : la vidéo devient une source pour les IA.</strong></div>
+          <div class="news-meta">
+            <a href="https://www.placera.se/pressmeddelanden/bambuser-new-bambuser-research-reveals-1-in-5-us-shoppers-use-ai-to-find-products-20260609" target="_blank" rel="noopener">Bambuser · juin 2026</a>
+            <span class="impact-bar"><span class="impact-segment active"></span><span class="impact-segment active"></span><span class="impact-segment active"></span></span>
+          </div>
+        </div>
+      </div>
+      <div class="competitor-card">
+        <div class="competitor-head">
+          <div>
+            <div class="competitor-name">Storyly</div>
+            <div class="competitor-sub">SDK Stories in-app &amp; web · Istanbul</div>
+          </div>
+          <span class="momentum-pill flat">→ Retail media</span>
+        </div>
+        <div class="news-item">
+          <span class="news-tag tag-product">Produit</span>
+          <div class="news-title">Stories en emplacement publicitaire (retail media)</div>
+          <div class="news-summary">Intégration avec retailmediatools (mai 2026) : la barre de stories devient un emplacement sponsorisé. Mode sombre et bannières dans les deux sens de lecture. Badges G2 Leader EMEA (hiver 2026).</div>
+          <div class="news-meta">
+            <a href="https://www.storyly.io/whats-new-in-storyly" target="_blank" rel="noopener">storyly.io · juil. 2026</a>
+            <span class="impact-bar"><span class="impact-segment active"></span><span class="impact-segment active"></span><span class="impact-segment"></span></span>
+          </div>
+        </div>
+        <div class="news-item">
+          <span class="news-tag tag-partnership">Écosystème</span>
+          <div class="news-title">Connecteurs Braze et MoEngage</div>
+          <div class="news-summary">Concurrent direct du SDK mobile Reelast pour les apps : personnalisation à partir des données CRM.</div>
+          <div class="news-meta">
+            <a href="https://www-origin.braze.com/partners/technology-partners/storyly" target="_blank" rel="noopener">Braze · 2026</a>
+            <span class="impact-bar"><span class="impact-segment active"></span><span class="impact-segment active"></span><span class="impact-segment"></span></span>
+          </div>
+        </div>
+      </div>
+      <div class="competitor-card">
+        <div class="competitor-head">
+          <div>
+            <div class="competitor-name">Skeepers</div>
+            <div class="competitor-sub">Consumer Videos + contenu shoppable · Marseille / Paris</div>
+          </div>
+          <span class="momentum-pill flat">→ Suite UGC</span>
+        </div>
+        <div class="news-item">
+          <span class="news-tag tag-product">Produit</span>
+          <div class="news-title">Vidéos consommateurs + lecteur vidéo shoppable</div>
+          <div class="news-summary">Galerie vidéo immersive, vidéos créées par des ambassadeurs à partir de modèles, diffusion sur YouTube, email, magasin et QR codes. Chiffres affichés : taux d'ajout au panier ×2, conversion ×3,5.</div>
+          <div class="news-meta">
+            <a href="https://skeepers.io/?p=133875" target="_blank" rel="noopener">skeepers.io · 2026</a>
+            <span class="impact-bar"><span class="impact-segment active"></span><span class="impact-segment active"></span><span class="impact-segment active"></span></span>
+          </div>
+        </div>
+        <div class="news-item">
+          <span class="news-tag tag-news">Positionnement</span>
+          <div class="news-title">Suite tout-en-un : avis + influence + vidéo + GEO</div>
+          <div class="news-summary">Références Decathlon, Castorama, Sephora. Les contenus portent sur la GEO et le « zero-click shopping ». Concurrent grands comptes FR qui vend la vidéo dans un ensemble plus large.</div>
+          <div class="news-meta">
+            <a href="https://skeepers.io/media-hub/" target="_blank" rel="noopener">skeepers.io · 2026</a>
+            <span class="impact-bar"><span class="impact-segment active"></span><span class="impact-segment active"></span><span class="impact-segment"></span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="battlecards">
+    <div class="section-header">
+      <div class="section-eyebrow">Outils sales</div>
+      <h2 class="section-title">Deux <em>battlecards,</em> deux terrains.</h2>
+      <p class="section-description">Les objections les plus probables en démo, avec les réponses à donner.</p>
+    </div>
+    <div class="battlecards-wrap">
+      <div class="battlecard">
+        <div class="battle-header">
+          <div>
+            <div class="battle-title">Face à <em>Tolstoy</em></div>
+            <div class="battle-subtitle">Suite IA Shopify · 8 à 299 $/mois · essayage virtuel + assistant IA</div>
+          </div>
+          <span class="battle-badge">Haute</span>
+        </div>
+        <div class="battle-col objection">
+          <h4>Ce que dit le prospect</h4>
+          <ul><li>Tolstoy démarre à 8 $/mois, Reelast à 79 $.</li><li>Ils ont un studio IA, l'essayage virtuel et un agent de vente : c'est plus complet.</li><li>4,7/5 sur Shopify avec plus de 260 avis, vous n'avez aucun avis public.</li><li>Tout se fait depuis l'admin Shopify.</li></ul>
+        </div>
+        <div class="battle-col response">
+          <h4>Ce que vous répondez</h4>
+          <ul><li>À 8 $, Tolstoy plafonne le nombre de spectateurs et les jetons IA. Comparez au même trafic : Reelast compte en visites, avec affichages et vidéos illimités dès Starter.</li><li>Tolstoy est d'abord fait pour Shopify. Reelast est compatible avec tous les CMS et propose un SDK iOS / Android / React Native pour votre app.</li><li>Reelast <strong>collecte</strong> les vidéos de vos clients après achat (email, WhatsApp), avec modération IA et gestion des droits. Vous n'avez pas besoin d'en produire.</li><li>Les avis G2 sur Tolstoy citent surtout la facturation. Chez Reelast : prix publics, mensuel ou annuel, essai gratuit.</li></ul>
+        </div>
+      </div>
+      <div class="battlecard">
+        <div class="battle-header">
+          <div>
+            <div class="battle-title">Face à <em>Vidjet</em></div>
+            <div class="battle-subtitle">Concurrent FR · Web Stories · dès 49 $/mois · 5,0/5 Shopify</div>
+          </div>
+          <span class="battle-badge">Haute</span>
+        </div>
+        <div class="battle-col objection">
+          <h4>Ce que dit le prospect</h4>
+          <ul><li>Vidjet est français, moins cher et noté 5/5.</li><li>Même promesse : Web Stories sans ralentir le site.</li><li>Le support est assuré directement par les cofondateurs.</li><li>Ils couvrent déjà plein de plateformes e-commerce.</li></ul>
+        </div>
+        <div class="battle-col response">
+          <h4>Ce que vous répondez</h4>
+          <ul><li>Vidjet affiche les vidéos que vous avez déjà. Reelast <strong>va les chercher</strong> (collecte après achat, Instagram, TikTok, Drive) et les associe automatiquement aux produits par IA.</li><li>Vitesse : le widget Reelast pèse moins de 8 Ko au chargement initial, avec chargement différé. Proposez un test de vitesse côte à côte.</li><li>Mesure : tableau de bord par story et par widget (vues, taux de complétion, clics, conversions, revenu attribué).</li><li>International : sous-titres et traduction dans 23 langues, utile pour les marques présentes en Europe et au Canada.</li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="signaux">
+    <div class="section-header">
+      <div class="section-eyebrow">Signaux faibles</div>
+      <h2 class="section-title">Ce que les autres <em>n'ont pas encore vu.</em></h2>
+      <p class="section-description">Classés par type, avec une action concrète.</p>
+    </div>
+
+    <div class="signal-type-row">
+      <div class="signal-type-label">
+        <div class="signal-type-title">Produit &amp; <em>IA</em></div>
+        <div class="signal-type-desc">Ce que les prospects vont attendre en démo.</div>
+      </div>
+      <div class="signal-type-items">
+        <div class="signal-item">
+          <div class="signal-source"><a href="https://www.placera.se/pressmeddelanden/bambuser-new-bambuser-research-reveals-1-in-5-us-shoppers-use-ai-to-find-products-20260609" target="_blank" rel="noopener">Bambuser · Videowise</a></div>
+          <div class="signal-content"><strong>Vidéo lisible par les IA (GEO).</strong> Bambuser transforme les vidéos en données structurées, Videowise annonce des vidéos « optimisées SEO/LLM ». Selon Bambuser, 1 acheteur américain sur 5 utilise déjà l'IA pour trouver des produits.</div>
+          <div class="signal-action">
+            <span class="signal-action-label">Action sales</span>
+            Vérifier si les Web Stories Reelast sont indexables (balisage, transcriptions, sous-titres). Les 23 langues de sous-titres sont un argument GEO à formaliser.
+          </div>
+        </div>
+        <div class="signal-item">
+          <div class="signal-source"><a href="https://taggbox.com/blog/tolstoy-alternative/" target="_blank" rel="noopener">Tolstoy · Whatmore</a></div>
+          <div class="signal-content"><strong>Génération de contenu par IA à partir des photos produit</strong> (« sans tournage, sans agence »), sur le même slogan que Reelast.</div>
+          <div class="signal-action">
+            <span class="signal-action-label">Action sales</span>
+            Différencier : l'UGC réel collecté chez les clients (authenticité) plutôt que de la vidéo synthétique.
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="signal-type-row">
+      <div class="signal-type-label">
+        <div class="signal-type-title">Marché &amp; <em>prix</em></div>
+        <div class="signal-type-desc">Pression sur les prix et les modèles.</div>
+      </div>
+      <div class="signal-type-items">
+        <div class="signal-item">
+          <div class="signal-source"><a href="https://apps.shopify.com/whatmore-live" target="_blank" rel="noopener">Shopify App Store</a></div>
+          <div class="signal-content"><strong>Les offres gratuites deviennent la norme</strong> (Whatmore, Videowise, Tolstoy). Les avis s'accumulent par centaines.</div>
+          <div class="signal-action">
+            <span class="signal-action-label">Action sales</span>
+            Lancer une fiche Shopify App Store (ou WooCommerce) avec une offre d'entrée, même limitée, pour accumuler des avis.
+          </div>
+        </div>
+        <div class="signal-item">
+          <div class="signal-source"><a href="https://www.placera.se/pressmeddelanden/bambuser-bambuser-h1-2026-cost-reductions-drive-a-35-improvement-in-adjusted-ebitda-20260821" target="_blank" rel="noopener">Bambuser · S1 2026</a></div>
+          <div class="signal-content"><strong>Le live shopping recule</strong> (ARR −10%) : le marché bascule vers la vidéo courte toujours visible sur le site.</div>
+          <div class="signal-action">
+            <span class="signal-action-label">Action sales</span>
+            Prospecter les clients live shopping déçus : proposer de recycler leurs replays en Web Stories.
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="signal-type-row">
+      <div class="signal-type-label">
+        <div class="signal-type-title">Calendrier</div>
+        <div class="signal-type-desc">Moments forts.</div>
+      </div>
+      <div class="signal-type-items">
+        <div class="signal-item">
+          <div class="signal-source"><a href="https://skeepers.io/fr/blog/preparer-campagne-dinfluence-pour-le-black-friday/" target="_blank" rel="noopener">Black Friday · 27 nov.</a></div>
+          <div class="signal-content"><strong>J-7.</strong> Les sites sont gelés. La fenêtre de prospection s'ouvre sur les soldes de janvier et la Saint-Valentin.</div>
+          <div class="signal-action">
+            <span class="signal-action-label">Action sales</span>
+            Offre « Web Stories soldes » : installation en 30 min, premier retour sur investissement en moins de 30 jours (promesse Reelast).
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing">
+    <div class="section-header">
+      <div class="section-eyebrow">Pricing Tracker</div>
+      <h2 class="section-title">Ce que coûtent <em>les concurrents.</em></h2>
+      <p class="section-description">Prix publics (pages tarifs, Shopify App Store) ou relevés par des comparateurs datés.</p>
+    </div>
+    <div class="pricing-card">
+      <table class="pricing-table">
+        <thead><tr><th>Acteur</th><th>Plan</th><th>Ancien</th><th>Actuel</th><th>Statut</th><th>Relevé</th><th>Note</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Reelast</strong></td><td>Starter / Pro</td><td>—</td><td><span class="price-value">79-99 $ / 159-199 $</span></td><td><span class="delta neutral">Maison</span></td><td>nov. 2026</td><td>Annuel −20% · Enterprise sur devis · collecte UGC en option</td></tr>
+          <tr><td><strong>Whatmore</strong></td><td>Free Forever</td><td>—</td><td><span class="price-value">0 $</span></td><td><span class="delta neutral">Vérifié</span></td><td>2026</td><td>300 clics/mois · 15 vidéos</td></tr>
+          <tr><td><strong>Videowise</strong></td><td>Pro</td><td>—</td><td><span class="price-value">9 $/mois</span></td><td><span class="delta neutral">Vérifié</span></td><td>2026</td><td>+10 $ par 1 000 impressions au-delà de 1 000</td></tr>
+          <tr><td><strong>Tolstoy</strong></td><td>Starter → Max</td><td>—</td><td><span class="price-value">8-299 $/mois</span></td><td><span class="delta neutral">Vérifié</span></td><td>sept. 2026</td><td>Paliers spectateurs + jetons IA</td></tr>
+          <tr><td><strong>Vidjet</strong></td><td>Entrée</td><td>—</td><td><span class="price-value">49 $/mois</span></td><td><span class="delta neutral">Vérifié</span></td><td>avr. 2026</td><td>Paliers selon les vues vidéo · impressions illimitées</td></tr>
+          <tr><td><strong>Firework</strong></td><td>Enterprise</td><td>Sur devis</td><td><span class="price-value">Sur devis</span></td><td><span class="delta neutral">N/A</span></td><td>2026</td><td>Grands comptes</td></tr>
+          <tr><td><strong>Bambuser</strong></td><td>Enterprise</td><td>Sur devis</td><td><span class="price-value">Sur devis</span></td><td><span class="delta neutral">N/A</span></td><td>2026</td><td>Live, vidéo shoppable, consultation</td></tr>
+          <tr><td><strong>Storyly</strong></td><td>SDK</td><td>Sur devis</td><td><span class="price-value">Sur devis</span></td><td><span class="delta neutral">N/A</span></td><td>2026</td><td>Prix non vérifié</td></tr>
+          <tr><td><strong>Skeepers</strong></td><td>Consumer Videos</td><td>Sur devis</td><td><span class="price-value">Sur devis</span></td><td><span class="delta neutral">N/A</span></td><td>2026</td><td>Vendu dans la suite UGC</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="outside-in">
+    <div class="section-header">
+      <div class="section-eyebrow">Auto-veille · diagnostic externe</div>
+      <h2 class="section-title">Reelast, <em>vu de l'extérieur.</em></h2>
+      <p class="section-description">Ce que voit un prospect qui arrive sur reelast.com et cherche Reelast en ligne. Sources publiques uniquement.</p>
+    </div>
+
+    <div class="edito-card" style="margin-bottom:48px;">
+      <div class="edito-tag">Diagnostic externe sans filtre</div>
+      <h2>Un produit <em>riche</em> et un prix <em>transparent</em>, mais <em>aucune preuve</em> extérieure.</h2>
+      <p>
+        Le site est clair et chiffré : installation en 90 secondes, widget de moins de 8 Ko, 150+ marques, 9 pays, conversion +15%, panier moyen +30%. Les prix sont publics, ce que ni Firework, ni Bambuser, ni Skeepers ne font. Mais un prospect qui vérifie trouvera <strong>zéro témoignage nommé, zéro avis sur une place de marché, aucun fondateur nommé</strong>, et des liens Blog, Documentation, Changelog et Guides qui ne mènent nulle part. Les résultats viennent d'un panel interne de 35 e-commerces. Le moteur IA est encore en « bêta » sur Enterprise.
+        Verdict : <strong>le produit tient la comparaison, la crédibilité pas encore.</strong> Les concurrents directs gagnent sur la preuve sociale, pas sur les fonctionnalités.
+      </p>
+      <div class="edito-sig">— La rédaction du Veilleur</div>
+    </div>
+
+    <div class="outside-grid">
+      <div class="outside-card strengths">
+        <h3>Ce que <em>Reelast réussit</em></h3>
+        <div class="outside-sub">5 forces visibles</div>
+        <ul class="outside-list strengths">
+          <li><strong>Prix publics et lisibles.</strong> Starter, Pro, Enterprise, en mensuel ou annuel (−20%), essai gratuit.</li>
+          <li><strong>Collecte UGC intégrée.</strong> Demandes après achat par email et WhatsApp, modération IA, gestion des droits.</li>
+          <li><strong>Multi-CMS + SDK mobile.</strong> iOS, Android, React Native, tag manager, API. Rare dans le segment des apps.</li>
+          <li><strong>Performance mise en avant.</strong> Moins de 8 Ko, chargement différé et asynchrone : l'argument vitesse est chiffré.</li>
+          <li><strong>International.</strong> 5 langues d'interface, 23 langues de traitement IA, présence dans 9 pays.</li>
+        </ul>
+      </div>
+      <div class="outside-card weaknesses">
+        <h3>Ce qui <em>se voit de l'extérieur</em></h3>
+        <div class="outside-sub">5 faiblesses visibles</div>
+        <ul class="outside-list weaknesses">
+          <li><strong>Aucun témoignage ni avis public.</strong> Des logos seulement. Les concurrents affichent 100 à 400 avis Shopify.</li>
+          <li><strong>Liens vides.</strong> Blog, documentation, changelog, guides et glossaire pointent vers « # ».</li>
+          <li><strong>Équipe invisible.</strong> Aucun fondateur ni membre de l'équipe nommé sur la page d'accueil.</li>
+          <li><strong>Chiffres non vérifiables.</strong> Les résultats viennent d'un panel interne de 35 e-commerces, sans étude de cas détaillée.</li>
+          <li><strong>Prix d'entrée élevé pour le segment.</strong> 79-99 $ contre 0-49 $ chez Whatmore, Videowise, Tolstoy et Vidjet.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="benchmark-card" style="margin-bottom:48px;">
+      <div class="benchmark-header">
+        <div class="benchmark-brand-wrap">
+          <span class="skeepers-mark skeepers-mark-lg"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none"><circle cx="8" cy="12" r="4.5" fill="white"/><circle cx="16" cy="12" r="4.5" fill="white" fill-opacity="0.55"/><circle cx="8" cy="12" r="1.6" fill="var(--skeepers-blue)"/><circle cx="16" cy="12" r="1.6" fill="var(--skeepers-blue)"/></svg></span>
+          <div>
+            <div class="benchmark-title">Verdict <em>perception externe</em></div>
+            <div class="benchmark-subtitle">4 chantiers prioritaires</div>
+          </div>
+        </div>
+        <div class="benchmark-score">
+          <div class="benchmark-score-value">⚠</div>
+          <div class="benchmark-score-label">Preuve sociale à construire</div>
+        </div>
+      </div>
+      <div class="benchmark-verdict">
+        <span class="benchmark-verdict-label">4 chantiers</span>
+        <strong>(1) Preuve</strong> : 3 études de cas nommées et chiffrées (avec l'accord des clients). <strong>(2) Places de marché</strong> : fiche Shopify App Store et/ou WooCommerce, collecte d'avis. <strong>(3) Site</strong> : remplir ou retirer les liens vides, ajouter une page « équipe ». <strong>(4) Offre d'entrée</strong> : une offre limitée gratuite ou à bas prix pour concurrencer les apps Shopify, ou assumer le positionnement mid-market avec un argumentaire ROI.
+      </div>
+    </div>
+
+    <div class="section-header" style="margin-bottom:24px;">
+      <div class="section-eyebrow">Cartographie sources</div>
+      <h2 class="section-title" style="font-size:32px;">Quelles sources Reelast <em>peut influencer</em>.</h2>
+    </div>
+    <div class="source-table-wrap">
+      <table class="source-table">
+        <thead><tr><th>Source</th><th>Type</th><th>Contrôle</th><th>Action recommandée</th></tr></thead>
+        <tbody>
+          <tr><td><a href="https://www.reelast.com/" target="_blank" rel="noopener">reelast.com</a></td><td>Site</td><td><span class="ctrl-pill controlled">Contrôle direct</span></td>
+            <td>Logos sans témoignages, liens « # ».<span class="source-action"><strong>Marketing :</strong> ajouter 3 témoignages nommés et activer le blog.</span></td></tr>
+          <tr><td><a href="https://www.reelast.com/tarifs" target="_blank" rel="noopener">reelast.com/tarifs</a></td><td>Prix</td><td><span class="ctrl-pill controlled">Contrôle direct</span></td>
+            <td>Transparent, mais moteur IA en « bêta » et nombreuses options.<span class="source-action"><strong>Produit :</strong> simplifier le tableau comparatif et préciser la durée d'essai.</span></td></tr>
+          <tr><td><a href="https://www.linkedin.com/company/reelast" target="_blank" rel="noopener">LinkedIn Reelast</a></td><td>Réseau social</td><td><span class="ctrl-pill controlled">Contrôle direct</span></td>
+            <td>Canal principal de crédibilité B2B.<span class="source-action"><strong>Comms :</strong> 1 cas client par mois, avec chiffres.</span></td></tr>
+          <tr><td><a href="https://apps.shopify.com/" target="_blank" rel="noopener">Shopify App Store</a></td><td>Place de marché</td><td><span class="ctrl-pill influenced">Influençable</span></td>
+            <td>Aucune fiche Reelast trouvée (recherche web du 20 nov.).<span class="source-action"><strong>Produit :</strong> évaluer une app Shopify avec offre d'entrée.</span></td></tr>
+          <tr><td><a href="https://www.g2.com/" target="_blank" rel="noopener">G2 / Capterra</a></td><td>Avis B2B</td><td><span class="ctrl-pill influenced">Influençable</span></td>
+            <td>Aucune fiche Reelast trouvée (recherche web du 20 nov.).<span class="source-action"><strong>CS :</strong> créer les fiches et solliciter 10 clients.</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="sources">
+    <div class="section-header">
+      <div class="section-eyebrow">Transparence</div>
+      <h2 class="section-title">Les <em>sources</em> qui alimentent ce journal.</h2>
+    </div>
+    <div class="sources-wrap">
+      <div class="sources-head"><h3>Les 18 sources du Veilleur Reelast</h3><span class="sources-count">100% gratuit</span></div>
+      <div class="sources-grid">
+        <div class="sources-col"><h6>1 · Places de marché</h6><ul><li><a href="https://apps.shopify.com/" target="_blank" rel="noopener"><strong>Shopify App Store</strong><span class="source-meta">watch</span></a></li><li><a href="https://woocommerce.com/" target="_blank" rel="noopener"><strong>WooCommerce Marketplace</strong><span class="source-meta">watch</span></a></li><li><a href="https://www.g2.com/" target="_blank" rel="noopener"><strong>G2 · Capterra</strong><span class="source-meta">notif</span></a></li><li><a href="https://taggbox.com/blog/tolstoy-alternative/" target="_blank" rel="noopener"><strong>Taggbox (comparatifs)</strong><span class="source-meta">RSS</span></a></li></ul></div>
+        <div class="sources-col"><h6>2 · Concurrents</h6><ul><li><a href="https://www.gotolstoy.com/blog/shoppable-video-platforms" target="_blank" rel="noopener"><strong>Tolstoy blog</strong><span class="source-meta">RSS</span></a></li><li><a href="https://videowise.com/blog/best-shoppable-video-platforms" target="_blank" rel="noopener"><strong>Videowise blog</strong><span class="source-meta">RSS</span></a></li><li><a href="https://www.whatmore.ai/blog/shoppable-video-benchmarks-2026/" target="_blank" rel="noopener"><strong>Whatmore benchmarks</strong><span class="source-meta">RSS</span></a></li><li><a href="https://www.vidjet.com/blog/european-apps-to-embed-video-widgets-on-e-commerce-sites" target="_blank" rel="noopener"><strong>Vidjet blog</strong><span class="source-meta">RSS</span></a></li><li><a href="https://www.storyly.io/whats-new-in-storyly" target="_blank" rel="noopener"><strong>Storyly changelog</strong><span class="source-meta">watch</span></a></li></ul></div>
+        <div class="sources-col"><h6>3 · Finance &amp; presse</h6><ul><li><a href="https://ir.bambuser.com/report-archive" target="_blank" rel="noopener"><strong>Bambuser IR</strong><span class="source-meta">semestriel</span></a></li><li><a href="https://firework.com/ebooks/state-of-video-commerce-2026-playbook-for-driving-growth" target="_blank" rel="noopener"><strong>Firework ebooks</strong><span class="source-meta">watch</span></a></li><li><a href="https://www.crunchbase.com" target="_blank" rel="noopener"><strong>Crunchbase</strong><span class="source-meta">free tier</span></a></li><li><a href="https://www.retailtouchpoints.com/tag/firework/" target="_blank" rel="noopener"><strong>Retail TouchPoints</strong><span class="source-meta">RSS</span></a></li></ul></div>
+        <div class="sources-col"><h6>4 · Signaux</h6><ul><li><a href="https://www.linkedin.com/jobs/" target="_blank" rel="noopener"><strong>LinkedIn Jobs</strong><span class="source-meta">alertes</span></a></li><li><a href="https://www.facebook.com/ads/library/" target="_blank" rel="noopener"><strong>Meta Ad Library</strong><span class="source-meta">free</span></a></li><li><a href="https://visualping.io" target="_blank" rel="noopener"><strong>Visualping pages tarifs</strong><span class="source-meta">free 5 URL</span></a></li><li><a href="https://skeepers.io/media-hub/" target="_blank" rel="noopener"><strong>Skeepers media hub</strong><span class="source-meta">RSS</span></a></li><li><a href="https://www.google.com/alerts" target="_blank" rel="noopener"><strong>Google Alerts</strong><span class="source-meta">RSS</span></a></li></ul></div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand"><span class="skeepers-mark"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none"><circle cx="8" cy="12" r="4.5" fill="white"/><circle cx="16" cy="12" r="4.5" fill="white" fill-opacity="0.55"/><circle cx="8" cy="12" r="1.6" fill="var(--skeepers-blue)"/><circle cx="16" cy="12" r="1.6" fill="var(--skeepers-blue)"/></svg></span> Reelast · Le Veilleur</div>
+      <p>Généré à partir de sources publiques. Les chiffres annoncés par les éditeurs, Reelast compris, sont signalés comme tels.</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
